@@ -8,6 +8,7 @@ export default function Home() {
       healthcare appointment system
     </h1>
       <p>This is a text from sakib</p>
+      <h2>THis is a heading from same person</h2>
     </>
     
   );
