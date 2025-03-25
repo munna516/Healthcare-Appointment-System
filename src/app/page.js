@@ -7,6 +7,7 @@ export default function Home() {
         healthcare appointment system
       </h1>
       <p>nayeem</p>
+      <p>nayeem 2</p>
     </>
   );
 }
