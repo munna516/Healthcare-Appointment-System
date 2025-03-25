@@ -3,17 +3,12 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-    
-    <h1 className="text-4xl text-red-500 mt-10 text-center">
-      healthcare appointment system
-    </h1>
+      <h1 className="text-4xl text-red-500 mt-10 text-center">
+        healthcare appointment system
+      </h1>
       <p>This is a text from sakib</p>
-<<<<<<< HEAD
       <p>commit form Rahul</p>
-=======
-      <h2>THis is a heading from same person</h2>
->>>>>>> de7c683fcfec21e78c8e6d5f4c84591e1c20f102
+      <h2>THis is a heading from same person   </h2>
     </>
-    
   );
 }
