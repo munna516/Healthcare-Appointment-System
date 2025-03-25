@@ -8,7 +8,11 @@ export default function Home() {
       healthcare appointment system
     </h1>
       <p>This is a text from sakib</p>
+<<<<<<< HEAD
       <p>commit form Rahul</p>
+=======
+      <h2>THis is a heading from same person</h2>
+>>>>>>> de7c683fcfec21e78c8e6d5f4c84591e1c20f102
     </>
     
   );
