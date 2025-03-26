@@ -1,3 +1,4 @@
+import AboutUs from "@/components/AboutUs/AboutUs";
 import CountPart from "@/components/Counting/CountPart";
 
 export default function Home() {
@@ -6,7 +7,7 @@ export default function Home() {
       {/* Hero section should implement here */}
 
       {/* About Section Implement Here */}
-      {/* Implement a feature in another folder. Here call only the components likes counting part */}
+      <AboutUs />
       {/* Counting part */}
       <CountPart />
     </main>
