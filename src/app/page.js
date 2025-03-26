@@ -1,23 +1,14 @@
-import Counting from "@/components/Counting/Counting";
-import Image from "next/image";
+import CountPart from "@/components/Counting/CountPart";
 
 export default function Home() {
   return (
     <main>
       {/* Hero section should implement here */}
 
+      {/* About Section Implement Here */}
+      {/* Implement a feature in another folder. Here call only the components likes counting part */}
       {/* Counting part */}
-      <div className="flex flex-col md:flex-row gap-8 justify-center">
-        <Counting 
-          start={20}end={355} sign={"K+"} title={"Recovered Patients"}>
-        </Counting>
-        <Counting 
-          start={10}end={98} sign={"%"} title={"Good Review"}>  
-        </Counting>
-        <Counting 
-          start={1}end={120} sign={"+"} title={"Popular Doctors"}>
-        </Counting>
-      </div>
+      <CountPart />
     </main>
   );
 }
