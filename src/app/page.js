@@ -1,5 +1,6 @@
 import AboutUs from "@/components/AboutUs/AboutUs";
 import CountPart from "@/components/Counting/CountPart";
+import FaqSection from "@/components/FaqSection/FaqSection";
 import OurServices from "@/components/OurServices/OurServices";
 import WorkingProcess from "@/components/WorkingProcess/WorkingProcess";
 
@@ -16,6 +17,8 @@ export default function Home() {
       <OurServices/>
       {/*  */}
       <WorkingProcess />
+      {/* FAQ section */}
+      <FaqSection></FaqSection>
     </main>
   );
 }
