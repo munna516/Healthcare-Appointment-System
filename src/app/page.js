@@ -1,5 +1,6 @@
 import AboutUs from "@/components/AboutUs/AboutUs";
 import CountPart from "@/components/Counting/CountPart";
+import OurServices from "@/components/OurServices/OurServices";
 import WorkingProcess from "@/components/WorkingProcess/WorkingProcess";
 
 export default function Home() {
@@ -11,6 +12,8 @@ export default function Home() {
       <AboutUs />
       {/* Counting part */}
       <CountPart />
+      {/* OurServices part */}
+      <OurServices/>
       {/*  */}
       <WorkingProcess />
     </main>
