@@ -10,10 +10,11 @@ export default function LoginForm() {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    await signIn("credentials", {
+    const res = await signIn("credentials", {
       email,
       password,
-      callbackUrl: process.env.NEXTAUTH_URL,
+      callbackUrl: "/",
+      redirect: false,
     });
   };
   return (

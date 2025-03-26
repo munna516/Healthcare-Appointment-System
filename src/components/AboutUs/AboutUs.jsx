@@ -10,7 +10,7 @@ const AboutUs = () => {
     return (
         <div className='max-w-7xl w-full mx-auto pb-24'>
             <div className='flex flex-col lg:flex-row justify-between gap-8 '>
-                <div className='md:w-1/2'>
+                <div className='md:w-1/2 md:mx-auto lg:mx-0'>
                     <AboutVisuals></AboutVisuals>
                 </div>
                 <div className='lg:w-1/2 md:text-center lg:text-left lg:mx-0 pt-0 px-2 md:px-0 lg:pt-0 md:pt-32'>
