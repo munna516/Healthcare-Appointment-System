@@ -1,10 +1,14 @@
 "use client";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useRouter } from "next/navigation";
+
 
 export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const router = useRouter();
+
   const handleRegister = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -12,6 +16,30 @@ export default function RegisterForm() {
     const email = form.email.value;
     const password = form.password.value;
     console.log({ name, email, password });
+
+    try {
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+      if (res.status === 400) {
+        setErrorMessage("This email is already registered");
+      }
+      if (res.status === 200) {
+        setErrorMessage("");
+        router.push("/login");
+      }
+    } catch (error) {
+      setErrorMessage("Error, try again");
+      console.log(error);
+    }
+
   };
   return (
     <>
