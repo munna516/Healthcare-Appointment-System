@@ -75,13 +75,14 @@ export default function Login() {
               <div className="mt-6">
                 <button
                   type="submit"
-                  className="btn bg-dark-blue hover:bg-dark-blue text-lg text-white w-full"
+                   className="border-2 rounded-lg py-1 bg-blue-500 text-white font-semibold   text-lg w-full "
                 >
                   {/* {loading ? (
                     <TbFidgetSpinner className="animate-spin m-auto" />
                   ) : (
                     "Login"
                   )} */}
+                  Login
                 </button>
               </div>
             </form>
@@ -89,7 +90,7 @@ export default function Login() {
             <div className="flex justify-between items-center mt-4">
               <p className="text-gray-500">Don't have account? </p>
               <Link href={"register"}>
-                <p className="font-bold text-primary hover:underline uppercase">
+                <p className="font-bold text-blue-500 hover:underline uppercase">
                   Register
                 </p>
               </Link>
