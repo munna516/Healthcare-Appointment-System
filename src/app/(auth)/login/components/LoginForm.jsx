@@ -1,21 +1,35 @@
 "use client";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function LoginForm() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const handleLogin = async (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    const res = await signIn("credentials", {
-      email,
-      password,
-      callbackUrl: "/",
-      redirect: false,
-    });
+    try {
+      const res = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
+      if (res.status === 401) {
+        toast.error("Invalid Credentials");
+      }
+      if (res.status === 200) {
+        router.push("/");
+        form.reset();
+        toast.success("Login Successful");
+      }
+    } catch (error) {
+      toast.error("Error, trrrrry again");
+    }
   };
   return (
     <>
@@ -68,11 +82,6 @@ export default function LoginForm() {
             type="submit"
             className="border-2 rounded-lg py-1 bg-blue-500 text-white font-semibold   text-lg w-full "
           >
-            {/* {loading ? (
-                    <TbFidgetSpinner className="animate-spin m-auto" />
-                  ) : (
-                    "Login"
-                  )} */}
             Login
           </button>
         </div>

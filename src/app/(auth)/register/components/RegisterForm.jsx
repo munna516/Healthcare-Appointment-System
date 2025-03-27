@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-
+import toast from "react-hot-toast";
 
 export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -15,8 +15,16 @@ export default function RegisterForm() {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log({ name, email, password });
-
+    if (password.length < 6) {
+      setErrorMessage("password should be 6 characters");
+      return;
+    }
+    const regularExp = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{6,}$/;
+    if (!regularExp.test(password)) {
+      setErrorMessage("must have one uppercase, lowercase & digit");
+      return;
+    }
+    setErrorMessage("");
     try {
       const res = await fetch("/api/register", {
         method: "POST",
@@ -25,21 +33,20 @@ export default function RegisterForm() {
         },
         body: JSON.stringify({
           email,
+          name,
           password,
         }),
       });
       if (res.status === 400) {
-        setErrorMessage("This email is already registered");
+        toast.error("This email is already registered");
       }
       if (res.status === 200) {
-        setErrorMessage("");
-        router.push("/login");
+        toast.success("Registration Successfull");
+        router.push("/");
       }
     } catch (error) {
-      setErrorMessage("Error, try again");
-      console.log(error);
+      toast.error("Authentication failed, try again");
     }
-
   };
   return (
     <>
@@ -112,11 +119,6 @@ export default function RegisterForm() {
             type="submit"
             className="border-2 rounded-lg py-1 bg-blue-500 text-white font-semibold   text-lg w-full "
           >
-            {/* {loading ? (
-                        <TbFidgetSpinner className="animate-spin m-auto" />
-                      ) : (
-                        "Register"
-                      )} */}
             Register
           </button>
         </div>

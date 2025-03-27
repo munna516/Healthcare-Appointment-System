@@ -2,13 +2,20 @@
 import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { signOut, useSession } from "next-auth/react";
+import toast from "react-hot-toast";
 
 export const Navbar = () => {
   const pathName = usePathname();
+  const { data, status } = useSession();
 
-  // TODO: need to change this after authentication system is created
-  const user = false;
+  const logOut = () => {
+    signOut({ redirect: false });
+    toast.success("Logout Successful", {
+      position: "top-right",
+    });
+  };
 
   return (
     <nav className="bg-slate-200 px-2 py-4 fixed top-0 left-0 z-50 w-full">
@@ -43,8 +50,10 @@ export const Navbar = () => {
 
         <div className="flex items-center gap-4">
           <div className="hidden md:block">
-            {user ? (
-              <Button variant="outline">Logout</Button>
+            {status == "authenticated" ? (
+              <Button onClick={() => logOut()} variant="outline">
+                Logout
+              </Button>
             ) : (
               <div className="flex items-center gap-4">
                 <Link href={"/login"}>
@@ -84,8 +93,10 @@ export const Navbar = () => {
                     Contact
                   </Link>
                 </li>
-                {user ? (
-                  <Button variant="outline">Logout</Button>
+                {status == "authenticated" ? (
+                  <Button onClick={() => logOut()} variant="outline">
+                    Logout
+                  </Button>
                 ) : (
                   <div className="flex items-center gap-4">
                     <Link href={"/login"}>
