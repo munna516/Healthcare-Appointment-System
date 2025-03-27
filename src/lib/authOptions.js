@@ -43,4 +43,23 @@ export const authOptions = {
     signIn: "/login",
     error: "/not-found",
   },
+  callbacks: {
+    async signIn({ user, account, profile, email, credentials }) {
+      if (user) {
+        const { email, name } = user;
+
+        await fetch(`${process.env.NEXTAUTH_URL}/api/social`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            name,
+          }),
+        });
+      }
+      return true;
+    },
+  },
 };
