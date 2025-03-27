@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Button } from "../ui/button";
+import SectionSubTitle from "../SectionSubTitle/SectionSubTitle";
 
 const MakeAppointmentCard = () => {
   const [name, setName] = useState("");
@@ -17,16 +18,22 @@ const MakeAppointmentCard = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    console.log(e.target[0].value,e.target[1].value,e.target[2].value)
-   
+
+    console.log(e.target[0].value, e.target[1].value, e.target[2].value);
   };
 
   return (
     <div className="w-full max-w-[90%] mx-auto">
-      <div className="bg-purple-600 rounded-lg px-6 py-4 shadow-lg">
-        <form 
-          onSubmit={handleSubmit} 
+      <div className="bg-[#00a6fb] rounded-lg px-6 py-6 shadow-lg">
+        <div className="text-wrap  flex">
+        <h1
+          className='font-bold mb-3 lg:text-lg capitalize pl-4  mx-auto border-l-2 text-center'
+        >
+          Book Your Appointment Now
+        </h1>
+        </div>
+        <form
+          onSubmit={handleSubmit}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-center"
         >
           <input
@@ -53,7 +60,9 @@ const MakeAppointmentCard = () => {
             required
             className="flex-grow px-4 py-2 rounded-md bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400"
           >
-            <option value="" disabled>Choose Doctors</option>
+            <option value="" disabled>
+              Choose Doctors
+            </option>
             {doctors.map((doctor, index) => (
               <option key={index} value={doctor}>
                 {doctor}
