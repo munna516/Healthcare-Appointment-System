@@ -1,11 +1,22 @@
-"use client"
+"use client";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 
-
 const GoogleLogin = () => {
-  const handleGoogleSignIn = async () => {
-   
+  const { data, status } = useSession();
+  const router = useRouter();
+  const handleGoogleSignIn = () => {
+    signIn("google");
   };
+  useEffect(() => {
+    if (status == "authenticated") {
+      router.push("/");
+      toast.success("Successfully Login With Google");
+    }
+  }, [status]);
   return (
     <div>
       <div

@@ -12,9 +12,7 @@ export const Navbar = () => {
 
   const logOut = () => {
     signOut({ redirect: false });
-    toast.success("Logout Successful", {
-      position: "top-right",
-    });
+    toast.success("Logout Successful");
   };
 
   return (
