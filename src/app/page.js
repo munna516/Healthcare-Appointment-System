@@ -1,6 +1,7 @@
 import AboutUs from "@/components/AboutUs/AboutUs";
 import FaqSection from "@/components/FaqSection/FaqSection";
 import Hero from "@/components/Hero/Hero";
+import MakeAppointmentCard from "@/components/MakeAppointmentCard/MakeAppointmentCard";
 import OurServices from "@/components/OurServices/OurServices";
 import WorkingProcess from "@/components/WorkingProcess/WorkingProcess";
 
@@ -11,6 +12,8 @@ export default function Home() {
       <Hero/>
       {/* About Section Implement Here */}
       <AboutUs />
+      {/* make appointment card section   */}
+      <MakeAppointmentCard></MakeAppointmentCard>
       {/* OurServices part */}
       <OurServices/>
       {/*  */}
