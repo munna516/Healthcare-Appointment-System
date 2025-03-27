@@ -3,7 +3,7 @@ import Counting from "./Counting";
 
 export default function CountPart() {
   return (
-    <div className="flex flex-col md:flex-row gap-8 justify-center">
+    <div className="flex flex-col md:flex-row gap-8">
       <Counting
         start={20}
         end={355}
