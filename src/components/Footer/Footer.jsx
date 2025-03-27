@@ -2,12 +2,14 @@ import React from "react";
 import { BsRobot } from "react-icons/bs";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { IoLogoVercel } from "react-icons/io5";
-import { IoLogoGithub } from "react-icons/io5";
-import { RiTailwindCssFill } from "react-icons/ri";
-import { SiMongoose } from "react-icons/si";
-import { SiMongodb } from "react-icons/si";
-import { RiNextjsFill } from "react-icons/ri";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaYoutube,
+  FaLinkedin,
+  FaInstagram,
+  FaGithub,
+} from "react-icons/fa";
 
 export const Footer = () => {
   const usefulLinks = [
@@ -56,11 +58,11 @@ export const Footer = () => {
   ];
   return (
     <div className="bg-[url('https://i.ibb.co/vCkxccPR/bgtwo.png')] bg-cover w-full bg-bottom">
-      <div className="max-w-7xl w-full mx-auto gap-10 px-2 py-28 grid grid-cols-1 sm:grid-cols-4">
+      <div className="max-w-7xl w-full mx-auto gap-6 px-2 py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
         {/* About */}
-        <div className="col-span-1 sm:col-span-4 lg:col-span-2 text-center lg:text-left">
+        <div className="col-span-1 sm:col-span-2 text-center lg:text-left">
           <Link href="/">
-            <p className="text-3xl md:text-5xl font-bold mb-4">
+            <p className="text-2xl md:text-4xl font-bold mb-4">
               Health<span className="text-[#00a6fb]">Point</span>
             </p>
           </Link>
@@ -76,31 +78,62 @@ export const Footer = () => {
             </span>{" "}
             disease identifying system. Book an appointment now!
           </p>
+          {/* Icons */}
+        <div className="flex justify-center lg:justify-start items-center space-x-6 text-gray-600 py-6">
+          <a
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebook className="text-2xl hover:text-[#00a6fb] transition duration-300" />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaTwitter className="text-2xl hover:text-[#00a6fb] transition duration-300" />
+          </a>
+          <a
+            href="https://www.youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaYoutube className="text-2xl hover:text-[#00a6fb] transition duration-300" />
+          </a>
+          <a
+            href="https://www.linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin className="text-2xl hover:text-[#00a6fb] transition duration-300" />
+          </a>
+          <a
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram className="text-2xl hover:text-[#00a6fb] transition duration-300" />
+          </a>
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub className="text-2xl hover:text-[#00a6fb] transition duration-300" />
+          </a>
         </div>
-        {/* Lets Talk */}
-        <div className="hidden lg:flex col-span-1 sm:col-span-4 lg:col-span-2 flex-col justify-center items-center text-center space-y-4">
-          <h1 className="text-3xl md:text-5xl font-bold">Let&apos;s Talk!</h1>
-          <p>
-            Have a question or comment? <br /> Let us know.
-          </p>
-          <Link href="/contact">
-            <Button
-              variant="primary"
-              className="px-8 py-6 rounded-full text-xl"
-            >
-              Contact Us
-            </Button>
-          </Link>
         </div>
+
         {/* Quick Links */}
-        <div className="text-center lg:text-left col-span-1 sm:col-span-2 lg:col-span-1">
+        <div className="col-span-1 text-center lg:text-left">
           <h1 className="text-xl font-semibold mb-4">Quick Links</h1>
           <ul className="space-y-2">
             {navLinks.map((link) => (
               <li key={link.id}>
                 <a
                   href={link.url}
-                  className="text-gray-600 hover:text-gray-800 hover:underline transition duration-200"
+                  className="text-gray-600 hover:text-[#00a6fb] hover:underline transition duration-200"
                 >
                   {link.name}
                 </a>
@@ -109,14 +142,14 @@ export const Footer = () => {
           </ul>
         </div>
         {/* Useful Links */}
-        <div className="text-center lg:text-left col-span-1 sm:col-span-2 lg:col-span-1">
+        <div className="col-span-1 text-center lg:text-left">
           <h1 className="text-xl font-semibold mb-4">Useful Links</h1>
           <ul className="space-y-2">
             {usefulLinks.map((link) => (
               <li key={link.id}>
                 <a
                   href={link.url}
-                  className="text-gray-600 hover:text-gray-800 hover:underline transition duration-200"
+                  className="text-gray-600 hover:text-[#00a6fb] hover:underline transition duration-200"
                 >
                   {link.name}
                 </a>
@@ -124,8 +157,9 @@ export const Footer = () => {
             ))}
           </ul>
         </div>
+        
         {/* Lets Talk */}
-        <div className="flex lg:hidden col-span-1 sm:col-span-4 lg:col-span-2 flex-col justify-center items-center text-center space-y-4">
+        <div className="col-span-1 sm:col-span-2 lg:col-span-4 xl:col-span-1 flex flex-col justify-center items-center text-center space-y-4">
           <h1 className="text-3xl md:text-5xl font-bold">Let&apos;s Talk!</h1>
           <p>
             Have a question or comment? <br /> Let us know.
@@ -138,56 +172,6 @@ export const Footer = () => {
               Contact Us
             </Button>
           </Link>
-        </div>
-        {/* Icons */}
-        <div className="col-span-1 sm:col-span-4 lg:col-span-2 flex justify-center items-center space-x-6 text-gray-600 py-6">
-          <a
-            href="https://vercel.com/docs"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <IoLogoVercel className="text-2xl hover:text-[#00a6fb] transition duration-300" />
-          </a>
-
-          <a
-            href="https://github.com/munna516/Healthcare-Appointment-System"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <IoLogoGithub className="text-2xl hover:text-[#00a6fb] transition duration-300" />
-          </a>
-
-          <a
-            href="https://tailwindcss.com/docs"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <RiTailwindCssFill className="text-2xl hover:text-[#00a6fb] transition duration-300" />
-          </a>
-
-          <a
-            href="https://mongoosejs.com/docs/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <SiMongoose className="text-2xl hover:text-[#00a6fb] transition duration-300" />
-          </a>
-
-          <a
-            href="https://www.mongodb.com/docs/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <SiMongodb className="text-2xl hover:text-[#00a6fb] transition duration-300" />
-          </a>
-
-          <a
-            href="https://nextjs.org/docs"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <RiNextjsFill className="text-2xl hover:text-[#00a6fb] transition duration-300" />
-          </a>
         </div>
       </div>
       <hr />
