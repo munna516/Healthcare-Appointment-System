@@ -16,6 +16,7 @@ export default function Home() {
       <AboutUs />
       <MakeAppointmentCard />
       <OurServices />
+      <TopDoctors />
       <WorkingProcess />
       <WhatOurClientSays />
       <PostArticle></PostArticle>
