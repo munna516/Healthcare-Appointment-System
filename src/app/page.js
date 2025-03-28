@@ -10,22 +10,14 @@ import WorkingProcess from "@/components/WorkingProcess/WorkingProcess";
 export default function Home() {
   return (
     <div className="space-y-20 mb-14">
-      {/* Hero section should implement here */}
-      <Hero/>
-      {/* About Section Implement Here */}
+      <Hero />
       <AboutUs />
-      {/* make appointment card section   */}
-      <MakeAppointmentCard></MakeAppointmentCard>
-      {/* OurServices part */}
-      <OurServices/>
-      {/*  */}
+      <MakeAppointmentCard />
+      <OurServices />
       <WorkingProcess />
-      {/* FAQ section */}
-      <FaqSection></FaqSection>
-        {/* Testimonials */}
-        <WhatOurClientSays></WhatOurClientSays>
-      {/* Latest post and articles section */}
+      <WhatOurClientSays></WhatOurClientSays>
       <PostArticle></PostArticle>
+      <FaqSection></FaqSection>
     </div>
   );
 }
