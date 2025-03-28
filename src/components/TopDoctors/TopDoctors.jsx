@@ -1,8 +1,8 @@
 import SectionSubTitle from "../SectionSubTitle/SectionSubTitle";
-import SectionTitle from "../SectionTitle/SectionTitle";
 import { DoctorCard } from "./DoctorCard";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import SectionTitle from "../sectionTitle/SectionTitle";
 
 const TopDoctors = () => {
   const doctors = [
