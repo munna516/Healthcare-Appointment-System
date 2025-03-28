@@ -13,8 +13,8 @@ const HeroVisuals = () => {
                 height={400}
                 className="absolute w-[250px] h-[250px] md:w-full bottom-0 z-10 md:h-[500px] object-cover rounded-lg shadow-lg"
             /> 
-        </div>
-      </div>
+        </div>animate__backInLeft
+      </div>animate__backInLeft
     </div>
   );
 };
