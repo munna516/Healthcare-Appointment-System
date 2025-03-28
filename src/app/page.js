@@ -1,4 +1,5 @@
 import AboutUs from "@/components/AboutUs/AboutUs";
+import EmergencyContact from "@/components/EmergencyContact/EmergencyContact";
 import FaqSection from "@/components/FaqSection/FaqSection";
 import Hero from "@/components/Hero/Hero";
 import MakeAppointmentCard from "@/components/MakeAppointmentCard/MakeAppointmentCard";
@@ -19,6 +20,8 @@ export default function Home() {
       <OurServices/>
       {/*  */}
       <WorkingProcess />
+      {/* Emergency Contact */}
+      <EmergencyContact></EmergencyContact>
       {/* FAQ section */}
       <FaqSection></FaqSection>
       {/* Latest post and articles section */}
