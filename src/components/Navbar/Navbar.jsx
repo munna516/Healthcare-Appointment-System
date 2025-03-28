@@ -2,8 +2,6 @@
 import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
-import { useState } from "react";
-import { Loader2 } from "lucide-react"; 
 import { usePathname, useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import toast from "react-hot-toast";
@@ -27,6 +25,29 @@ export const Navbar = () => {
           <li className={pathName === "/" ? "text-[#00a6fb] font-bold" : ""}>
             <Link href={"/"}>Home</Link>
           </li>
+          <li
+            className={
+              pathName === "/doctors" ? "text-[#00a6fb] font-bold" : ""
+            }
+          >
+            <Link href={"/doctors"}>Doctors</Link>
+          </li>
+          {status === "authenticated" && (
+            <li
+              className={
+                pathName === "/appointment" ? "text-[#00a6fb] font-bold" : ""
+              }
+            >
+              <Link href={"/appointment"}>Appointment</Link>
+            </li>
+          )}
+          <li
+            className={
+              pathName === "/became-doctor" ? "text-[#00a6fb] font-bold" : ""
+            }
+          >
+            <Link href={"/became-doctor"}>Became-Doctor</Link>
+          </li>
 
           <li
             className={
@@ -35,19 +56,12 @@ export const Navbar = () => {
           >
             <Link href={"/contact"}>Contact</Link>
           </li>
-          <li
-            className={
-              pathName === "/appointment" ? "text-[#00a6fb] font-bold" : ""
-            }
-          >
-            <Link href={"/appointment"}>Appointment</Link>
-          </li>
         </ul>
 
         <div className="flex items-center gap-4">
           <div className="hidden md:block">
             {status == "authenticated" ? (
-              <Button onClick={() => logOut()} variant="outline">
+              <Button onClick={() => logOut()} variant="primary">
                 Logout
               </Button>
             ) : (
@@ -74,10 +88,21 @@ export const Navbar = () => {
                     Home
                   </Link>
                 </li>
-
                 <li>
-                  <Link href="/contact" className="block hover:underline">
-                    Contact
+                  <Link href="/doctors" className="block hover:underline">
+                    Doctors
+                  </Link>
+                </li>
+                {status === "authenticated" && (
+                  <li>
+                    <Link href="/appointment" className="block hover:underline">
+                      Appointment
+                    </Link>
+                  </li>
+                )}
+                <li>
+                  <Link href="/became-doctor" className="block hover:underline">
+                    Became-Doctor
                   </Link>
                 </li>
                 <li>
