@@ -4,7 +4,7 @@ import { DoctorCard } from "./DoctorCard";
 import { Button } from "../ui/button";
 import Link from "next/link";
 
-export const TopDoctors = () => {
+const TopDoctors = () => {
   const doctors = [
     {
       uid: "cardio_jsmith",
@@ -115,10 +115,12 @@ export const TopDoctors = () => {
         ))}
       </div>
       <div className="flex justify-center items-center w-full mt-14">
-      <Link href="/doctors">
-        <Button variant="primary">See All Doctors</Button>
-      </Link>
+        <Link href="/doctors">
+          <Button variant="primary">See All Doctors</Button>
+        </Link>
       </div>
     </div>
   );
 };
+
+export default TopDoctors;
