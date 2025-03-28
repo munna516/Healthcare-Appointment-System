@@ -14,18 +14,9 @@ export default function Home() {
     <div className="space-y-20 mb-14">
       <Hero />
       <AboutUs />
-<<<<<<< HEAD
-      {/* make appointment card section   */}
-      <MakeAppointmentCard></MakeAppointmentCard>
-      {/* OurServices part */}
-      <OurServices/>
-      {/* Top Doctor part - change position as required */}
-      <TopDoctors/>
-      {/* Working Process part */}
-=======
       <MakeAppointmentCard />
       <OurServices />
->>>>>>> 58a710ee4d59426592fd4d16cdb47885021d8104
+      <TopDoctors />
       <WorkingProcess />
       <WhatOurClientSays />
       <PostArticle></PostArticle>
