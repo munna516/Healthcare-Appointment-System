@@ -1,4 +1,5 @@
 import AboutUs from "@/components/AboutUs/AboutUs";
+import EmergencyContact from "@/components/EmergencyContact/EmergencyContact";
 import FaqSection from "@/components/FaqSection/FaqSection";
 import Hero from "@/components/Hero/Hero";
 import MakeAppointmentCard from "@/components/MakeAppointmentCard/MakeAppointmentCard";
@@ -15,9 +16,10 @@ export default function Home() {
       <MakeAppointmentCard />
       <OurServices />
       <WorkingProcess />
-      <WhatOurClientSays></WhatOurClientSays>
+      <WhatOurClientSays />
       <PostArticle></PostArticle>
-      <FaqSection></FaqSection>
+      <EmergencyContact />
+      <FaqSection />
     </div>
   );
 }

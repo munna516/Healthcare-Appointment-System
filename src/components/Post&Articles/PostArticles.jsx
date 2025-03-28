@@ -40,7 +40,7 @@ const PostArticle = () => {
     <section className="py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <h4 className="text-center text-blue-500 font-semibold">
-          <span className="border-l-2 border-blue-500 pl-4 font-bold text-xl rounded-sm">
+          <span className="border-l-2 border-blue-500 pl-4 font-bold text-xl ">
             Latest News
           </span>
         </h4>
