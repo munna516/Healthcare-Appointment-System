@@ -20,8 +20,8 @@ export const DoctorCard = ({ doctor }) => {
           <h1 className="text-xl font-bold">{doctor?.name}</h1>
           <p className="text-gray-600">{doctor?.title}</p>
           <p className="pb-4">⭐⭐⭐⭐⭐ {doctor?.review}</p>
-          <div className="flex gap-4 items-center justify-center">
-            <Button variant="primary">Book Appointment</Button>
+          <div className="flex items-center justify-between gap-4">
+            <Button variant="primary" className="w-full">Appointment</Button>
             <Button variant="outline">View</Button>
           </div>
         </div>
