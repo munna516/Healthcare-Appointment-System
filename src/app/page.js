@@ -3,7 +3,7 @@ import FaqSection from "@/components/FaqSection/FaqSection";
 import Hero from "@/components/Hero/Hero";
 import MakeAppointmentCard from "@/components/MakeAppointmentCard/MakeAppointmentCard";
 import OurServices from "@/components/OurServices/OurServices";
-import PostArtilces from "@/components/Post&Articles/PostArtilces";
+import PostArticle from "@/components/Post&Articles/PostArtilces";
 import WorkingProcess from "@/components/WorkingProcess/WorkingProcess";
 
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
       {/* FAQ section */}
       <FaqSection></FaqSection>
       {/* Latest post and articles section */}
-      <PostArtilces></PostArtilces>
+      <PostArticle></PostArticle>
     </div>
   );
 }
