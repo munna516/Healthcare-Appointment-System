@@ -1,6 +1,7 @@
 import Image from "next/image";
-import CountPart from "../Counting/CountPart";
+
 import { Button } from "../ui/button";
+import CountPart from "@components/Counting/CountPart";
 
 const HeroTextInfo = () => {
     return (

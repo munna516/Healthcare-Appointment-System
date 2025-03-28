@@ -1,5 +1,5 @@
+import GoogleLogin from "@components/GoogleLogin/GoogleLogin";
 import Link from "next/link";
-import GoogleLogin from "@/components/GoogleLogin/GoogleLogin";
 import RegisterForm from "./components/RegisterForm";
 import LottieRegister from "./components/LottieRegister";
 

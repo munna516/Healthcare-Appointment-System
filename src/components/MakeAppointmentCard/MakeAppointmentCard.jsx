@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { Button } from "../ui/button";
-import SectionSubTitle from "../SectionSubTitle/SectionSubTitle";
 
 const MakeAppointmentCard = () => {
   const [name, setName] = useState("");

@@ -1,6 +1,6 @@
-import SectionSubTitle from "../SectionSubTitle/SectionSubTitle";
-import SectionTitle from "../SectionTitle/SectionTitle";
+import SectionTitle from "@components/SectionTitle/SectionTitle";
 import TestimonialsSwiper from "./TestimonialsSwiper";
+import SectionSubTitle from "@components/SectionSubTitle/SectionSubTitle";
 
 const WhatOurClientSays = () => {
   return (
