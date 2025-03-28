@@ -27,7 +27,7 @@ export default function Login() {
             <LoginForm />
 
             <div className="flex justify-between items-center mt-4">
-              <p className="text-gray-500">Don't have account? </p>
+              <p className="text-gray-500">Don&apos;t have account? </p>
               <Link href={"register"}>
                 <p className="font-bold text-blue-500 hover:underline uppercase">
                   Register
