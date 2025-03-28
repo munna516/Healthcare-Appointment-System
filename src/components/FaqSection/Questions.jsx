@@ -1,9 +1,6 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+
+
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@components/ui/accordion";
 
 const Questions = () => {
   return (
