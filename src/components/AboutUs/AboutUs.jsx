@@ -1,10 +1,12 @@
-import React from "react";
+// import AboutVisuals from "./AboutVisuals";
+// import SectionSubTitle from "@components/SectionSubTitle/SectionSubTitle";
+// import SectionTitle from "@components/SectionTitle/SectionTitle";
+// import AboutService from "./AboutService";
 
-import AboutVisuals from "./AboutVisuals";
 import SectionSubTitle from "@components/SectionSubTitle/SectionSubTitle";
+import AboutVisuals from "./AboutVisuals";
 import SectionTitle from "@components/SectionTitle/SectionTitle";
 import AboutService from "./AboutService";
-
 
 const AboutUs = () => {
   return (
