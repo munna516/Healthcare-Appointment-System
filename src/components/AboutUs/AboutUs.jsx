@@ -1,11 +1,10 @@
 import React from "react";
 import SectionSubTitle from "../SectionSubTitle/SectionSubTitle";
-import SectionTitle from "../sectionTitle/SectionTitle";
+import SectionTitle from "../SectionTitle/SectionTitle";
 import AboutVisuals from "./AboutVisuals";
 import AboutService from "./AboutService";
 import { Button } from "../ui/button";
 import Link from "next/link";
-
 
 const AboutUs = () => {
   return (
@@ -38,7 +37,6 @@ const AboutUs = () => {
               <AboutService service={"On duty Doctors"} />
             </div>
           </div>
-
         </div>
       </div>
     </div>
