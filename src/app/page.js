@@ -1,12 +1,13 @@
-import AboutUs from "@/components/AboutUs/AboutUs";
-import EmergencyContact from "@/components/EmergencyContact/EmergencyContact";
-import FaqSection from "@/components/FaqSection/FaqSection";
-import Hero from "@/components/Hero/Hero";
-import MakeAppointmentCard from "@/components/MakeAppointmentCard/MakeAppointmentCard";
-import OurServices from "@/components/OurServices/OurServices";
-import PostArticle from "@/components/Post&Articles/PostArticles";
-import WhatOurClientSays from "@/components/WhatOurClientSays/WhatOurClientSays";
-import WorkingProcess from "@/components/WorkingProcess/WorkingProcess";
+import AboutUs from "@components/AboutUs/AboutUs";
+import EmergencyContact from "@components/EmergencyContact/EmergencyContact";
+import FaqSection from "@components/FaqSection/FaqSection";
+import Hero from "@components/Hero/Hero";
+import MakeAppointmentCard from "@components/MakeAppointmentCard/MakeAppointmentCard";
+import OurServices from "@components/OurServices/OurServices";
+import PostArticle from "@components/Post&Articles/PostArticles";
+import TopDoctors from "@components/TopDoctors/TopDoctors";
+import WhatOurClientSays from "@components/WhatOurClientSays/WhatOurClientSays";
+import WorkingProcess from "@components/WorkingProcess/WorkingProcess";
 
 export default function Home() {
   return (
@@ -15,9 +16,10 @@ export default function Home() {
       <AboutUs />
       <MakeAppointmentCard />
       <OurServices />
+      <TopDoctors />
       <WorkingProcess />
       <WhatOurClientSays />
-      <PostArticle></PostArticle>
+      <PostArticle />
       <EmergencyContact />
       <FaqSection />
     </div>

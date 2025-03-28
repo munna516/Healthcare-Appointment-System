@@ -1,10 +1,11 @@
-import User from "@/models/User";
-import connect from "@/lib/dbConnect";
 import bcrypt from "bcryptjs";
+import connect from "src/lib/dbConnect";
+import User from "src/models/User";
 
 export const POST = async (request) => {
   const { email, name, password } = await request.json();
   await connect();
+  console.log("DB is connected");
 
   const existingUser = await User.findOne({ email });
 
