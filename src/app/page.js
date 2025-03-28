@@ -10,13 +10,13 @@ export default function Home() {
   return (
     <div className="space-y-20 mb-14">
       {/* Hero section should implement here */}
-      <Hero/>
+      <Hero />
       {/* About Section Implement Here */}
       <AboutUs />
       {/* make appointment card section   */}
-      <MakeAppointmentCard></MakeAppointmentCard>
+      <MakeAppointmentCard />
       {/* OurServices part */}
-      <OurServices/>
+      <OurServices />
       {/*  */}
       <WorkingProcess />
       {/* FAQ section */}
