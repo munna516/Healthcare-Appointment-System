@@ -2,7 +2,7 @@
 import { DoctorCard } from "./DoctorCard";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import SectionTitle from "@components/SectionTitle/SectionTitle";
+// import SectionTitle from "@components/SectionTitle/SectionTitle";
 import SectionSubTitle from "@components/SectionSubTitle/SectionSubTitle";
 
 const TopDoctors = () => {
@@ -108,7 +108,7 @@ const TopDoctors = () => {
     <div className="max-w-7xl w-full mx-auto mt-40">
       <div className=" px-2 flex justify-center items-center flex-col mb-8">
         <SectionSubTitle text={"Doctors"} />
-        <SectionTitle text={"Meet our Doctors"} />
+        {/* <SectionTitle text={"Meet our Doctors"} /> */}
       </div>
       <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-4">
         {doctors.map((doctor) => (
