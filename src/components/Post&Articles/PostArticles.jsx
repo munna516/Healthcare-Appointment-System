@@ -1,4 +1,5 @@
-import React from "react";
+import Image from 'next/image';
+import React from 'react';
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const posts = [
@@ -34,50 +35,26 @@ const posts = [
   },
 ];
 
-const PostArtilces = () => {
-  return (
-    <section className="py-12 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <h4 className="text-center text-blue-500 font-semibold">
-          <span className="border-l-2 border-blue-500 pl-4 font-bold text-xl rounded-sm">
-            Latest News
-          </span>
-        </h4>
-        <h2 className="text-center text-3xl font-bold mt-1">
-          Latest Post & Articles
-        </h2>
-        <div className="grid md:grid-cols-3 gap-6 mt-8">
-          {posts.map((post) => (
-            <div
-              key={post.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden group "
-            >
-              <div className="relative">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  width={500}
-                  height={300}
-                  className="w-full h-56 object-cover group-hover:transition-transform transform duration-75 hover:scale-105"
-                />
-                <span
-                  className={`absolute top-3 left-3 ${
-                    post.category == "Medical"
-                      ? "bg-green-500"
-                      : post.category == "Hospital"
-                      ? "bg-blue-500"
-                      : post.category == "Doctor"
-                      ? "bg-pink-500"
-                      : ""
-                  } text-white text-xs px-4 py-2 rounded-2xl font-semibold `}
-                >
-                  {post.category}
-                </span>
-              </div>
-              <div className="p-5">
-                <div className="flex items-center text-gray-500 text-sm mb-2">
-                  <span className="mr-3">📘 {post.author}</span>
-                  <span>📅 {post.date}</span>
+const PostArticle = () => {
+
+    
+    return (
+        <section className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <h4 className="text-center text-blue-500 font-semibold"><span className='border-l-2 border-blue-500 pl-4 font-bold text-xl rounded-sm'>Latest News</span></h4>
+          <h2 className="text-center text-3xl font-bold mt-1">Latest Post & Articles</h2>
+          <div className="grid md:grid-cols-3 gap-6 mt-8">
+            {posts.map((post) => (
+              <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden group ">
+                <div className="relative"> 
+                  <Image
+                    src={post.image} 
+                    alt={post.title} 
+                    width={500} 
+                    height={300} 
+                    className="w-full h-56 object-cover group-hover:transition-transform transform duration-200 hover:scale-105" 
+                  />
+                  <span className={`absolute top-3 left-3 ${post.category=="Medical"?"bg-green-500":post.category=="Hospital"?"bg-blue-500":post.category=="Doctor"?"bg-pink-500":""} text-white text-xs px-4 py-2 rounded-2xl font-semibold `}>{post.category}</span>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-800">
                   {post.title}
@@ -106,4 +83,4 @@ const PostArtilces = () => {
   );
 };
 
-export default PostArtilces;
+export default PostArticle ;
