@@ -1,12 +1,10 @@
 import React from "react";
 
-import { Button } from "../ui/button";
-import Link from "next/link";
-// import SectionTitle from "@components/SectionTitle/SectionTitle";
 import AboutVisuals from "./AboutVisuals";
 import SectionSubTitle from "@components/SectionSubTitle/SectionSubTitle";
-import AboutService from "./AboutService";
 import SectionTitle from "@components/SectionTitle/SectionTitle";
+import AboutService from "./AboutService";
+
 
 const AboutUs = () => {
   return (
