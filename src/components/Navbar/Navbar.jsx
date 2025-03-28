@@ -2,8 +2,6 @@
 import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
-import { useState } from "react";
-import { Loader2 } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import toast from "react-hot-toast";
@@ -63,7 +61,7 @@ export const Navbar = () => {
         <div className="flex items-center gap-4">
           <div className="hidden md:block">
             {status == "authenticated" ? (
-              <Button onClick={() => logOut()} variant="outline">
+              <Button onClick={() => logOut()} variant="primary">
                 Logout
               </Button>
             ) : (
