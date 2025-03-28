@@ -5,6 +5,7 @@ import MakeAppointmentCard from "@/components/MakeAppointmentCard/MakeAppointmen
 import OurServices from "@/components/OurServices/OurServices";
 import PostArtilces from "@/components/Post&Articles/PostArtilces";
 import WorkingProcess from "@/components/WorkingProcess/WorkingProcess";
+import { TopDoctors } from "@/components/TopDoctors/TopDoctors";
 
 export default function Home() {
   return (
@@ -17,7 +18,9 @@ export default function Home() {
       <MakeAppointmentCard></MakeAppointmentCard>
       {/* OurServices part */}
       <OurServices/>
-      {/*  */}
+      {/* Top Doctor part - change position as required */}
+      <TopDoctors/>
+      {/* Working Process part */}
       <WorkingProcess />
       {/* FAQ section */}
       <FaqSection></FaqSection>
