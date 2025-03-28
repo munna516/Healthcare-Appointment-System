@@ -1,7 +1,6 @@
 "use client";
+import { Button } from "@components/ui/button";
 import React, { useState } from "react";
-import { Button } from "../ui/button";
-import SectionSubTitle from "../SectionSubTitle/SectionSubTitle";
 
 const MakeAppointmentCard = () => {
   const [name, setName] = useState("");
@@ -26,11 +25,9 @@ const MakeAppointmentCard = () => {
     <div className="max-w-7xl mx-auto">
       <div className="bg-[#00a6fb] rounded-lg px-6 py-6 shadow-lg">
         <div className="text-wrap  flex">
-        <h1
-          className='font-bold mb-10 text-white  lg:text-lg capitalize pl-4  mx-auto border-l-2 text-center'
-        >
-          Book Your Appointment Now
-        </h1>
+          <h1 className="font-bold mb-10 text-white  lg:text-lg capitalize pl-4  mx-auto border-l-2 text-center">
+            Book Your Appointment Now
+          </h1>
         </div>
         <form
           onSubmit={handleSubmit}

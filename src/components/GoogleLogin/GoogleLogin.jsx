@@ -6,17 +6,18 @@ import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 
 const GoogleLogin = () => {
-  const { data, status } = useSession();
+  const { data: session } = useSession();
   const router = useRouter();
   const handleGoogleSignIn = () => {
     signIn("google");
   };
   useEffect(() => {
-    if (status == "authenticated") {
+    console.log("Ok ", session);
+    if (session?.provider === "google") {
       router.push("/");
-      toast.success("Successfully Login With Google");
+      toast.success("Successfully logged in with Google!");
     }
-  }, [status]);
+  }, [session]);
   return (
     <div>
       <div

@@ -14,12 +14,15 @@ export const authOptions = {
         const { email, password } = credentials;
 
         try {
-          const res = await fetch(`${process.env.NEXTAUTH_URL}/api/login`, {
-            // Use absolute URL
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, password }),
-          });
+          const res = await fetch(
+            `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/login`,
+            {
+              // Use absolute URL
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email, password }),
+            }
+          );
 
           if (!res.ok) {
             return null;
@@ -43,19 +46,48 @@ export const authOptions = {
     signIn: "/login",
     error: "/not-found",
   },
-  callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
-      if (user) {
-        const { email, name } = user;
+  // callbacks: {
+  //   async signIn({ user, account, profile, email, credentials }) {
+  //     if (user) {
+  //       const { email, name } = user;
 
-        await fetch(`${process.env.NEXTAUTH_URL}/api/social`, {
+  //       await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/social`, {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({
+  //           email,
+  //           name,
+  //         }),
+  //       });
+  //     }
+  //     return true;
+  //   },
+  // },
+
+  callbacks: {
+    async jwt({ token, account }) {
+      // Store the provider (google/credentials) in the JWT token
+      if (account?.provider) {
+        token.provider = account.provider;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      // Pass the provider to the client-side session
+      session.provider = token.provider;
+      return session;
+    },
+    async signIn({ user, account }) {
+      if (account.provider === "google") {
+        // Only call social API for Google logins
+        await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/social`, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            email,
-            name,
+            email: user.email,
+            name: user.name,
           }),
         });
       }
