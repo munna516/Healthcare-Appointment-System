@@ -1,5 +1,6 @@
+import AboutService from "@components/AboutUs/AboutService";
 import { FiPhoneCall, FiMail } from "react-icons/fi";
-import AboutService from "../AboutUs/AboutService";
+
 
 export default function EmergencyContact() {
   const image = "https://i.ibb.co.com/tTR8FJPt/pic.png";

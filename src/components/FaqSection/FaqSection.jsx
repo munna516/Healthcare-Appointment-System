@@ -1,8 +1,7 @@
-import React from "react";
-import SectionSubTitle from "../SectionSubTitle/SectionSubTitle";
-import SectionTitle from "../SectionTitle/SectionTitle";
 import Questions from "./Questions";
 import FaqVisual from "./FaqVisual";
+import SectionTitle from "@components/SectionTitle/SectionTitle";
+import SectionSubTitle from "@components/SectionSubTitle/SectionSubTitle";
 
 const FaqSection = () => {
   return (

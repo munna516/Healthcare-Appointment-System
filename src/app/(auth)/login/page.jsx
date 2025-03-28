@@ -1,7 +1,8 @@
+import GoogleLogin from "@components/GoogleLogin/GoogleLogin";
 import Link from "next/link";
-import GoogleLogin from "@/components/GoogleLogin/GoogleLogin";
 import LoginForm from "./components/LoginForm";
 import LottieLogin from "./components/LottieLogin";
+
 
 export default function Login() {
   return (

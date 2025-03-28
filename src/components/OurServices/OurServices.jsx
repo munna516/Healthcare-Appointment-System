@@ -1,6 +1,7 @@
-import SectionSubTitle from "../SectionSubTitle/SectionSubTitle";
-import SectionTitle from "../SectionTitle/SectionTitle";
+import SectionTitle from "@components/SectionTitle/SectionTitle";
+
 import ServiceCardSwiper from "./ServiceCardSwiper";
+import SectionSubTitle from "@components/SectionSubTitle/SectionSubTitle";
 
 const OurServices = () => {
   return (
