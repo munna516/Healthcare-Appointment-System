@@ -4,6 +4,7 @@ import Hero from "@/components/Hero/Hero";
 import MakeAppointmentCard from "@/components/MakeAppointmentCard/MakeAppointmentCard";
 import OurServices from "@/components/OurServices/OurServices";
 import PostArticle from "@/components/Post&Articles/PostArticles";
+import WhatOurClientSays from "@/components/WhatOurClientSays/WhatOurClientSays";
 import WorkingProcess from "@/components/WorkingProcess/WorkingProcess";
 
 export default function Home() {
@@ -21,6 +22,8 @@ export default function Home() {
       <WorkingProcess />
       {/* FAQ section */}
       <FaqSection></FaqSection>
+        {/* Testimonials */}
+        <WhatOurClientSays></WhatOurClientSays>
       {/* Latest post and articles section */}
       <PostArticle></PostArticle>
     </div>
