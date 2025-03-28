@@ -25,11 +25,7 @@ export const Navbar = () => {
           <li className={pathName === "/" ? "text-[#00a6fb] font-bold" : ""}>
             <Link href={"/"}>Home</Link>
           </li>
-          <li
-            className={pathName === "/about" ? "text-[#00a6fb] font-bold" : ""}
-          >
-            <Link href={"/about"}>About</Link>
-          </li>
+
           <li
             className={
               pathName === "/contact" ? "text-[#00a6fb] font-bold" : ""
@@ -76,11 +72,7 @@ export const Navbar = () => {
                     Home
                   </Link>
                 </li>
-                <li>
-                  <Link href="/about" className="block hover:underline">
-                    About
-                  </Link>
-                </li>
+
                 <li>
                   <Link href="/contact" className="block hover:underline">
                     Contact

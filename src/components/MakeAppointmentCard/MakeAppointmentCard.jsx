@@ -23,7 +23,7 @@ const MakeAppointmentCard = () => {
   };
 
   return (
-    <div className="w-full max-w-[90%] mx-auto">
+    <div className="max-w-7xl mx-auto">
       <div className="bg-[#00a6fb] rounded-lg px-6 py-6 shadow-lg">
         <div className="text-wrap  flex">
         <h1

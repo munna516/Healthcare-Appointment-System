@@ -141,6 +141,7 @@ export const Footer = () => {
             ))}
           </ul>
         </div>
+        
         {/* Useful Links */}
         <div className="col-span-1 text-center lg:text-left">
           <h1 className="text-xl font-semibold mb-4">Useful Links</h1>
@@ -159,7 +160,7 @@ export const Footer = () => {
         </div>
         
         {/* Lets Talk */}
-        <div className="col-span-1 sm:col-span-2 lg:col-span-4 xl:col-span-1 flex flex-col justify-center items-center text-center space-y-4">
+        <div className="col-span-1 sm:col-span-2 lg:col-span-4 xl:col-span-1 flex flex-col  items-center text-center space-y-4">
           <h1 className="text-3xl md:text-5xl font-bold">Let&apos;s Talk!</h1>
           <p>
             Have a question or comment? <br /> Let us know.
