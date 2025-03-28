@@ -7,7 +7,7 @@ import OurServices from "@/components/OurServices/OurServices";
 import PostArticle from "@/components/Post&Articles/PostArticles";
 import WhatOurClientSays from "@/components/WhatOurClientSays/WhatOurClientSays";
 import WorkingProcess from "@/components/WorkingProcess/WorkingProcess";
-import { TopDoctors } from "@/components/TopDoctors/TopDoctors";
+import  TopDoctors  from "@/components/TopDoctors/TopDoctors";
 
 export default function Home() {
   return (

@@ -6,6 +6,7 @@ import AboutService from "./AboutService";
 import { Button } from "../ui/button";
 import Link from "next/link";
 
+
 const AboutUs = () => {
   return (
     <div className="max-w-7xl w-full mx-auto">
