@@ -11,7 +11,7 @@ import WorkingProcess from "@/components/WorkingProcess/WorkingProcess";
 export default function Home() {
   return (
     <div className="space-y-20 mb-14">
-      {/* <Hero />
+      <Hero />
       <AboutUs />
       <MakeAppointmentCard />
       <OurServices />
@@ -19,7 +19,7 @@ export default function Home() {
       <WhatOurClientSays />
       <PostArticle></PostArticle>
       <EmergencyContact />
-      <FaqSection /> */}
+      <FaqSection />
     </div>
   );
 }
