@@ -1,4 +1,4 @@
-import SectionTitle from "@components/SectionTitle/SectionTitle";
+// import SectionTitle from "@components/SectionTitle/SectionTitle";
 import TestimonialsSwiper from "./TestimonialsSwiper";
 import SectionSubTitle from "@components/SectionSubTitle/SectionSubTitle";
 
@@ -8,7 +8,7 @@ const WhatOurClientSays = () => {
       <div className=" w-full mx-auto">
         <div className="flex justify-center mb-6 items-center flex-col">
           <SectionSubTitle text={"Testimonials"}></SectionSubTitle>
-          <SectionTitle text={"What Our Client Says"}></SectionTitle>
+          {/* <SectionTitle text={"What Our Client Says"}></SectionTitle> */}
         </div>
 
         {/* Testimonials card */}
