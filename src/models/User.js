@@ -6,7 +6,6 @@ const userSchema = new Schema(
   {
     email: {
       type: String,
-      unique: true,
       required: true,
     },
     name: {
@@ -16,6 +15,15 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: false,
+    },
+    image: {
+      type: String,
+      require: false,
+      default: null,
+    },
+    role: {
+      type: String,
+      require: true,
     },
   },
   { timestamps: true }

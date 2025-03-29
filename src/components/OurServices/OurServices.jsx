@@ -1,5 +1,3 @@
-// import SectionTitle from "@components/SectionTitle/SectionTitle";
-
 import ServiceCardSwiper from "./ServiceCardSwiper";
 import SectionSubTitle from "@components/SectionSubTitle/SectionSubTitle";
 
@@ -9,7 +7,9 @@ const OurServices = () => {
       <div className="max-w-7xl w-full mx-auto">
         <div className="flex justify-center mb-8 items-center flex-col">
           <SectionSubTitle text={"our services"}></SectionSubTitle>
-          {/* <SectionTitle text={"our medical service"}></SectionTitle> */}
+          <h1 className={`text-xl capitalize md:text-4xl font-bold pb-6`}>
+          Our medical service
+          </h1>
         </div>
 
         {/* service card */}
