@@ -68,14 +68,12 @@ export const authOptions = {
 
   callbacks: {
     async jwt({ token, account }) {
-      // Store the provider (google/credentials) in the JWT token
       if (account?.provider) {
         token.provider = account.provider;
       }
       return token;
     },
     async session({ session, token }) {
-      // Pass the provider to the client-side session
       session.provider = token.provider;
       return session;
     },
@@ -88,6 +86,7 @@ export const authOptions = {
           body: JSON.stringify({
             email: user.email,
             name: user.name,
+            image: user.image,
           }),
         });
       }

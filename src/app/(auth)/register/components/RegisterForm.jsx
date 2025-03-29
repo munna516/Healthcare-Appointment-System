@@ -1,20 +1,24 @@
 "use client";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { TbFidgetSpinner } from "react-icons/tb";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const imageFile = form.image.files[0];
     if (password.length < 6) {
       setErrorMessage("password should be 6 characters");
       return;
@@ -25,27 +29,53 @@ export default function RegisterForm() {
       return;
     }
     setErrorMessage("");
+
     try {
-      const res = await fetch("/api/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          name,
-          password,
-        }),
-      });
-      if (res.status === 400) {
-        toast.error("This email is already registered");
+      const formData = new FormData();
+      formData.append("image", imageFile);
+      const response = await fetch(
+        `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMAGEBB_API_KEY}`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (!response.ok) {
+        setLoading(false);
+        toast.error("Image upload failed");
       }
-      if (res.status === 200) {
-        toast.success("Registration Successful");
-        router.push("/");
+
+      const data = await response.json();
+      const image = data?.data?.url;
+      try {
+        const res = await fetch("/api/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            name,
+            password,
+            image,
+          }),
+        });
+        if (res.status === 400) {
+          toast.error("This email is already registered");
+        }
+        if (res.status === 200) {
+          toast.success("Registration Successful. Please Login");
+          router.push("/login");
+        }
+      } catch (error) {
+        toast.error("Authentication failed, try again");
       }
     } catch (error) {
-      toast.error("Authentication failed, try again");
+      console.error("Error uploading image:", error);
+      return null;
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -67,7 +97,21 @@ export default function RegisterForm() {
             type="text"
           />
         </div>
-
+        <div className="mt-4">
+          <label
+            htmlFor="image"
+            className="block mb-2 text-sm font-medium text-gray-600"
+          >
+            Select Image
+          </label>
+          <input
+            required
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+          />
+        </div>
         <div className="mt-4">
           <label
             className="block mb-2 text-sm font-medium text-gray-600 "
@@ -119,7 +163,11 @@ export default function RegisterForm() {
             type="submit"
             className="border-2 rounded-lg py-1 bg-blue-500 text-white font-semibold   text-lg w-full "
           >
-            Register
+            {loading ? (
+              <TbFidgetSpinner className="animate-spin m-auto" />
+            ) : (
+              "Register"
+            )}
           </button>
         </div>
       </form>
