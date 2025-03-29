@@ -7,6 +7,7 @@ import SectionSubTitle from "@components/SectionSubTitle/SectionSubTitle";
 import AboutVisuals from "./AboutVisuals";
 // import SectionTitle from "@components/SectionTitle/SectionTitle";
 import AboutService from "./AboutService";
+import SectionTitle from "@components/SectionTitle/SectionTitle";
 
 const AboutUs = () => {
   return (
@@ -20,6 +21,7 @@ const AboutUs = () => {
           {/* <SectionTitle
             text={"Caring for Your Health, Every Step of the Way."}
           ></SectionTitle> */}
+          <SectionTitle  text={"Caring for Your Health, Every Step of the Way."} />
           <p className="lg:text-lg text-[#000000b4] pb-6">
             Our team is dedicated to providing personalized and comprehensive
             healthcare services to meet the needs of every patient. With a
