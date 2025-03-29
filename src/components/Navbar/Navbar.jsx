@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import toast from "react-hot-toast";
 import Image from "next/image";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSubTrigger, DropdownMenuTrigger } from "@components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuSubTrigger, DropdownMenuTrigger } from "@components/ui/dropdown-menu";
 import { Avatar, AvatarImage } from "@components/ui/avatar";
 
 
@@ -92,6 +92,7 @@ export const Navbar = () => {
                       <DropdownMenuItem onClick={() => console.log("Go to Dashboard")}>
                         Dashboard
                       </DropdownMenuItem>
+                      <DropdownMenuSeparator />
                       <DropdownMenuItem onClick={() => logOut()}>
                         Logout
                       </DropdownMenuItem>
@@ -120,8 +121,8 @@ export const Navbar = () => {
           <Sheet>
           <DropdownMenu>
                     <DropdownMenuTrigger>
-                      <Avatar>
-                        <AvatarImage className="border-2 rounded-full border-blue-500" src={data?.user.image} alt="User" />
+                      <Avatar className=" md:hidden">
+                        <AvatarImage className="border-2 md:hidden rounded-full border-blue-500" src={data?.user.image} alt="User" />
                       </Avatar>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="w-40">
