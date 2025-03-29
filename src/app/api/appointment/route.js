@@ -1,6 +1,6 @@
 import {  NextResponse } from 'next/server';
 import connect from "../../../lib/dbConnect";
-import Appointment from "./src/models/Appointment";
+import Appointment from 'src/models/Appointment';
 
 export async function POST(req) {
   try {
