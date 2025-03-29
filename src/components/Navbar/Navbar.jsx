@@ -18,7 +18,7 @@ export const Navbar = () => {
   };
 
   return (
-    pathName.includes("/dashboard") ? "" : <nav className={`bg-slate-200 px-2 py-6 fixed top-0 left-0 z-50 w-full`}>
+    pathName.includes("/dashboard") ? "" :  <nav className="bg-slate-200 px-2 py-6 fixed top-0 left-0 z-50 w-full">
     <div className="max-w-7xl w-full mx-auto flex items-center justify-between">
       <Link
         href={"/"}
@@ -81,22 +81,31 @@ export const Navbar = () => {
         <div className="hidden md:block">
           {status == "authenticated" ? (
             <>
-            <DropdownMenu>
-                  <DropdownMenuTrigger>
-                    <Avatar>
-                      <AvatarImage className="border-2 rounded-full border-blue-500" src={data?.user.image} alt="User" />
-                    </Avatar>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-40">
-                    <DropdownMenuItem asChild>
-                      <Link href={"/dashboard"}>Dashboard</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={() => logOut()}>
-                      Logout
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+              <DropdownMenu>
+                <DropdownMenuTrigger>
+                  <Avatar>
+                    <AvatarImage
+                      className="border-2 rounded-full border-blue-500"
+                      src={data?.user.image}
+                      alt="User"
+                    />
+                  </Avatar>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-40">
+                  <DropdownMenuItem className="text-blue-500  font-bold hover:text-red-500">{data?.user?.name}</DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem
+                    
+                    className="text-blue-500 cursor-pointer font-bold"
+                  >
+                    <Link href={"/dashboard"}>Dashboard</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={() => logOut()} className="text-red-500 cursor-pointer font-bold">
+                    Logout
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </>
           ) : (
             <div className="flex items-center gap-4">
@@ -118,21 +127,27 @@ export const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <Sheet>
-        <DropdownMenu>
-                  <DropdownMenuTrigger>
-                    <Avatar className=" md:hidden">
-                      <AvatarImage className="border-2 md:hidden rounded-full border-blue-500" src={data?.user.image} alt="User" />
-                    </Avatar>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-40">
-                    <DropdownMenuItem onClick={() => console.log("Go to Dashboard")}>
-                      Dashboard
-                    </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => logOut()}>
-                      Logout
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <Avatar className=" md:hidden">
+                <AvatarImage
+                  className="border-2 md:hidden rounded-full border-blue-500"
+                  src={data?.user.image}
+                  alt="User"
+                />
+              </Avatar>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-40">
+              <DropdownMenuItem
+                onClick={() => console.log("Go to Dashboard")}
+              >
+                Dashboard
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => logOut()}>
+                Logout
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <SheetTrigger asChild>
             <Button className="md:hidden bg-white text-black">☰</Button>
           </SheetTrigger>
