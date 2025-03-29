@@ -178,76 +178,79 @@ const Doctors = () => {
   return (
     <div className="max-w-7xl w-full mx-auto px-4 py-10 flex flex-col md:flex-row gap-6">
       {/* Filter Section */}
-      <div className="w-full md:w-1/3 xl:w-1/4 bg-white p-4 rounded-md mb-6 shadow-lg">
-        <h2 className="text-xl font-semibold mb-4 text-center">
-          Search & Filter Doctors
-        </h2>
-
-        {/* Search Input */}
-        <div className="mb-4">
-          <label htmlFor="searchText" className="block text-gray-700">
-            Search Doctor
-          </label>
-          <input
-            type="text"
-            id="searchText"
-            value={searchText}
-            onChange={handleSearchChange}
-            className="mt-2 p-2 border rounded w-full"
-            placeholder="Search by name, specialty..."
-          />
-        </div>
-
-        {/* Doctor Role - Option Buttons */}
-        <div className="mb-4">
-          <label htmlFor="specialtyFilter" className="block text-gray-700 mb-1">
-            Doctor Specialty
-          </label>
-          <select
-            id="specialtyFilter"
-            value={selectedRole}
-            onChange={handleRoleChange}
-            className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          >
-            <option value="">All Specialties</option>
-            <option value="Cardiologist">Cardiologist</option>
-            <option value="Dermatologist">Dermatologist</option>
-            <option value="Pediatrician">Pediatrician</option>
-            <option value="Orthopedic">Orthopedic</option>
-          </select>
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Minimum Rating</label>
-          <div className="flex flex-col space-y-2">
-            {[5, 4, 3, 2, 1].map((rating) => (
-              <label
-                key={rating}
-                className="flex items-center space-x-2 cursor-pointer hover:text-blue-600"
-              >
-                <input
-                  type="radio"
-                  name="review"
-                  value={rating}
-                  checked={selectedReview === String(rating)}
-                  onChange={handleReviewChange}
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500"
-                />
-                <div className="flex">
-                  {Array.from({ length: rating }).map((_, i) => (
-                    <span key={i} className="text-yellow-400 text-lg">
-                      ★
-                    </span>
-                  ))}
-                  {Array.from({ length: 5 - rating }).map((_, i) => (
-                    <span key={i + rating} className="text-gray-300 text-lg">
-                      ★
-                    </span>
-                  ))}
-                </div>
-                <span className="text-sm text-gray-500">{rating}+</span>
+      <div className="w-full md:w-1/3 xl:w-1/4 bg-white p-4 rounded-md shadow-lg">
+        <div className="flex flex-col sm:flex-row md:flex-col gap-0 sm:gap-4 md:gap-0">
+          {/* Search Input */}
+          <div className="w-full">
+            <div className="mb-4">
+              <label htmlFor="searchText" className="block font-medium text-gray-700">
+                Search Doctor
               </label>
-            ))}
+              <input
+                type="text"
+                id="searchText"
+                value={searchText}
+                onChange={handleSearchChange}
+                className="mt-2 p-2 border rounded w-full"
+                placeholder="Search by name, specialty..."
+              />
+            </div>
+
+            {/* Doctor Role - Option Buttons */}
+            <div className="mb-4">
+              <label
+                htmlFor="specialtyFilter"
+                className="block text-gray-700 mb-1 font-medium"
+              >
+                Doctor Specialty
+              </label>
+              <select
+                id="specialtyFilter"
+                value={selectedRole}
+                onChange={handleRoleChange}
+                className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              >
+                <option value="">All Specialties</option>
+                <option value="Cardiologist">Cardiologist</option>
+                <option value="Dermatologist">Dermatologist</option>
+                <option value="Pediatrician">Pediatrician</option>
+                <option value="Orthopedic">Orthopedic</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-gray-700 mb-2 font-medium">Minimum Rating</label>
+            <div className="flex flex-col space-y-2">
+              {[5, 4, 3, 2, 1].map((rating) => (
+                <label
+                  key={rating}
+                  className="flex items-center space-x-2 cursor-pointer hover:text-blue-600"
+                >
+                  <input
+                    type="radio"
+                    name="review"
+                    value={rating}
+                    checked={selectedReview === String(rating)}
+                    onChange={handleReviewChange}
+                    className="h-4 w-4 text-blue-600 focus:ring-blue-500"
+                  />
+                  <div className="flex">
+                    {Array.from({ length: rating }).map((_, i) => (
+                      <span key={i} className="text-yellow-400 text-lg">
+                        ★
+                      </span>
+                    ))}
+                    {Array.from({ length: 5 - rating }).map((_, i) => (
+                      <span key={i + rating} className="text-gray-300 text-lg">
+                        ★
+                      </span>
+                    ))}
+                  </div>
+                  <span className="text-sm text-gray-500">{rating}+</span>
+                </label>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -263,8 +266,8 @@ const Doctors = () => {
         </div>
       </div>
       {/* Filter Section */}
-      <div className="w-full md:w-1/3 xl:w-3/4 ">
-        <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="w-full md:w-2/3 xl:w-3/4"> 
+        <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
           {doctors.map((doctor) => (
             <DoctorCard key={doctor.uid} doctor={doctor} />
           ))}
