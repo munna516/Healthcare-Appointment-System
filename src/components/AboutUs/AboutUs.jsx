@@ -1,11 +1,5 @@
-// import AboutVisuals from "./AboutVisuals";
-// import SectionSubTitle from "@components/SectionSubTitle/SectionSubTitle";
-// import SectionTitle from "@components/SectionTitle/SectionTitle";
-// import AboutService from "./AboutService";
-
 import SectionSubTitle from "@components/SectionSubTitle/SectionSubTitle";
 import AboutVisuals from "./AboutVisuals";
-// import SectionTitle from "@components/SectionTitle/SectionTitle";
 import AboutService from "./AboutService";
 
 const AboutUs = () => {
@@ -17,9 +11,9 @@ const AboutUs = () => {
         </div>
         <div className="lg:w-1/2 md:text-center lg:text-left lg:mx-0 pt-0 px-2 md:px-0 lg:pt-0 md:pt-32">
           <SectionSubTitle text={"about us"} />
-          {/* <SectionTitle
-            text={"Caring for Your Health, Every Step of the Way."}
-          ></SectionTitle> */}
+          <h1 className={`text-xl capitalize md:text-4xl font-bold pb-6`}>
+            Caring for Your Health, Every Step of the Way.
+          </h1>
           <p className="lg:text-lg text-[#000000b4] pb-6">
             Our team is dedicated to providing personalized and comprehensive
             healthcare services to meet the needs of every patient. With a

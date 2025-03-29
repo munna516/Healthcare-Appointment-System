@@ -8,7 +8,7 @@ export default function ContactUs() {
   return (
     <section className="">
       {/* Header Section */}
-     <div className="relative h-64 bg-[#1f3b53ef] bg-blend-multiply   bg-[url('https://html.narzotech.com/madifax/images/breadcrumb_bg.jpg')] bg-cover bg-center  text-white px-10 py-20">
+     <div className="relative h-96 bg-[#1f3b53ef] bg-blend-multiply   bg-[url('https://html.narzotech.com/madifax/images/breadcrumb_bg.jpg')] bg-cover bg-center  text-white px-10 py-20">
      <div className="relative z-10 ">
        <h2 className="text-4xl font-bold">Contact Us</h2>
        <div className='flex mt-3 gap-2 items-center '>
@@ -18,7 +18,7 @@ export default function ContactUs() {
        </div>
      </div>
      </div>
-      <div className="container mx-auto px-4 mt-10">
+      <div className="max-w-7xl mx-auto px-4 mt-10">
         {/* Contact Info */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
           <div className="bg-white shadow-md p-6 rounded-lg flex flex-col ">
@@ -77,7 +77,7 @@ export default function ContactUs() {
           ></iframe>
         </div>
         {/* subscription */}
-        <div className="flex flex-col items-center justify-center md:px-6 py-8 md:py-12 mt-16 w-full">
+        <div className="flex flex-col items-center justify-center md:px-0 py-8 md:py-12 mt-16 w-full">
           <div className="w-full py-11 px-8   bg-blue-500 text-white rounded-lg md:rounded-full p-4 flex flex-col md:flex-row items-center justify-between gap-4">
             <h2 className="text-lg  md:text-4xl font-bold text-center md:text-left">
               Subscribe for the Exclusive Updates!
