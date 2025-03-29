@@ -4,12 +4,15 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { TbFidgetSpinner } from "react-icons/tb";
 
 export default function LoginForm() {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
@@ -29,6 +32,8 @@ export default function LoginForm() {
       }
     } catch (error) {
       toast.error("Error, trrrrry again");
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -82,7 +87,11 @@ export default function LoginForm() {
             type="submit"
             className="border-2 rounded-lg py-1 bg-blue-500 text-white font-semibold   text-lg w-full "
           >
-            Login
+            {loading ? (
+              <TbFidgetSpinner className="animate-spin m-auto" />
+            ) : (
+              "Login"
+            )}
           </button>
         </div>
       </form>

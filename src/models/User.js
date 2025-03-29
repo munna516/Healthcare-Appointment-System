@@ -16,6 +16,15 @@ const userSchema = new Schema(
       type: String,
       required: false,
     },
+    image: {
+      type: String,
+      require: false,
+      default: null,
+    },
+    role: {
+      type: String,
+      require: true,
+    },
   },
   { timestamps: true }
 );

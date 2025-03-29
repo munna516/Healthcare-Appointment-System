@@ -2,7 +2,7 @@ import connect from "src/lib/dbConnect";
 import User from "src/models/User";
 
 export const POST = async (request) => {
-  const { email, name } = await request.json();
+  const { email, name, image } = await request.json();
   await connect();
 
   const existingUser = await User.findOne({ email });
@@ -13,8 +13,10 @@ export const POST = async (request) => {
   const newUser = new User({
     email,
     name,
+    image,
+    role: "patient",
   });
-
+  console.log("User is : ", newUser);
   try {
     await newUser.save();
     return Response.json("user is registered by google", { status: 200 });
