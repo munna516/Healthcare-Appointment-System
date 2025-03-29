@@ -6,10 +6,10 @@ export default function BecameDoctor() {
   return (
     <div className="mb-12 md:mb-24">
       {/* Hero section */}
-      <DoctorHero/>
+      <DoctorHero />
       <div className="flex gap-6 flex-col lg:flex-row justify-between max-w-7xl w-full mx-auto">
-          <OurRulesAndPolicy/>
-          <DoctorForm/>
+        <OurRulesAndPolicy />
+        <DoctorForm />
       </div>
     </div>
   );
