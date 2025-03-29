@@ -1,10 +1,49 @@
+"use client";
+
 import React from "react";
+import { useSession } from "next-auth/react";
+import toast from "react-hot-toast";
 
 export default function AppointmentForm() {
+  const session = useSession();
+
   const inputStyle = {
     backgroundColor: "#E0F5FF",
     border: "1px solid #CBD5E0",
     borderRadius: "24px",
+  };
+
+  const handleBooking = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    const appointmentData = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      department: form.department.value,
+      doctor: form.doctor.value,
+      date: form.date.value,
+      time: form.time.value,
+      message: form.message.value,
+    };
+
+    try {
+      const response = await fetch("/api/appointment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(appointmentData),
+      });
+      if (response.ok) {
+        toast.success("Appointment booked successfully");
+        form.reset();
+      }
+    } catch (error) {
+      console.error("Error submitting appointment:", error);
+      toast.error("An error occurred. Please try again later.");
+    }
   };
 
   return (
@@ -22,8 +61,7 @@ export default function AppointmentForm() {
           </p>
 
           <div className="border-t border-gray-200 my-6"></div>
-
-          <form className="space-y-6">
+          <form onSubmit={handleBooking} className="space-y-6">
             <div>
               <label
                 htmlFor="name"
@@ -34,6 +72,9 @@ export default function AppointmentForm() {
               <input
                 type="text"
                 id="name"
+                name="name"
+                readOnly
+                value={session.data?.user?.name}
                 style={inputStyle}
                 className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                 placeholder="Enter your name"
@@ -52,6 +93,9 @@ export default function AppointmentForm() {
                 <input
                   type="email"
                   id="email"
+                  name="email"
+                  readOnly
+                  value={session.data?.user?.email}
                   style={inputStyle}
                   className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                   placeholder="Enter your email"
@@ -68,6 +112,7 @@ export default function AppointmentForm() {
                 </label>
                 <input
                   type="tel"
+                  name="phone"
                   id="phone"
                   style={inputStyle}
                   className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
@@ -87,11 +132,15 @@ export default function AppointmentForm() {
                 </label>
                 <select
                   id="department"
+                  name="department"
+                  required
                   style={inputStyle}
                   className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition appearance-none"
                 >
-                  <option value="">Select a department</option>
-                  <option value="cardiology">Cardiology</option>
+                  <option selected disabled value="">
+                    Select a department
+                  </option>
+                  <option  value="cardiology">Cardiology</option>
                   <option value="neurology">Neurology</option>
                   <option value="orthopedics">Orthopedics</option>
                 </select>
@@ -106,10 +155,14 @@ export default function AppointmentForm() {
                 </label>
                 <select
                   id="doctor"
+                  name="doctor"
+                  required
                   style={inputStyle}
                   className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition appearance-none"
                 >
-                  <option value="">Select a doctor</option>
+                  <option selected disabled value="">
+                    Select a doctor
+                  </option>
                   <option value="dr-smith">Dr. Smith</option>
                   <option value="dr-johnson">Dr. Johnson</option>
                   <option value="dr-williams">Dr. Williams</option>
@@ -128,6 +181,8 @@ export default function AppointmentForm() {
                 <input
                   type="date"
                   id="date"
+                  name="date"
+                  required
                   style={inputStyle}
                   className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                   placeholder="mm/dd/yyyy"
@@ -143,10 +198,14 @@ export default function AppointmentForm() {
                 </label>
                 <select
                   id="time"
+                  required
+                  name="time"
                   style={inputStyle}
                   className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition appearance-none"
                 >
-                  <option value="">Select a time</option>
+                  <option disabled value="">
+                    Select a time
+                  </option>
                   <option value="09:00">09:00 AM</option>
                   <option value="10:00">10:00 AM</option>
                   <option value="11:00">11:00 AM</option>
@@ -167,6 +226,7 @@ export default function AppointmentForm() {
                 id="message"
                 rows={4}
                 style={inputStyle}
+                name="message"
                 className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition "
                 placeholder="Enter your message"
               ></textarea>
