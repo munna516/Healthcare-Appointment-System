@@ -5,11 +5,14 @@ import { Button } from "../ui/button";
 import { usePathname, useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import toast from "react-hot-toast";
+import Image from "next/image";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSubTrigger, DropdownMenuTrigger } from "@components/ui/dropdown-menu";
+import { Avatar, AvatarImage } from "@components/ui/avatar";
+
 
 export const Navbar = () => {
   const pathName = usePathname();
   const { data, status } = useSession();
-
   const logOut = () => {
     signOut({ redirect: false });
     toast.success("Logout Successful");
@@ -78,9 +81,23 @@ export const Navbar = () => {
         <div className="flex items-center gap-4">
           <div className="hidden md:block">
             {status == "authenticated" ? (
-              <Button onClick={() => logOut()} variant="primary">
-                Logout
-              </Button>
+              <>
+              <DropdownMenu>
+                    <DropdownMenuTrigger>
+                      <Avatar>
+                        <AvatarImage className="border-2 rounded-full border-blue-500" src={data?.user.image} alt="User" />
+                      </Avatar>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="w-40">
+                      <DropdownMenuItem onClick={() => console.log("Go to Dashboard")}>
+                        Dashboard
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => logOut()}>
+                        Logout
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+              </>
             ) : (
               <div className="flex items-center gap-4">
                 <Link href={"/login"}>
@@ -101,6 +118,21 @@ export const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <Sheet>
+          <DropdownMenu>
+                    <DropdownMenuTrigger>
+                      <Avatar>
+                        <AvatarImage className="border-2 rounded-full border-blue-500" src={data?.user.image} alt="User" />
+                      </Avatar>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="w-40">
+                      <DropdownMenuItem onClick={() => console.log("Go to Dashboard")}>
+                        Dashboard
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => logOut()}>
+                        Logout
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
             <SheetTrigger asChild>
               <Button className="md:hidden bg-white text-black">☰</Button>
             </SheetTrigger>
