@@ -10,8 +10,9 @@ export const DoctorCard = ({ doctor }) => {
           <Image
             src={doctor?.photo_url}
             alt={doctor?.name || "Doctor Image"}
-            layout="fill"
-            objectFit="cover"
+            width={150}
+            height={150}
+            className="w-full h-full object-cover"
           />
         </div>
       </div>

@@ -1,20 +1,23 @@
 "use client";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 
 const GoogleLogin = () => {
   const { data: session } = useSession();
   const router = useRouter();
+  const hasShownToast = useRef(false); // 👈 Track if toast was shown
   const handleGoogleSignIn = () => {
     signIn("google");
   };
+
   useEffect(() => {
     console.log("Ok ", session);
-    if (session?.provider === "google") {
+    if (session?.provider === "google" && !hasShownToast.current) {
       router.push("/");
+      hasShownToast.current = true; // 👈 Mark toast as shown
       toast.success("Successfully logged in with Google!");
     }
   }, [session]);
