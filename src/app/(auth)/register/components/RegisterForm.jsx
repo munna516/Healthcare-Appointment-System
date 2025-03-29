@@ -19,6 +19,7 @@ export default function RegisterForm() {
     const email = form.email.value;
     const password = form.password.value;
     const imageFile = form.image.files[0];
+    console.log(imageFile);
     if (password.length < 6) {
       setErrorMessage("password should be 6 characters");
       return;
