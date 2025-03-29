@@ -6,9 +6,15 @@ import { usePathname, useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import toast from "react-hot-toast";
 import Image from "next/image";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuSubTrigger, DropdownMenuTrigger } from "@components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@components/ui/dropdown-menu";
 import { Avatar, AvatarImage } from "@components/ui/avatar";
-
 
 export const Navbar = () => {
   const pathName = usePathname();
@@ -82,22 +88,31 @@ export const Navbar = () => {
           <div className="hidden md:block">
             {status == "authenticated" ? (
               <>
-              <DropdownMenu>
-                    <DropdownMenuTrigger>
-                      <Avatar>
-                        <AvatarImage className="border-2 rounded-full border-blue-500" src={data?.user.image} alt="User" />
-                      </Avatar>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end" className="w-40">
-                      <DropdownMenuItem onClick={() => console.log("Go to Dashboard")}>
-                        Dashboard
-                      </DropdownMenuItem>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem onClick={() => logOut()}>
-                        Logout
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                <DropdownMenu>
+                  <DropdownMenuTrigger>
+                    <Avatar>
+                      <AvatarImage
+                        className="border-2 rounded-full border-blue-500"
+                        src={data?.user.image}
+                        alt="User"
+                      />
+                    </Avatar>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-40">
+                    <DropdownMenuItem className="text-blue-500  font-bold hover:text-red-500">{data?.user?.name}</DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem
+                      onClick={() => console.log("Go to Dashboard")}
+                      className="text-blue-500 cursor-pointer font-bold"
+                    >
+                      Dashboard
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={() => logOut()} className="text-red-500 cursor-pointer font-bold">
+                      Logout
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </>
             ) : (
               <div className="flex items-center gap-4">
@@ -119,21 +134,27 @@ export const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <Sheet>
-          <DropdownMenu>
-                    <DropdownMenuTrigger>
-                      <Avatar className=" md:hidden">
-                        <AvatarImage className="border-2 md:hidden rounded-full border-blue-500" src={data?.user.image} alt="User" />
-                      </Avatar>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end" className="w-40">
-                      <DropdownMenuItem onClick={() => console.log("Go to Dashboard")}>
-                        Dashboard
-                      </DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => logOut()}>
-                        Logout
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <Avatar className=" md:hidden">
+                  <AvatarImage
+                    className="border-2 md:hidden rounded-full border-blue-500"
+                    src={data?.user.image}
+                    alt="User"
+                  />
+                </Avatar>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-40">
+                <DropdownMenuItem
+                  onClick={() => console.log("Go to Dashboard")}
+                >
+                  Dashboard
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => logOut()}>
+                  Logout
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <SheetTrigger asChild>
               <Button className="md:hidden bg-white text-black">☰</Button>
             </SheetTrigger>
