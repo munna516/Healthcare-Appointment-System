@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
-import connect from "@/lib/dbConnect";
-import Appointment from "@/models/Appointment";
+import {  NextResponse } from 'next/server';
+import connect from "../../../lib/dbConnect";
+import Appointment from "./src/models/Appointment";
 
 export async function POST(req) {
   try {

@@ -1,10 +1,11 @@
-import SectionSubTitle from "../SectionSubTitle/SectionSubTitle";
-import SectionTitle from "../SectionTitle/SectionTitle";
+
 import { DoctorCard } from "./DoctorCard";
 import { Button } from "../ui/button";
 import Link from "next/link";
+// import SectionTitle from "@components/SectionTitle/SectionTitle";
+import SectionSubTitle from "@components/SectionSubTitle/SectionSubTitle";
 
-export const TopDoctors = () => {
+const TopDoctors = () => {
   const doctors = [
     {
       uid: "cardio_jsmith",
@@ -107,7 +108,7 @@ export const TopDoctors = () => {
     <div className="max-w-7xl w-full mx-auto mt-40">
       <div className=" px-2 flex justify-center items-center flex-col mb-8">
         <SectionSubTitle text={"Doctors"} />
-        <SectionTitle text={"Meet our Doctors"} />
+        {/* <SectionTitle text={"Meet our Doctors"} /> */}
       </div>
       <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-4">
         {doctors.map((doctor) => (
@@ -115,10 +116,12 @@ export const TopDoctors = () => {
         ))}
       </div>
       <div className="flex justify-center items-center w-full mt-14">
-      <Link href="/doctors">
-        <Button variant="primary">See All Doctors</Button>
-      </Link>
+        <Link href="/doctors">
+          <Button variant="primary">See All Doctors</Button>
+        </Link>
       </div>
     </div>
   );
 };
+
+export default TopDoctors;
