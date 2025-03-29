@@ -41,7 +41,7 @@ export default function RegisterForm() {
         toast.error("This email is already registered");
       }
       if (res.status === 200) {
-        toast.success("Registration Successfull");
+        toast.success("Registration Successful");
         router.push("/");
       }
     } catch (error) {
