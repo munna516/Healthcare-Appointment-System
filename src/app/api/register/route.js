@@ -3,7 +3,7 @@ import connect from "src/lib/dbConnect";
 import User from "src/models/User";
 
 export const POST = async (request) => {
-  const { email, name, password } = await request.json();
+  const { email, name, password, image } = await request.json();
   await connect();
   console.log("DB is connected");
 
@@ -21,8 +21,9 @@ export const POST = async (request) => {
     email,
     name,
     password: hashedPassword,
+    image,
+    role: "patient",
   });
-
   try {
     await newUser.save();
     return Response.json("user is registered", { status: 200 });
