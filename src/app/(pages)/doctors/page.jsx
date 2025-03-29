@@ -35,6 +35,7 @@ const Doctors = () => {
       bio: "Dr. John Smith is a board-certified cardiologist with over 15 years of experience in treating heart-related conditions.",
       services: ["Heart Check-up", "ECG", "Cardiac Surgery"],
       name: "Dr. John Smith",
+      review: 4.5,
       title: "MD",
       degrees: ["MBBS", "MD", "FACS"],
       specialty: "Cardiology",
@@ -59,6 +60,7 @@ const Doctors = () => {
       bio: "Dr. Emily Miller specializes in obstetrics and gynecology with a focus on minimally invasive procedures.",
       services: ["Prenatal Care", "Pap Smear", "Laparoscopy"],
       name: "Dr. Emily Miller",
+      review: 4.8,
       title: "MD",
       degrees: ["MBBS", "MD", "FACOG"],
       specialty: "Gynecology",
@@ -84,6 +86,7 @@ const Doctors = () => {
       bio: "Dr. John Smith is a board-certified cardiologist with over 15 years of experience in treating heart-related conditions.",
       services: ["Heart Check-up", "ECG", "Cardiac Surgery"],
       name: "Dr. John Smith",
+      review: 4.5,
       title: "MD",
       degrees: ["MBBS", "MD", "FACS"],
       specialty: "Cardiology",
@@ -108,6 +111,7 @@ const Doctors = () => {
       bio: "Dr. Emily Miller specializes in obstetrics and gynecology with a focus on minimally invasive procedures.",
       services: ["Prenatal Care", "Pap Smear", "Laparoscopy"],
       name: "Dr. Emily Miller",
+      review: 4.8,
       title: "MD",
       degrees: ["MBBS", "MD", "FACOG"],
       specialty: "Gynecology",
@@ -132,6 +136,7 @@ const Doctors = () => {
       bio: "Dr. Raj Patel is a neurologist specializing in epilepsy and movement disorders.",
       services: ["EEG", "EMG", "Migraine Treatment"],
       name: "Dr. Raj Patel",
+      review: 4.7,
       title: "MD",
       degrees: ["MBBS", "MD", "FAAN"],
       specialty: "Neurology",
@@ -156,6 +161,7 @@ const Doctors = () => {
       bio: "Dr. Sarah Williams is a nephrologist with expertise in kidney transplants and chronic kidney disease.",
       services: ["Dialysis", "Kidney Biopsy", "Hypertension Management"],
       name: "Dr. Sarah Williams",
+      review: 3.6,
       title: "MD",
       degrees: ["MBBS", "MD", "FASN"],
       specialty: "Nephrology",
@@ -183,7 +189,10 @@ const Doctors = () => {
           {/* Search Input */}
           <div className="w-full">
             <div className="mb-4">
-              <label htmlFor="searchText" className="block font-medium text-gray-700">
+              <label
+                htmlFor="searchText"
+                className="block font-medium text-gray-700"
+              >
                 Search Doctor
               </label>
               <input
@@ -220,7 +229,9 @@ const Doctors = () => {
           </div>
 
           <div className="mb-4">
-            <label className="block text-gray-700 mb-2 font-medium">Minimum Rating</label>
+            <label className="block text-gray-700 mb-2 font-medium">
+              Minimum Rating
+            </label>
             <div className="flex flex-col space-y-2">
               {[5, 4, 3, 2, 1].map((rating) => (
                 <label
@@ -266,7 +277,7 @@ const Doctors = () => {
         </div>
       </div>
       {/* Filter Section */}
-      <div className="w-full md:w-2/3 xl:w-3/4"> 
+      <div className="w-full md:w-2/3 xl:w-3/4">
         <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
           {doctors.map((doctor) => (
             <DoctorCard key={doctor.uid} doctor={doctor} />
