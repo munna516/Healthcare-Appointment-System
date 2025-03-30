@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import PropTypes from "prop-types";
 import { FaArrowRightLong } from "react-icons/fa6";
 
@@ -7,7 +8,10 @@ const BlogCard = ({ post }) => {
     <div className="bg-white rounded-lg shadow-md overflow-hidden group">
       <div className="relative">
         <Image
-          src={post?.thumbnail}
+          src={
+            post?.thumbnail ||
+            "https://i.ibb.co.com/6Jt9jMjn/Screenshot-2025-03-30-153253.png"
+          }
           alt={post?.title}
           width={500}
           height={300}
@@ -35,12 +39,14 @@ const BlogCard = ({ post }) => {
         <h3 className="text-lg font-semibold text-gray-800">{post?.title}</h3>
         <p className="text-gray-600 mt-2 text-sm">{post?.description}</p>
         <div className="flex items-center justify-between mt-4 text-gray-500 text-sm">
-          <p className="font-semibold text-black hover:text-blue-500 flex items-center gap-3 cursor-pointer">
-            Read More
-            <span>
-              <FaArrowRightLong />
-            </span>
-          </p>
+          <Link href={`/blog/${post.id}`}>
+            <p className="font-semibold text-black hover:text-blue-500 flex items-center gap-3 cursor-pointer">
+              Read More
+              <span>
+                <FaArrowRightLong />
+              </span>
+            </p>
+          </Link>
           <div className="flex space-x-3">
             <span>💬 {post?.comments}</span>
             <span>❤️ {post?.reacts}</span>

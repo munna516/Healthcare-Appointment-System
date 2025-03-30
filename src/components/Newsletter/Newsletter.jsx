@@ -14,7 +14,7 @@ const Newsletter = ({
 
   return (
     <div
-      className={`flex flex-col items-center justify-center w-full ${className}`}
+      className={`flex flex-col items-center justify-center w-full px-4 max-w-7xl mx-auto ${className}`}
     >
       <div className="w-full py-10 px-8 bg-blue-500 text-white rounded-lg md:rounded-full p-4 flex flex-col md:flex-row items-center justify-between gap-4">
         <h2 className="text-lg md:text-4xl font-bold text-center md:text-left">

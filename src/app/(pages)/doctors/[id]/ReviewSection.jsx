@@ -1,6 +1,7 @@
 import { Button } from "@components/ui/button";
 import { useState } from "react";
-import { FaStar, FaRegStar, FaUserCircle } from "react-icons/fa";
+import { Avatar, AvatarFallback, AvatarImage } from "@components/ui/avatar";
+import { FaRegStar, FaStar } from "react-icons/fa";
 
 const ReviewSection = ({ doctorId }) => {
   console.log("fetch data with this id", doctorId);
@@ -13,6 +14,7 @@ const ReviewSection = ({ doctorId }) => {
       comment:
         "Dr. Smith was incredibly thorough and took the time to explain everything in detail. The office was clean and the staff was friendly. Highly recommend!",
       date: "2023-11-15",
+      image: "https://i.ibb.co.com/MBNt4Gv/istockphoto-495353929-170667a.jpg",
     },
     {
       id: 2,
@@ -45,6 +47,7 @@ const ReviewSection = ({ doctorId }) => {
       comment:
         "Exceptional care! The doctor went above and beyond to make sure I understood my treatment options. The office had a very calming atmosphere.",
       date: "2023-09-18",
+      image: "https://i.ibb.co.com/MBNt4Gv/istockphoto-495353929-170667a.jpg",
     },
     {
       id: 6,
@@ -61,6 +64,7 @@ const ReviewSection = ({ doctorId }) => {
       comment:
         "I was nervous about my first visit but the doctor made me feel completely at ease. The treatment plan was perfect for my needs. Will definitely return!",
       date: "2023-08-10",
+      image: "https://i.ibb.co.com/MBNt4Gv/istockphoto-495353929-170667a.jpg",
     },
     {
       id: 8,
@@ -182,7 +186,13 @@ const ReviewSection = ({ doctorId }) => {
               >
                 <div className="review-header flex items-center mb-2">
                   <div className="avatar mr-3">
-                    <FaUserCircle className="user-icon text-3xl text-gray-400" />
+                    <Avatar className="h-10 w-10">
+                      <AvatarImage
+                        src={review?.image}
+                        className="object-cover"
+                      />
+                      <AvatarFallback>CU</AvatarFallback>
+                    </Avatar>{" "}
                   </div>
                   <div className="review-meta">
                     <h4 className="reviewer-name font-medium text-gray-800">
