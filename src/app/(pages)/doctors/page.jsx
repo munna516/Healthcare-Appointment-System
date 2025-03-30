@@ -81,7 +81,7 @@ const Doctors = () => {
     },
 
     {
-      uid: "cardio_jsmith",
+      uid: "cardsio_jsmith",
       photo_url: "https://i.ibb.co.com/cFx5cYx/download.jpg",
       bio: "Dr. John Smith is a board-certified cardiologist with over 15 years of experience in treating heart-related conditions.",
       services: ["Heart Check-up", "ECG", "Cardiac Surgery"],
@@ -106,7 +106,7 @@ const Doctors = () => {
       status: "verified",
     },
     {
-      uid: "gyno_emiller",
+      uid: "gyno_emsiller",
       photo_url: "https://i.ibb.co.com/8c1tz58/Option-3-1024x683.jpg",
       bio: "Dr. Emily Miller specializes in obstetrics and gynecology with a focus on minimally invasive procedures.",
       services: ["Prenatal Care", "Pap Smear", "Laparoscopy"],
