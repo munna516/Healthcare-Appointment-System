@@ -29,9 +29,28 @@ function SidebarContent() {
           >
             Patient Review
           </Link>
+
+           {/* patient part  */}
+           <Link
+            href="/dashboard/patient-profile"
+            className="flex items-center gap-3 rounded-lg px-4 py-2 text-muted-foreground transition-all hover:text-blue-500"
+          >
+            Patient Profile
+          </Link>
+
+   {/* Doctor part  */}
+   <Link
+            href="/dashboard/doctor-profile"
+            className="flex items-center gap-3 rounded-lg px-4 py-2 text-muted-foreground transition-all hover:text-blue-500"
+          >
+            Doctor Profile
+          </Link>
+
           <Link 
             className="flex items-center gap-3 rounded-lg px-4 py-2 text-black transition-all hover:text-blue-500" 
             href={"/"}><FaHome/> Home</Link>
+
+           
         </nav>
       </div>
     );
