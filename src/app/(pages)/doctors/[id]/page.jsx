@@ -35,7 +35,7 @@ const DoctorPage = ({ params }) => {
 
   return (
     <>
-      <div className="max-w-7xl w-full mx-auto px-4 py-10 flex flex-col lg:flex-row gap-6">
+      <div className="max-w-7xl mt-20 w-full mx-auto px-4 py-10 flex flex-col lg:flex-row gap-6">
         <div className="w-full lg:w-2/3">
           {/* Picture & Details */}
           <div className="flex flex-col md:flex-row gap-6 p-4">

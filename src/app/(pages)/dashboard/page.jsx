@@ -1,6 +1,11 @@
+import AdminStatistics from "./components/AdminStatistics/AdminStatistics";
+
 const dashboard = () => {
+    const role = "admin";
     return (
-        <h1>Hello, this is our name </h1>
+        role === "admin" ? 
+        <AdminStatistics></AdminStatistics>: 
+        <div>Normal users</div>
     );
 };
 
