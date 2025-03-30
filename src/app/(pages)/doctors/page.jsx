@@ -21,10 +21,10 @@ const Doctors = () => {
   };
 
   const handleApplyFilters = () => {
-    console.log("Filters Applied:");
-    console.log("Search Text:", searchText);
-    console.log("Selected Role:", selectedRole);
-    console.log("Selected Review:", selectedReview);
+    // console.log("Filters Applied:");
+    // console.log("Search Text:", searchText);
+    // console.log("Selected Role:", selectedRole);
+    // console.log("Selected Review:", selectedReview);
     // You can use these values to send a request to the backend or filter data
   };
 

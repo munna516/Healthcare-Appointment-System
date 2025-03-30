@@ -16,7 +16,7 @@ export const POST = async (request) => {
     image,
     role: "patient",
   });
-  console.log("User is : ", newUser);
+
   try {
     await newUser.save();
     return Response.json("user is registered by google", { status: 200 });

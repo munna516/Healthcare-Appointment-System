@@ -20,7 +20,6 @@ const DrPageAppointment = ({ doctorId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Appointment booked:", formData);
   };
 
   const timeSlots = [
