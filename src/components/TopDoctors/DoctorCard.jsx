@@ -2,9 +2,10 @@ import PropTypes from "prop-types";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import Link from "next/link";
 
 export const DoctorCard = ({ doctor }) => {
-  // Convert review to number if it's a string
+  //!! Convert review to number if it's a string
   const rating =
     typeof doctor.review === "string"
       ? parseFloat(doctor.review)
@@ -56,9 +57,11 @@ export const DoctorCard = ({ doctor }) => {
             <Button variant="primary" className="px-4 py-2 w-full">
               Appointment
             </Button>
-            <Button variant="outline" className="px-4 py-2">
-              View
-            </Button>
+            <Link href={`/doctors/${doctor?.uid}`} passHref>
+              <Button variant="outline" className="px-4 py-2">
+                View
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
