@@ -6,7 +6,7 @@ import { PiGreaterThanBold } from "react-icons/pi";
 export default function ContactUs() {
   const contactFormImage = "https://i.ibb.co.com/TnX2m24/contact-form.jpg";
   return (
-    <section className="">
+    <section className="mt-20">
       {/* Header Section */}
      <div className="relative h-96 bg-[#1f3b53ef] bg-blend-multiply   bg-[url('https://html.narzotech.com/madifax/images/breadcrumb_bg.jpg')] bg-cover bg-center  text-white px-10 py-20">
      <div className="relative z-10 ">

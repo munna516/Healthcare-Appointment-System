@@ -182,7 +182,7 @@ const Doctors = () => {
     },
   ];
   return (
-    <div className="max-w-7xl w-full mx-auto px-4 py-10 flex flex-col md:flex-row gap-6">
+    <div className="max-w-7xl mt-20 w-full mx-auto px-4 py-10 flex flex-col md:flex-row gap-6">
       {/* Filter Section */}
       <div className="w-full md:w-1/3 xl:w-1/4 bg-white p-4 rounded-md shadow-lg">
         <div className="flex flex-col sm:flex-row md:flex-col gap-0 sm:gap-4 md:gap-0">

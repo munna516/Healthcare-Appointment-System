@@ -1,6 +1,6 @@
 const dashboard = () => {
     return (
-        <h1>Hello</h1>
+        <h1>Hello, this is our name </h1>
     );
 };
 

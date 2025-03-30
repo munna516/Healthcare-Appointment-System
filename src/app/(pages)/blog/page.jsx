@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Blog() {
-  return <div>Blog</div>;
+  return <div className=" mt-20">Blog</div>;
 }

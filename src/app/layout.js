@@ -31,9 +31,9 @@ export default function RootLayout({ children }) {
         <NextAuthProvider>
           <nav>
           <Navbar />
-          {children}
+          {/* {children} */}
           </nav>
-          <main className="pt-16 min-h-screen">
+          <main className="min-h-screen">
             {children}
             <Toaster />
           </main>
