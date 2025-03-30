@@ -9,9 +9,5 @@ export default function RootLayout({ children }) {
         <Dashboard>{children}</Dashboard>
         <Toaster />
       </>
-
-
-
-
   );
 }

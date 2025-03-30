@@ -19,19 +19,19 @@ export function Dashboard({ children }) {
           <Button
             variant="ghost"
             size="icon"
-            className="fixed left-2 top-2 z-50"
+            className="fixed left-2 top-2 z-50 text-white"
           >
             <Menu className="h-5 w-5" />
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="w-[280px] p-0">
+        <SheetContent side="left" className="w-[280px] p-0 bg-[#00a6fb] text-white">
           <SidebarContent />
         </SheetContent>
       </Sheet>
 
       {/* Desktop Sidebar */}
       <aside className="hidden w-[280px] border-r bg-muted/40 lg:block">
-        <ScrollArea className="h-full">
+        <ScrollArea className="h-full bg-[#00a6fb] text-white">
           <SidebarContent />
         </ScrollArea>
       </aside>

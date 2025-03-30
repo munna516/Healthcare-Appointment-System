@@ -5,7 +5,7 @@ import React from 'react';
 
 const UserProfile = () => {
   const { data, status } = useSession();
-  console.log(data);
+
     return (
         <div className='max-w-3xl bg-[#00a6fb] pt-8 mx-auto flex items-center justify-center'>
             <Image

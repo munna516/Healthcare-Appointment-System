@@ -18,7 +18,6 @@ const MakeAppointmentCard = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(e.target[0].value, e.target[1].value, e.target[2].value);
   };
 
   return (
