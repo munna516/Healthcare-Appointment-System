@@ -7,7 +7,7 @@ const UserProfile = () => {
   const { data, status } = useSession();
 
     return (
-        <div className='max-w-3xl bg-[#00a6fb] pt-8 mx-auto flex items-center justify-center'>
+        <div className='w-full md:max-w-3xl bg-[#00a6fb] pt-8 mx-auto flex items-center justify-center'>
             <Image
                 src={data?.user?.image}
                 width={300}
