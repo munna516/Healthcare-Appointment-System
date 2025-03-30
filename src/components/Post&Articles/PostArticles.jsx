@@ -1,37 +1,49 @@
 import Image from "next/image";
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
+import BlogCard from "./BlogCard";
+import Link from "next/link";
+import { Button } from "@components/ui/button";
 
-const posts = [
+const blogs = [
   {
     id: 1,
-    category: "Medical",
-    image: "https://i.ibb.co.com/FbXPRX4Z/blog-1.jpg",
-    title: "Telehealth Services Are Ready To Help Your Family",
-    date: "22 June 2023",
-    author: "Admin",
+    title: "The Impact of AI in Modern Healthcare",
+    thumbnail: "https://i.ibb.co.com/5ZSyNnD/5g-for-healthcare.png",
     description:
-      "Explore how telehealth services are transforming healthcare, making medical consultations more accessible and convenient for families.",
+      "How artificial intelligence is transforming diagnostics, treatment, and patient care in healthcare.",
+    author: "Dr. John Carter",
+    category: "Medical",
+    date: "2025-03-28",
+    comments: 18,
+    likes: 200,
+    reacts: 320,
   },
   {
     id: 2,
-    category: "Hospital",
-    image: "https://i.ibb.co.com/tp6MpmwW/blog-2.jpg",
-    title: "Doccure – Ensuring a Smooth and Painless Clinic Visit.",
-    date: "22 June 2023",
-    author: "Admin",
+    title: "Telemedicine: The Future of Patient Consultations",
+    thumbnail: "https://i.ibb.co.com/mC0Xwtyh/pexels-photo-7176026.png",
     description:
-      "Discover how Doccure simplifies clinic visits, reducing wait times and ensuring a seamless healthcare experience for patients.",
+      "Exploring the rise of telehealth services and how they are revolutionizing doctor-patient interactions.",
+    author: "Dr. Jane Doe",
+    category: "Hospital",
+    date: "2025-03-25",
+    comments: 25,
+    likes: 180,
+    reacts: 290,
   },
   {
     id: 3,
-    category: "Doctor",
-    image: "https://i.ibb.co.com/sS7kCD2/blog-3.jpg",
-    title: "What Are The Benefits Of Online Doctor Booking",
-    date: "22 June 2023",
-    author: "Admin",
+    title: "Breakthroughs in Cancer Treatment in 2025",
+    thumbnail: "https://i.ibb.co.com/YT80hsZf/pexels-photo-7723620.png",
     description:
-      "Learn about the advantages of online doctor booking, from saving time to getting immediate medical consultations anytime, anywhere.",
+      "New advancements in cancer research and treatment that are changing survival rates and patient care.",
+    author: "Dr. Alex Johnson",
+    category: "Doctor",
+    date: "2025-03-22",
+    comments: 30,
+    likes: 250,
+    reacts: 400,
   },
 ];
 
@@ -48,60 +60,15 @@ const PostArticle = () => {
           Latest Post & Articles
         </h2>
         <div className="grid md:grid-cols-3 gap-6 mt-8">
-          {posts.map((post) => (
-            <div
-              key={post.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden group "
-            >
-              <div className="relative">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  width={500}
-                  height={300}
-                  className="w-full h-56 object-cover group-hover:transition-transform transform duration-200 hover:scale-105"
-                />
-                <span
-                  className={`absolute top-3 left-3 ${
-                    post.category == "Medical"
-                      ? "bg-green-500"
-                      : post.category == "Hospital"
-                      ? "bg-blue-500"
-                      : post.category == "Doctor"
-                      ? "bg-pink-500"
-                      : ""
-                  } text-white text-xs px-4 py-2 rounded-2xl font-semibold `}
-                >
-                  {post.category}
-                </span>
-              </div>
-              <div className="p-5">
-                <div className="flex items-center text-gray-500 text-sm mb-2">
-                  <span className="mr-3">📘 {post.author}</span>
-                  <span>📅 {post.date}</span>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-800">
-                  {post.title}
-                </h3>
-                <p className="text-gray-600 mt-2 text-sm">{post.description}</p>
-                <div className="flex items-center justify-between mt-4  text-gray-500 text-sm">
-                  <p className="font-semibold text-black hover:text-blue-500 flex items-center gap-3 cursor-pointer">
-                    Read More{" "}
-                    <span>
-                      {" "}
-                      <FaArrowRightLong />
-                    </span>
-                  </p>
-                  <div className="flex space-x-3">
-                    <span>💬 5</span>
-                    <span>❤️ 20</span>
-                    <span>👍 15</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {blogs.map((post) => (
+            <BlogCard key={post.id} post={post} />
           ))}
         </div>
+        <div className="flex justify-center items-center w-full mt-10">
+        <Link href="/blog">
+          <Button variant="primary">Show All</Button>
+        </Link>
+      </div>
       </div>
     </section>
   );
