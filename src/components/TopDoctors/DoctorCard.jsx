@@ -17,11 +17,14 @@ export const DoctorCard = ({ doctor }) => {
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
   return (
-    <div className="shadow-lg rounded-3xl hover:shadow-xl transition-shadow duration-300">
+    <div className="shadow-md rounded-3xl hover:shadow-lg transition-shadow duration-300">
       <div className="bg-[#00a6fb] p-4 rounded-t-3xl rounded-bl-3xl flex justify-center items-center">
         <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-white">
           <Image
-            src={doctor?.photo_url || "/doctor-placeholder.jpg"}
+            src={
+              doctor?.photo_url ||
+              "https://i.ibb.co.com/99wyhKnb/default-profile-picture-avatar-user-avatar-icon-person-icon-head-icon-profile-picture-icons-default.jpg"
+            }
             alt={doctor?.name || "Doctor Image"}
             width={150}
             height={150}

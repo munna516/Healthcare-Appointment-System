@@ -276,7 +276,7 @@ const Doctors = () => {
           </Button>
         </div>
       </div>
-      {/* Filter Section */}
+      {/* Filter Section end*/}
       <div className="w-full md:w-2/3 xl:w-3/4">
         <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
           {doctors.map((doctor) => (

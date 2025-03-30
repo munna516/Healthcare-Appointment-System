@@ -35,7 +35,11 @@ const DoctorPage = ({ params }) => {
 
   return (
     <>
+<<<<<<< HEAD
       <div className="max-w-7xl mt-20 w-full mx-auto px-4 py-10 flex flex-col lg:flex-row gap-6">
+=======
+      <div className="max-w-7xl w-full mx-auto px-4 pt-24 py-10 flex flex-col lg:flex-row gap-6">
+>>>>>>> 0e91c824a24ee0dca5985159d4241ae1092e9833
         <div className="w-full lg:w-2/3">
           {/* Picture & Details */}
           <div className="flex flex-col md:flex-row gap-6 p-4">
@@ -135,7 +139,7 @@ const DoctorPage = ({ params }) => {
           {/* Review Section */}
           <ReviewSection doctorId={doctorDetails?.uid} />
         </div>
-        <div className="w-full lg:w-1/3 space-y-6">
+        <div className="mt-0 lg:mt-4 w-full lg:w-1/3 space-y-6">
           {/* Appointment Form */}
           <DrPageAppointment doctorId={params.id} />
 
