@@ -17,10 +17,13 @@ function SidebarContent() {
           <Link href={"/dashboard"}>Dashboard</Link>
         </h2>
       </div>
-      <AdminDashboardRoutes />
-      {/* <PatientDashboard /> */}
-
-      {/* <DoctorDashboard /> */}
+      {role === "admin" ? (
+        <AdminDashboardRoutes />
+      ) : role === "patient" ? (
+        <PatientDashboard />
+      ) : (
+        <DoctorDashboard />
+      )}
     </div>
   );
 }
