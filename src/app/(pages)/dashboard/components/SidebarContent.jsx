@@ -71,7 +71,7 @@ function SidebarContent() {
           <Link
             href="/dashboard/payment-history"
             className={`flex items-center justify-center text-lg border-2 rounded-lg px-4 py-1  font-bold ${
-              pathName === "/dashboard/give-review"
+              pathName === "/dashboard/payment-history"
                 ? "bg-white text-[#00a6fb] "
                 : ""
             }`}
