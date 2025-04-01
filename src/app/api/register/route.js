@@ -26,7 +26,18 @@ export const POST = async (request) => {
   });
   try {
     await newUser.save();
-    return Response.json("user is registered", { status: 200 });
+    return Response.json(
+      {
+        message: "User registered successfully",
+        user: {
+          id: newUser._id,
+          email: newUser.email,
+          name: newUser.name,
+          role: newUser.role,
+        },
+      },
+      { status: 200 }
+    );
   } catch (err) {
     return Response.json(err, {
       status: 500,

@@ -1,15 +1,14 @@
 "use client";
-
-import { usePathname } from "next/navigation";
 import { FaHome } from "react-icons/fa";
 import AdminDashboardRoutes from "./AdminDashboardRoutes/AdminDashboardRoutes";
 import PatientDashboard from "./PatientDashboard/PatientDashboard";
 import DoctorDashboard from "./DoctorDashboard/DoctorDashboard";
-const { default: Link } = require("next/link");
+import Link from "next/link";
+import { useSession } from "next-auth/react";
 
-function SidebarContent() {
-  const role = "admin";
-  const pathName = usePathname();
+const SidebarContent =  () => {
+  const { data } = useSession();
+  const role = "patient";
   return (
     <div className="space-y-4 p-4 ">
       <div className="mb-6 px-4">
@@ -17,15 +16,23 @@ function SidebarContent() {
           <Link href={"/dashboard"}>Dashboard</Link>
         </h2>
       </div>
-      {role === "admin" ? (
-        <AdminDashboardRoutes />
-      ) : role === "patient" ? (
-        <PatientDashboard />
-      ) : (
-        <DoctorDashboard />
-      )}
+      <div>
+        {role === "admin" ? (
+          <AdminDashboardRoutes />
+        ) : role === "patient" ? (
+          <PatientDashboard />
+        ) : (
+          <DoctorDashboard />
+        )}
+      </div>
+      <Link
+        className="flex items-center justify-center  gap-3 rounded-lg px-4  font-bold text-lg text-white mt-10"
+        href={"/"}
+      >
+        <FaHome /> Home
+      </Link>
     </div>
   );
-}
+};
 
 export default SidebarContent;

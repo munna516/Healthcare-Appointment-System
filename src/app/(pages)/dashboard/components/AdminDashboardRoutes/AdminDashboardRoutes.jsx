@@ -45,12 +45,12 @@ const AdminDashboardRoutes = () => {
       >
         Blog Writing
       </Link>
-      <Link
+      {/* <Link
         className="flex pt-20 items-center justify-center gap-3 rounded-lg px-4  font-bold text-lg text-white"
         href={"/"}
       >
         <FaHome /> Home
-      </Link>
+      </Link> */}
     </nav>
   );
 };
