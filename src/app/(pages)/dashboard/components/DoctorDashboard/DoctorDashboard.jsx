@@ -64,12 +64,12 @@ export default function DoctorDashboard() {
           Appointment Remain
         </Link>
 
-        <Link
+        {/* <Link
           className="flex items-center justify-center  gap-3 rounded-lg px-4  font-bold text-lg text-white"
           href={"/"}
         >
           <FaHome /> Home
-        </Link>
+        </Link> */}
       </nav>
     </div>
   );
