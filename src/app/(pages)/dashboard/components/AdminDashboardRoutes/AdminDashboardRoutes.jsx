@@ -35,6 +35,16 @@ const AdminDashboardRoutes = () => {
         Doctor Onboard
       </Link>
       <Link
+          href="/dashboard/appointment-reschedule"
+          className={`flex items-center justify-center border-2 rounded-lg px-4 py-1  font-bold ${
+            pathName === "/dashboard/appointment-reschedule"
+              ? "bg-white text-[#00a6fb] "
+              : ""
+          }`}
+        >
+          Appointment Reschedule
+        </Link>
+      <Link
         href="/dashboard/blogWriting"
         className={`flex items-center justify-center text-lg border-2 rounded-lg px-4 py-1  font-bold ${
           pathName === "/dashboard/blogWriting"
