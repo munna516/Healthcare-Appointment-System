@@ -21,10 +21,10 @@ const Doctors = () => {
   };
 
   const handleApplyFilters = () => {
-    console.log("Filters Applied:");
-    console.log("Search Text:", searchText);
-    console.log("Selected Role:", selectedRole);
-    console.log("Selected Review:", selectedReview);
+    // console.log("Filters Applied:");
+    // console.log("Search Text:", searchText);
+    // console.log("Selected Role:", selectedRole);
+    // console.log("Selected Review:", selectedReview);
     // You can use these values to send a request to the backend or filter data
   };
 
@@ -81,7 +81,7 @@ const Doctors = () => {
     },
 
     {
-      uid: "cardio_jsmith",
+      uid: "cardsio_jsmith",
       photo_url: "https://i.ibb.co.com/cFx5cYx/download.jpg",
       bio: "Dr. John Smith is a board-certified cardiologist with over 15 years of experience in treating heart-related conditions.",
       services: ["Heart Check-up", "ECG", "Cardiac Surgery"],
@@ -106,7 +106,7 @@ const Doctors = () => {
       status: "verified",
     },
     {
-      uid: "gyno_emiller",
+      uid: "gyno_emsiller",
       photo_url: "https://i.ibb.co.com/8c1tz58/Option-3-1024x683.jpg",
       bio: "Dr. Emily Miller specializes in obstetrics and gynecology with a focus on minimally invasive procedures.",
       services: ["Prenatal Care", "Pap Smear", "Laparoscopy"],
@@ -182,7 +182,7 @@ const Doctors = () => {
     },
   ];
   return (
-    <div className="max-w-7xl w-full mx-auto px-4 py-10 flex flex-col md:flex-row gap-6">
+    <div className="max-w-7xl mt-20 w-full mx-auto px-4 py-10 flex flex-col md:flex-row gap-6">
       {/* Filter Section */}
       <div className="w-full md:w-1/3 xl:w-1/4 bg-white p-4 rounded-md shadow-lg">
         <div className="flex flex-col sm:flex-row md:flex-col gap-0 sm:gap-4 md:gap-0">
@@ -276,7 +276,7 @@ const Doctors = () => {
           </Button>
         </div>
       </div>
-      {/* Filter Section */}
+      {/* Filter Section end*/}
       <div className="w-full md:w-2/3 xl:w-3/4">
         <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
           {doctors.map((doctor) => (

@@ -3,6 +3,6 @@ import { NextResponse } from "next/server";
 
 export const middleware = async (req) => {
   const token = await getToken({ req });
-  //   if (token) console.log("From Middle Ware : ", token);
+  // if (token) console.log("From Middle Ware : ", token);
   return NextResponse.next();
 };

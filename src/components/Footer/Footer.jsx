@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { BsRobot } from "react-icons/bs";
 import { Button } from "../ui/button";
@@ -10,8 +11,10 @@ import {
   FaInstagram,
   FaGithub,
 } from "react-icons/fa";
+import { usePathname } from "next/navigation";
 
 export const Footer = () => {
+  const pathName = usePathname();
   const usefulLinks = [
     {
       id: 1,
@@ -56,7 +59,9 @@ export const Footer = () => {
       url: "/appointment",
     },
   ];
-  return (
+  return pathName.includes("/dashboard") ? (
+    " "
+  ) : (
     <div className="bg-[url('https://i.ibb.co/vCkxccPR/bgtwo.png')] bg-cover w-full bg-bottom">
       <div className="max-w-7xl w-full mx-auto gap-6 px-2 py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
         {/* About */}
@@ -79,50 +84,50 @@ export const Footer = () => {
             disease identifying system. Book an appointment now!
           </p>
           {/* Icons */}
-        <div className="flex justify-center lg:justify-start items-center space-x-6 text-gray-600 py-6">
-          <a
-            href="https://www.facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaFacebook className="text-2xl hover:text-[#00a6fb] transition duration-300" />
-          </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaTwitter className="text-2xl hover:text-[#00a6fb] transition duration-300" />
-          </a>
-          <a
-            href="https://www.youtube.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaYoutube className="text-2xl hover:text-[#00a6fb] transition duration-300" />
-          </a>
-          <a
-            href="https://www.linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedin className="text-2xl hover:text-[#00a6fb] transition duration-300" />
-          </a>
-          <a
-            href="https://www.instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaInstagram className="text-2xl hover:text-[#00a6fb] transition duration-300" />
-          </a>
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub className="text-2xl hover:text-[#00a6fb] transition duration-300" />
-          </a>
-        </div>
+          <div className="flex justify-center lg:justify-start items-center space-x-6 text-gray-600 py-6">
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebook className="text-2xl hover:text-[#00a6fb] transition duration-300" />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter className="text-2xl hover:text-[#00a6fb] transition duration-300" />
+            </a>
+            <a
+              href="https://www.youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaYoutube className="text-2xl hover:text-[#00a6fb] transition duration-300" />
+            </a>
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin className="text-2xl hover:text-[#00a6fb] transition duration-300" />
+            </a>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram className="text-2xl hover:text-[#00a6fb] transition duration-300" />
+            </a>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub className="text-2xl hover:text-[#00a6fb] transition duration-300" />
+            </a>
+          </div>
         </div>
 
         {/* Quick Links */}
@@ -141,7 +146,7 @@ export const Footer = () => {
             ))}
           </ul>
         </div>
-        
+
         {/* Useful Links */}
         <div className="col-span-1 text-center lg:text-left">
           <h1 className="text-xl font-semibold mb-4">Useful Links</h1>
@@ -158,7 +163,7 @@ export const Footer = () => {
             ))}
           </ul>
         </div>
-        
+
         {/* Lets Talk */}
         <div className="col-span-1 sm:col-span-2 lg:col-span-4 xl:col-span-1 flex flex-col  items-center text-center space-y-4">
           <h1 className="text-3xl md:text-5xl font-bold">Let&apos;s Talk!</h1>

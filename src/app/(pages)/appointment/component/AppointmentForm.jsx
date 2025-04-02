@@ -163,9 +163,9 @@ export default function AppointmentForm() {
                   <option selected disabled value="">
                     Select a doctor
                   </option>
-                  <option value="dr-smith">Dr. Smith</option>
-                  <option value="dr-johnson">Dr. Johnson</option>
-                  <option value="dr-williams">Dr. Williams</option>
+                  <option value="Dr-Smith">Dr. Smith</option>
+                  <option value="Dr-Johnson">Dr. Johnson</option>
+                  <option value="Dr-Williams">Dr. Williams</option>
                 </select>
               </div>
             </div>

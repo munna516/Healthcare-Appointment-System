@@ -5,7 +5,6 @@ import { Button } from "../ui/button";
 import { usePathname, useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import toast from "react-hot-toast";
-import Image from "next/image";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,12 +18,15 @@ import { Avatar, AvatarImage } from "@components/ui/avatar";
 export const Navbar = () => {
   const pathName = usePathname();
   const { data, status } = useSession();
+  console.log("This is form Navbar : ", data);
   const logOut = () => {
     signOut({ redirect: false });
     toast.success("Logout Successful");
   };
 
-  return (
+  return pathName.includes("/dashboard") ? (
+    ""
+  ) : (
     <nav className="bg-slate-200 px-2 py-6 fixed top-0 left-0 z-50 w-full">
       <div className="max-w-7xl w-full mx-auto flex items-center justify-between">
         <Link
@@ -72,6 +74,15 @@ export const Navbar = () => {
           >
             <Link href={"/became-doctor"}>Became-Doctor</Link>
           </li>
+          <li
+            className={
+              pathName === "/blog"
+                ? "text-[#00a6fb] font-bold border-b-2 border-[#00a6fb] px-1"
+                : ""
+            }
+          >
+            <Link href={"/blog"}>Blogs</Link>
+          </li>
 
           <li
             className={
@@ -99,16 +110,18 @@ export const Navbar = () => {
                     </Avatar>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-40">
-                    <DropdownMenuItem className="text-blue-500  font-bold hover:text-red-500">{data?.user?.name}</DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem
-                      onClick={() => console.log("Go to Dashboard")}
-                      className="text-blue-500 cursor-pointer font-bold"
-                    >
-                      Dashboard
+                    <DropdownMenuItem className="text-blue-500  font-bold hover:text-red-500">
+                      {data?.user?.name}
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={() => logOut()} className="text-red-500 cursor-pointer font-bold">
+                    <DropdownMenuItem className="text-blue-500 cursor-pointer font-bold">
+                      <Link href={"/dashboard"}>Dashboard</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem
+                      onClick={() => logOut()}
+                      className="text-red-500 cursor-pointer font-bold"
+                    >
                       Logout
                     </DropdownMenuItem>
                   </DropdownMenuContent>
@@ -192,6 +205,14 @@ export const Navbar = () => {
                     className="block text-[#00a6fb] hover:underline"
                   >
                     Became-Doctor
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/blog"
+                    className="block text-[#00a6fb] hover:underline"
+                  >
+                    Blogs
                   </Link>
                 </li>
                 <li>
