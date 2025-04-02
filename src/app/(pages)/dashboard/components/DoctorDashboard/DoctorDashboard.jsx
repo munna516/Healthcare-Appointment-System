@@ -11,7 +11,7 @@ export default function DoctorDashboard() {
         {/* Doctor dashboard option/routes  */}
         <Link
           href="/dashboard/doctor-profile"
-          className={`flex items-center justify-center text-lg border-2 rounded-lg px-4 py-1  font-bold ${
+          className={`flex items-center justify-center border-2 rounded-lg px-4 py-1  font-bold ${
             pathName === "/dashboard/doctor-profile"
               ? "bg-white text-[#00a6fb] "
               : ""
@@ -22,7 +22,7 @@ export default function DoctorDashboard() {
 
         <Link
           href="/dashboard/doctor-availability"
-          className={`flex items-center justify-center text-lg border-2 rounded-lg px-4 py-1  font-bold ${
+          className={`flex items-center justify-center border-2 rounded-lg px-4 py-1  font-bold ${
             pathName === "/dashboard/doctor-availability"
               ? "bg-white text-[#00a6fb] "
               : ""
@@ -33,7 +33,7 @@ export default function DoctorDashboard() {
 
         <Link
           href="/dashboard/appointment-reschedule"
-          className={`flex items-center justify-center text-lg border-2 rounded-lg px-4 py-1  font-bold ${
+          className={`flex items-center justify-center border-2 rounded-lg px-4 py-1  font-bold ${
             pathName === "/dashboard/appointment-reschedule"
               ? "bg-white text-[#00a6fb] "
               : ""
@@ -44,7 +44,7 @@ export default function DoctorDashboard() {
 
         <Link
           href="/dashboard/digital-prescription"
-          className={`flex items-center justify-center text-lg border-2 rounded-lg px-4 py-1  font-bold ${
+          className={`flex items-center justify-center border-2 rounded-lg px-4 py-1  font-bold ${
             pathName === "/dashboard/digital-prescription"
               ? "bg-white text-[#00a6fb] "
               : ""
@@ -55,7 +55,7 @@ export default function DoctorDashboard() {
 
         <Link
           href="/dashboard/appointment-remain"
-          className={`flex items-center justify-center text-lg border-2 rounded-lg px-4 py-1  font-bold ${
+          className={`flex items-center justify-center border-2 rounded-lg px-4 py-1  font-bold ${
             pathName === "/dashboard/appointment-remain"
               ? "bg-white text-[#00a6fb] "
               : ""
