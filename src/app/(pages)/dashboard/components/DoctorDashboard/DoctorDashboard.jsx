@@ -42,16 +42,7 @@ export default function DoctorDashboard() {
           Appointment Reschedule
         </Link>
 
-        <Link
-          href="/dashboard/digital-prescription"
-          className={`flex items-center justify-center border-2 rounded-lg px-4 py-1  font-bold ${
-            pathName === "/dashboard/digital-prescription"
-              ? "bg-white text-[#00a6fb] "
-              : ""
-          }`}
-        >
-          Digital Prescription
-        </Link>
+      
 
         <Link
           href="/dashboard/appointment-remain"
