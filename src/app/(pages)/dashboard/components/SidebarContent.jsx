@@ -5,16 +5,10 @@ import PatientDashboard from "./PatientDashboard/PatientDashboard";
 import DoctorDashboard from "./DoctorDashboard/DoctorDashboard";
 import Link from "next/link";
 
-<<<<<<< HEAD
-const SidebarContent =  () => {
-  const { data } = useSession();
-  const role = "admin";
-=======
 
 export default function SidebarContent() {
   const role = "doctor";
 
->>>>>>> d269092350a1b728b12ed2c87ad20975bcaf77d7
   return (
     <div className="space-y-4 p-4 ">
       <div className="mb-6 px-4">
