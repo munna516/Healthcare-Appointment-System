@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaHome } from "react-icons/fa";
 
 const AdminDashboardRoutes = () => {
   const pathName = usePathname();
@@ -45,12 +44,6 @@ const AdminDashboardRoutes = () => {
       >
         Blog Writing
       </Link>
-      {/* <Link
-        className="flex pt-20 items-center justify-center gap-3 rounded-lg px-4  font-bold text-lg text-white"
-        href={"/"}
-      >
-        <FaHome /> Home
-      </Link> */}
     </nav>
   );
 };
