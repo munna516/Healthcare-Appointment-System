@@ -20,6 +20,7 @@ export const POST = async (request) => {
     }
 
     const { password: _, ...userWithoutPassword } = isFound.toObject();
+    // console.log(userWithoutPassword);
     return Response.json(userWithoutPassword, { status: 200 });
   } catch (error) {
     return Response.json(

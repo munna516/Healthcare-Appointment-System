@@ -20,7 +20,6 @@ export const GET = async (request) => {
     if (!userRole) {
       return Response.json({ error: "User not found" }, { status: 404 });
     }
-    console.log(userRole);
     return Response.json({ role: userRole.role }, { status: 200 });
   } catch (error) {
     return Response.json({ error: "Internal server error" }, { status: 500 });

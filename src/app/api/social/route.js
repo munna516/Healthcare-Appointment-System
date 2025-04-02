@@ -19,7 +19,7 @@ export const POST = async (request) => {
 
   try {
     await newUser.save();
-    return Response.json("user is registered by google", { status: 200 });
+    return Response.json(newUser, { status: 200 });
   } catch (err) {
     return Response.json(err, {
       status: 500,

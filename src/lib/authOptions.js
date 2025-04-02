@@ -76,6 +76,14 @@ export const authOptions = {
             image: user.image,
           }),
         });
+        // Now fetch the user's role from the database
+        const userRes = await fetch(
+          `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/role?email=${user.email}`
+        );
+        const userData = await userRes.json();
+        if (userData?.role) {
+          user.role = userData.role;
+        }
       }
       return true;
     },
