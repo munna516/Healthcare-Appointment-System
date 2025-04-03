@@ -18,7 +18,7 @@ import { Avatar, AvatarImage } from "@components/ui/avatar";
 export const Navbar = () => {
   const pathName = usePathname();
   const { data, status } = useSession();
-  console.log("This is form Navbar : ", data);
+  // console.log("This is form Navbar : ", data);
   const logOut = () => {
     signOut({ redirect: false });
     toast.success("Logout Successful");
