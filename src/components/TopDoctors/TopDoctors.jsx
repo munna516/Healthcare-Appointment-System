@@ -116,7 +116,7 @@ const TopDoctors = () => {
           <DoctorCard key={doctor.uid} doctor={doctor} />
         ))}
       </div>
-      <div className="flex justify-center items-center w-full mt-14">
+      <div className="flex justify-center items-center w-full mt-10">
         <Link href="/doctors">
           <Button variant="primary">See All Doctors</Button>
         </Link>

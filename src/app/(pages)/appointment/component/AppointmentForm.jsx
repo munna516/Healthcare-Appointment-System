@@ -1,11 +1,34 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import toast from "react-hot-toast";
 
 export default function AppointmentForm() {
   const session = useSession();
+  const [doctors, setDoctors] = useState([]);
+
+  useEffect(() => {
+    const fetchDoctors = async () => {
+      try {
+        const response = await fetch('/api/became-doctor');
+        const data = await response.json();
+        
+        // Ensure data has the doctors array and check the registered condition
+        if (data.doctors && Array.isArray(data.doctors)) {
+          const registeredDoctors = data.doctors.filter(doctor => doctor.registered === true);
+          setDoctors(registeredDoctors);
+        } else {
+          console.error("Unexpected API response format", data);
+        }
+      } catch (error) {
+        console.error("Error fetching doctors:", error);
+      }
+    };
+  
+    fetchDoctors();
+  }, []);
+  
 
   const inputStyle = {
     backgroundColor: "#E0F5FF",
@@ -36,9 +59,12 @@ export default function AppointmentForm() {
         },
         body: JSON.stringify(appointmentData),
       });
+
       if (response.ok) {
         toast.success("Appointment booked successfully");
         form.reset();
+      } else {
+        throw new Error("Failed to book appointment");
       }
     } catch (error) {
       console.error("Error submitting appointment:", error);
@@ -74,7 +100,7 @@ export default function AppointmentForm() {
                 id="name"
                 name="name"
                 readOnly
-                value={session.data?.user?.name}
+                value={session.data?.user?.name || ""}
                 style={inputStyle}
                 className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                 placeholder="Enter your name"
@@ -95,7 +121,7 @@ export default function AppointmentForm() {
                   id="email"
                   name="email"
                   readOnly
-                  value={session.data?.user?.email}
+                  value={session.data?.user?.email || ""}
                   style={inputStyle}
                   className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                   placeholder="Enter your email"
@@ -140,9 +166,9 @@ export default function AppointmentForm() {
                   <option selected disabled value="">
                     Select a department
                   </option>
-                  <option  value="cardiology">Cardiology</option>
-                  <option value="neurology">Neurology</option>
-                  <option value="orthopedics">Orthopedics</option>
+                  <option  value="Cardiology">Cardiology</option>
+                  <option value="Neurology">Neurology</option>
+                  <option value="Orthopedics">Orthopedics</option>
                 </select>
               </div>
 
@@ -163,9 +189,11 @@ export default function AppointmentForm() {
                   <option selected disabled value="">
                     Select a doctor
                   </option>
-                  <option value="dr-smith">Dr. Smith</option>
-                  <option value="dr-johnson">Dr. Johnson</option>
-                  <option value="dr-williams">Dr. Williams</option>
+                  {doctors.map((doctor) => (
+                    <option key={doctor.fullName} value={doctor.fullName}>
+                      {doctor.fullName}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -213,23 +241,6 @@ export default function AppointmentForm() {
                   <option value="14:00">02:00 PM</option>
                 </select>
               </div>
-            </div>
-
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                rows={4}
-                style={inputStyle}
-                name="message"
-                className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition "
-                placeholder="Enter your message"
-              ></textarea>
             </div>
 
             <button

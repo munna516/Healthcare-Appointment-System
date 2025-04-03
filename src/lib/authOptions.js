@@ -46,35 +46,22 @@ export const authOptions = {
     signIn: "/login",
     error: "/not-found",
   },
-  // callbacks: {
-  //   async signIn({ user, account, profile, email, credentials }) {
-  //     if (user) {
-  //       const { email, name } = user;
-
-  //       await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/social`, {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           email,
-  //           name,
-  //         }),
-  //       });
-  //     }
-  //     return true;
-  //   },
-  // },
 
   callbacks: {
-    async jwt({ token, account }) {
+    async jwt({ token, account, user }) {
       if (account?.provider) {
         token.provider = account.provider;
+      }
+      if (user?.role) {
+        token.role = user.role;
       }
       return token;
     },
     async session({ session, token }) {
       session.provider = token.provider;
+      if (token.role) {
+        session.user.role = token.role;
+      }
       return session;
     },
     async signIn({ user, account }) {
@@ -89,6 +76,14 @@ export const authOptions = {
             image: user.image,
           }),
         });
+        // Now fetch the user's role from the database
+        const userRes = await fetch(
+          `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/role?email=${user.email}`
+        );
+        const userData = await userRes.json();
+        if (userData?.role) {
+          user.role = userData.role;
+        }
       }
       return true;
     },
