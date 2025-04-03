@@ -9,6 +9,7 @@ const Doctors = () => {
   const [selectedReview, setSelectedReview] = useState("");
   const [doctors, setDoctors] = useState([]);
   const [filteredDoctors, setFilteredDoctors] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchDoctors = async () => {
@@ -19,6 +20,8 @@ const Doctors = () => {
         setFilteredDoctors(data);
       } catch (error) {
         console.error("Error fetching doctors:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -77,6 +80,14 @@ const Doctors = () => {
     setSelectedSpecialty("");
     setSelectedReview("");
   };
+
+  if (loading) {
+    return (
+      <div className="max-w-7xl w-full min-h-screen mx-auto mt-40 flex justify-center items-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#00a6fb]"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mt-20 w-full mx-auto px-4 py-10 flex flex-col md:flex-row gap-6">
