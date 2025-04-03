@@ -7,7 +7,7 @@ import Link from "next/link";
 
 
 export default function SidebarContent() {
-  const role = "doctor";
+  const role = "patient";
 
   return (
     <div className="space-y-4 p-4 ">
