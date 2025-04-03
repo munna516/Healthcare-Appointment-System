@@ -53,7 +53,11 @@ const doctorsSchema = new Schema(
       type: String,
       required: true,
     },
+    registered: {
+      type: Boolean,
+      default: false, 
+    },
   },
 );
 
-export default mongoose.models.DoctorDetails || mongoose.model("DoctorDetails", doctorsSchema);
+export default mongoose.models.BecameDoctor || mongoose.model("BecameDoctor", doctorsSchema);
