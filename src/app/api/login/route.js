@@ -1,5 +1,3 @@
-// import connect from "@/lib/dbConnect";
-// import User from "@/models/User";
 import bcrypt from "bcryptjs";
 import connect from "src/lib/dbConnect";
 import User from "src/models/User";
@@ -22,6 +20,7 @@ export const POST = async (request) => {
     }
 
     const { password: _, ...userWithoutPassword } = isFound.toObject();
+    // console.log(userWithoutPassword);
     return Response.json(userWithoutPassword, { status: 200 });
   } catch (error) {
     return Response.json(
