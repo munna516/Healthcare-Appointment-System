@@ -1,22 +1,14 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 import connect from "../../../lib/dbConnect";
-import Appointment from 'src/models/Appointment';
+import Appointment from "src/models/Appointment";
 
 export async function POST(req) {
   try {
     await connect();
 
     const body = await req.json();
-    const { 
-      name, 
-      email, 
-      phone, 
-      department, 
-      doctor, 
-      date, 
-      time, 
-      message 
-    } = body;
+    const { name, email, phone, department, doctor, date, time, message } =
+      body;
 
     const newAppointment = new Appointment({
       name,
@@ -34,19 +26,18 @@ export async function POST(req) {
     return NextResponse.json(
       {
         message: "Appointment booked successfully",
-        appointment: savedAppointment
+        appointment: savedAppointment,
       },
       { status: 201 }
     );
-
   } catch (error) {
-    console.error('Appointment booking error:', error);
+    console.error("Appointment booking error:", error);
 
-    if (error.name === 'ValidationError') {
+    if (error.name === "ValidationError") {
       return NextResponse.json(
         {
-          message: 'Invalid appointment data',
-          errors: error.errors
+          message: "Invalid appointment data",
+          errors: error.errors,
         },
         { status: 400 }
       );
@@ -54,8 +45,8 @@ export async function POST(req) {
 
     return NextResponse.json(
       {
-        message: 'Failed to book appointment',
-        error: error.message
+        message: "Failed to book appointment",
+        error: error.message,
       },
       { status: 500 }
     );
@@ -76,7 +67,10 @@ export async function GET(request) {
 
     await connect();
 
-    const appointments = await Appointment.find({ email: email }).sort({ date: -1, time: -1 });
+    const appointments = await Appointment.find({ email: email }).sort({
+      date: -1,
+      time: -1,
+    });
 
     return NextResponse.json(appointments);
   } catch (error) {
