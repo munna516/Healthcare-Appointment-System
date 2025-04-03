@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
-import { IoIosArrowBack, IoIosArrowForward, IoIosSearch } from "react-icons/io";
+import { IoIosSearch } from "react-icons/io";
 import { SlCalender } from "react-icons/sl";
 import RescheduleModal from "./RescheduleModal";
 
@@ -173,7 +173,7 @@ const AppointmentRemain = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <button
                           onClick={() => handleReschedule(appt._id)}
-                          className="text-blue-600 hover:text-blue-900 mr-4"
+                          className="text-blue-600 hover:text-blue-900"
                         >
                           Reschedule
                         </button>
