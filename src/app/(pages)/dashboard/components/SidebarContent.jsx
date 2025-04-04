@@ -8,7 +8,7 @@ import { useSession } from "next-auth/react";
 
 
 export default function SidebarContent() {
-  const role = "doctor";
+  const role = "admin";
   // const { data, status } = useSession();
 
   return (

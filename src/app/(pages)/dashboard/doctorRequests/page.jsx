@@ -19,6 +19,26 @@ export default function DoctorRequests() {
       console.error(error.message);
     }
   };
+
+  const updateDoctorStatus = async (doctorId, newStatus) => {
+    try {
+      const response = await fetch("/api/update-doctor-status", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: doctorId, registered: newStatus }),
+      });
+  
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to update doctor");
+      }
+  
+      console.log("Doctor updated:", data);
+    } catch (error) {
+      console.error("Error updating doctor status:", error.message);
+    }
+}
+
   console.log(doctorList);
   useEffect(() => {
     fetchDoctors();
@@ -59,8 +79,7 @@ export default function DoctorRequests() {
                 <td className="p-3 flex space-x-2">
                   
                     <>
-                      <button
-                        onClick={() => handleApproval(doctor._id, "Approved")}
+                      <button onClick={()=>updateDoctorStatus(doctor._id, true)}
                         className="px-4 py-2 bg-[#00a6fb] text-white rounded hover:bg-[#006699]"
                       >
                         Approve
@@ -71,15 +90,6 @@ export default function DoctorRequests() {
                         Reject
                       </button>
                     </>
-                  
-                  {/* {
-                    doctor.status === "Approved" 
-                    ?  
-                    <Button disabled >Approved</Button>
-                    : doctor.status === "Rejected" &&
-                    <Button disabled >Rejected</Button>
-                  }
-                   */}
                 </td>
               </tr>
             ))}
