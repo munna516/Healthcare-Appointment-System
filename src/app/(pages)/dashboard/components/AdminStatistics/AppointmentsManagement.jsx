@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@components/ui/button";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 export default function AppointmentsDashboard() {
     const [doctors, setDoctors] = useState([]);
@@ -24,9 +26,45 @@ export default function AppointmentsDashboard() {
         console.error(error.message);
       }
     };
+
+
+    const handleDelete = async (id) => {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then(async(result) => {
+        if (result.isConfirmed) {
+          const res = await fetch("/api/remove-doctor", {
+            method: "DELETE",
+            body: JSON.stringify({ id }),
+            headers: { "Content-Type": "application/json" },
+          });
+          const data = await res.json();
+      if (res.ok) {
+        setDoctors(doctors.filter((doctor) => doctor._id !== id)); // Update UI
+      } else {
+        toast(`Error: ${data.error}`);
+      }
+          if(res.ok){
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success"
+            });
+          }
+        }
+      });
+    };
+
     useEffect(() => {
       fetchDoctors();
     }, []);
+
   return (
     <Card className="p-4 shadow-xl">
       <CardContent>
@@ -47,8 +85,8 @@ export default function AppointmentsDashboard() {
                 <TableCell>{doctor.email}</TableCell>
                 <TableCell>{doctor.specialization}</TableCell>
                 <TableCell className="flex gap-2">               
-                    <Button size="sm" variant="primary">
-                        Fire
+                    <Button onClick={()=>handleDelete(doctor._id)} size="sm" variant="primary">
+                        Fire Doctor
                     </Button>
                 </TableCell>
               </TableRow>
