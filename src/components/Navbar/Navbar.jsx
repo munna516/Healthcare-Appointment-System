@@ -18,12 +18,8 @@ import { Avatar, AvatarImage } from "@components/ui/avatar";
 export const Navbar = () => {
   const pathName = usePathname();
   const { data, status } = useSession();
-<<<<<<< HEAD
-
-=======
   // console.log("This is form Navbar : ", data);
   
->>>>>>> 254988675bed2322977a90c93fbd0167b08da750
   const logOut = () => {
     signOut({ redirect: false });
     toast.success("Logout Successful");
