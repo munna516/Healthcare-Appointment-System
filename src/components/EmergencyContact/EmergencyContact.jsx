@@ -6,7 +6,7 @@ export default function EmergencyContact() {
   const image = "https://i.ibb.co.com/tTR8FJPt/pic.png";
   return (
     <section className="py-12 bg-gradient-to-r from-blue-50 to-blue-200">
-      <div className="max-w-7xl  mx-auto px-4 flex flex-col lg:flex-row items-center md:justify-start md:items-start justify-between">
+      <div className="w-[90%] mx-auto px-4 flex flex-col lg:flex-row items-center md:justify-start md:items-start justify-between">
         {/* Left Side */}
         <div className="lg:w-1/2 space-y-4 ">
           <h4 className=" text-blue-500 font-semibold">
