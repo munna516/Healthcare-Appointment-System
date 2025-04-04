@@ -6,14 +6,14 @@ export default function CountPart() {
     <div className="flex flex-col md:flex-row gap-8">
       <Counting
         start={20}
-        end={355}
-        sign={"K+"}
+        end={550}
+        sign={"+"}
         title={"Recovered Patients"}
       ></Counting>
       <Counting start={10} end={98} sign={"%"} title={"Good Review"}></Counting>
       <Counting
         start={1}
-        end={120}
+        end={57}
         sign={"+"}
         title={"Popular Doctors"}
       ></Counting>

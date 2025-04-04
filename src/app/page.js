@@ -12,7 +12,7 @@ import WorkingProcess from "@components/WorkingProcess/WorkingProcess";
 
 export default function Home() {
   return (
-    <div className="space-y-20 mb-14">
+    <div className="">
       <Hero />
       <AboutUs />
       <MakeAppointmentCard />

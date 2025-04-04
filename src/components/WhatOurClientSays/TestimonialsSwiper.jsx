@@ -35,7 +35,7 @@ const TestimonialsSwiper = () => {
               dp={"https://i.ibb.co.com/pjjYHD45/service-3.jpg"}
               name={"Eleanor V."}
               review={
-                "As someone managing a long-term health condition, I need consistent, reliable care. HealthPoint provides exactly that. My doctor is incredibly knowledgeable and always takes the time to discuss my treatment plan thoroughly. The nurses and staff are always helpful and compassionate. I feel genuinely supported and trust them completely with my health."
+                "As someone managing a long-term health condition, I need consistent, reliable care. HealthPoint provides exactly that. My doctor is incredibly knowledgeable and always takes the time to discuss my treatment plan thoroughly.I feel genuinely supported and trust them completely with my health."
               }
             />
           </SwiperSlide>
@@ -62,7 +62,7 @@ const TestimonialsSwiper = () => {
               dp={"https://i.ibb.co.com/pjjYHD45/service-1.jpg"}
               name={"Sarah K."}
               review={
-                "Bringing my daughter to HealthPoint when she was unwell was the best decision. The nurses were so welcoming, and Dr. Chen was incredibly patient, taking the time to explain everything and make my daughter feel comfortable. As someone with a busy schedule, I value their efficiency and quality care. You can tell they genuinely care about their patients, young and old."
+                "Bringing my daughter to HealthPoint when she was unwell was the best decision. The nurses were so welcoming, and Dr. Chen was incredibly patient, taking the time to explain everything and make my daughter feel comfortable.  You can tell they genuinely care about their patients, young and old."
               }
             />
           </SwiperSlide>

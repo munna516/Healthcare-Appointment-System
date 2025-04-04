@@ -49,8 +49,8 @@ const blogs = [
 
 const PostArticle = () => {
   return (
-    <section className="py-12 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="py-10 bg-gray-50">
+      <div className="w-[90%] mx-auto ">
         <h4 className="text-center text-blue-500 font-semibold">
           <span className="border-l-2 border-blue-500 pl-4 font-bold text-xl ">
             Latest News
