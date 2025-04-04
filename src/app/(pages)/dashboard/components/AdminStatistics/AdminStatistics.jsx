@@ -1,5 +1,4 @@
 import InformationStat from "./InformationStat";
-import AppointmentManagement from "./AppointmentsManagement";
 import LastWeekAppointment from "./LastWeekAppointment";
 
 const AdminStatistics = () => {
@@ -17,7 +16,6 @@ const AdminStatistics = () => {
                     info={"20+"}/>
             </div>
             <LastWeekAppointment/>
-            <AppointmentManagement/>
         </div>
     );
 };

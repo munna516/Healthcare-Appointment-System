@@ -1,36 +1,28 @@
 "use client";
 import { Button } from "@components/ui/button";
 import { Dialog, DialogTrigger } from "@components/ui/dialog";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DoctorInfo from "./DoctorInfo";
 
-const doctors = [
-  {
-    id: 1,
-    name: "Dr. John Doe",
-    email: "johndoe@email.com",
-    specialty: "Cardiologist",
-    experience: "10 years",
-    status: "Pending",
-  },
-  {
-    id: 2,
-    name: "Dr. Sarah Smith",
-    email: "sarah@email.com",
-    specialty: "Dermatologist",
-    experience: "7 years",
-    status: "Pending",
-  },
-];
-
 export default function DoctorRequests() {
-  const [doctorList, setDoctorList] = useState(doctors);
-
-  const handleApproval = (id, status) => {
-    setDoctorList((prev) =>
-      prev.map((doc) => (doc.id === id ? { ...doc, status } : doc))
-    );
+  const [doctorList, setDoctorList] = useState([]);
+  const fetchDoctors = async () => {
+    try {
+      const response = await fetch("/api/became-doctor");
+      if (!response.ok) {
+        throw new Error("Failed to fetch doctors");
+      }
+      const doctors = await response.json();
+      setDoctorList(doctors.doctors);
+      console.log("Doctors:", doctors.doctors);
+    } catch (error) {
+      console.error(error.message);
+    }
   };
+  console.log(doctorList);
+  useEffect(() => {
+    fetchDoctors();
+  }, []);
 
   return (
     <div className="max-w-6xl w-full mx-auto">
@@ -51,10 +43,10 @@ export default function DoctorRequests() {
           </thead>
           <tbody>
             {doctorList.map((doctor) => (
-              <tr key={doctor.id} className="border-b hover:bg-gray-50">
-                <td className="p-3">{doctor.name}</td>
+              <tr key={doctor._id} className="border-b hover:bg-gray-50">
+                <td className="p-3">{doctor.fullName}</td>
                 <td className="p-3">{doctor.email}</td>
-                <td className="p-3">{doctor.specialty}</td>
+                <td className="p-3">{doctor.specialization}</td>
                 <td className="p-3">{doctor.experience}</td>
                 <td className="p-3 text-[#00a6fb] cursor-pointer">
                     <Dialog>
@@ -62,42 +54,32 @@ export default function DoctorRequests() {
                         <DoctorInfo doctor={doctor}/>
                     </Dialog>
                 </td>
-                <td
-                  className={`p-3 font-semibold ${
-                    doctor.status === "Approved"
-                      ? "text-green-600"
-                      : doctor.status === "Rejected"
-                      ? "text-red-600"
-                      : "text-yellow-600"
-                  }`}
-                >
-                  {doctor.status}
-                </td>
+                <td className={`${doctor?.registered === true ? "text-green-500": "text-red-500"} font-semibold`}
+                >{doctor?.registered === true ? "Approved": "Pending"}</td>
                 <td className="p-3 flex space-x-2">
-                  {doctor.status === "Pending" && (
+                  
                     <>
                       <button
-                        onClick={() => handleApproval(doctor.id, "Approved")}
+                        onClick={() => handleApproval(doctor._id, "Approved")}
                         className="px-4 py-2 bg-[#00a6fb] text-white rounded hover:bg-[#006699]"
                       >
                         Approve
                       </button>
                       <button
-                        onClick={() => handleApproval(doctor.id, "Rejected")}
                         className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
                       >
                         Reject
                       </button>
                     </>
-                  )}
-                  {
+                  
+                  {/* {
                     doctor.status === "Approved" 
                     ?  
                     <Button disabled >Approved</Button>
                     : doctor.status === "Rejected" &&
                     <Button disabled >Rejected</Button>
                   }
-                  
+                   */}
                 </td>
               </tr>
             ))}
