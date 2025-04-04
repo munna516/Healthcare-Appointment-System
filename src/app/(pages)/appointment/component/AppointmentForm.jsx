@@ -116,7 +116,7 @@ export default function AppointmentForm() {
       }
     } catch (error) {
       console.error("Error submitting appointment:", error);
-      toast.error("An error occurred. Please try again later.");
+      toast.error("An error occurred. Please try again later. Please Login if you are not!");
     }
   };
 
@@ -301,6 +301,23 @@ export default function AppointmentForm() {
                 placeholder="I have a headache..."
                 required
               />
+            </div>
+
+            <div>
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                rows={4}
+                style={inputStyle}
+                name="message"
+                className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition "
+                placeholder="Enter your message"
+              ></textarea>
             </div>
 
             <button

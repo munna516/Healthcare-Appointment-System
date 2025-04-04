@@ -5,7 +5,7 @@ import SectionSubTitle from "@components/SectionSubTitle/SectionSubTitle";
 
 const FaqSection = () => {
   return (
-    <div className="max-w-7xl w-full mx-auto">
+    <div className="w-[90%] mx-auto my-16">
       <div className="flex items-center justify-center flex-col mb-6">
         <SectionSubTitle text={"FAQ"} />
         <h1 className={`text-xl capitalize md:text-4xl font-bold pb-6`}>
