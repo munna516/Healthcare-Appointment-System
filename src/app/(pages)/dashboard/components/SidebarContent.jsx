@@ -4,10 +4,12 @@ import AdminDashboardRoutes from "./AdminDashboardRoutes/AdminDashboardRoutes";
 import PatientDashboard from "./PatientDashboard/PatientDashboard";
 import DoctorDashboard from "./DoctorDashboard/DoctorDashboard";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 
 export default function SidebarContent() {
-  const role = "admin";
+  const role = "patient";
+  // const { data, status } = useSession();
 
   return (
     <div className="space-y-4 p-4 ">
