@@ -7,10 +7,12 @@ const UserProfile = () => {
   const { data, status } = useSession();
 
     return (
-        <div className='max-w-3xl bg-[#00a6fb] pt-8 mx-auto flex items-center justify-center'>
+        <div className='max-w-3xl bg-[#00a6fb] py-8 mx-auto flex items-center justify-center gap-3'>
             <Image
                 src={data?.user?.image}
                 width={300}
+                className='rounded-full w-40'
+                referrerPolicy="no-referrer" 
                 height={300}
                 alt='user image'/>
             <div>

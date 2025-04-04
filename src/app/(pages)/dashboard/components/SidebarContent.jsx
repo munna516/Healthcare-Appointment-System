@@ -8,9 +8,8 @@ import { useSession } from "next-auth/react";
 
 
 export default function SidebarContent() {
-  const role = "admin";
+  const role = "patient";
   // const { data, status } = useSession();
-  // console.log("This is form Navbar : ", data);
 
   return (
     <div className="space-y-4 p-4 ">
