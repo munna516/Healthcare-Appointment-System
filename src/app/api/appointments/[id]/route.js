@@ -2,7 +2,7 @@ import connect from "src/lib/dbConnect";
 import Appointment from "src/models/Appointment";
 
 // GET Appointment by ID
-export async function GET(request, { params }) {
+export async function GET({ params }) {
   try {
     await connect();
     const { id } = params;
