@@ -34,7 +34,7 @@ const DoctorPage = ({ params }) => {
   if (loading) {
     return (
       <div className="max-w-7xl w-full mx-auto px-4 pt-24 py-10 flex justify-center items-center h-[60vh]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#00a6fb]"></div>
       </div>
     );
   }
@@ -145,18 +145,18 @@ const DoctorPage = ({ params }) => {
           </div>
 
           {/* Review Section */}
-          <ReviewSection doctorId={params.id} />
+          {/* <ReviewSection doctorId={params.id} /> */}
         </div>
 
         <div className="mt-0 lg:mt-4 w-full lg:w-1/3 space-y-6">
           {/* Appointment Form */}
           <DrPageAppointment
-            doctorId={params._id}
-            doctorDetails={doctorDetails}
+            department={doctorDetails?.specialization}
+            doctor={doctorDetails?.fullName}
           />
 
           {/* Static Opening Hours */}
-          <OpeningHours />
+          {/* <OpeningHours /> */}
         </div>
       </div>
     </>
@@ -164,4 +164,3 @@ const DoctorPage = ({ params }) => {
 };
 
 export default DoctorPage;
- 
