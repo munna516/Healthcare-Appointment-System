@@ -1,11 +1,13 @@
+import { NextResponse } from "next/server";
 import connect from "src/lib/dbConnect";
+import Doctors from "src/models/Doctors";
 
 export const GET = async () => {
   try {
     await connect();
     console.log("DB is connected");
 
-    const doctors = await becameDoctors.find();
+    const doctors = await Doctors.find();
     
     return NextResponse.json(
       {
