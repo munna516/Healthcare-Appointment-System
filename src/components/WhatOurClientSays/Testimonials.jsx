@@ -25,7 +25,7 @@ const Testimonials = ({ name, review, dp }) => {
                 />
                 <div>
                     <h3 className="font-semibold text-gray-800">{name}</h3>
-                    <p className="text-gray-500 text-sm">Customer</p>
+                    <p className="text-gray-500 text-sm">Patient</p>
                 </div>
                 <div className="absolute right-0 bottom-0 text-blue-500">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" className="text-blue-200">
