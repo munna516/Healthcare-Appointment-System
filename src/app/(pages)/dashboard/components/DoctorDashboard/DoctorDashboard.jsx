@@ -30,7 +30,7 @@ export default function DoctorDashboard() {
         >
           Doctor Availability
         </Link>
-
+{/* 
         <Link
           href="/dashboard/appointment-reschedule"
           className={`flex items-center justify-center border-2 rounded-lg px-4 py-1  font-bold ${
@@ -40,7 +40,7 @@ export default function DoctorDashboard() {
           }`}
         >
           Appointment Reschedule
-        </Link>
+        </Link> */}
 
       
 

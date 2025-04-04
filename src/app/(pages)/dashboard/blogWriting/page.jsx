@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { Label } from "@components/ui/label";
 import { Input } from "@components/ui/input";
@@ -13,13 +12,14 @@ import {
   SelectItem,
 } from "@components/ui/select";
 import toast from "react-hot-toast";
+import { useState } from "react";
 
 export default function BlogWriting() {
   const { data: session } = useSession();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [blogData, setBlogData] = useState({
     title: "",
-    thumbnail: null,
+    thumbnail: "",
     description: "",
     author: session?.user?.name || "",
     category: "",
@@ -48,7 +48,7 @@ export default function BlogWriting() {
   const resetForm = () => {
     setBlogData({
       title: "",
-      thumbnail: null,
+      thumbnail: "",
       description: "",
       author: session?.user?.name || "Anonymous",
       category: "",
@@ -155,6 +155,7 @@ export default function BlogWriting() {
               type="file"
               accept="image/*"
               onChange={handleFileChange}
+              required
             />
           </div>
 
@@ -211,7 +212,7 @@ export default function BlogWriting() {
             value={blogData.content}
             onChange={handleChange}
             required
-            maxLength={1200}
+            maxLength={1500}
           />
         </div>
 

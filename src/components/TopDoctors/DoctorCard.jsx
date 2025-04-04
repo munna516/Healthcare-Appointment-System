@@ -7,9 +7,9 @@ import Link from "next/link";
 export const DoctorCard = ({ doctor }) => {
   //!! Convert review to number if it's a string
   const rating =
-    typeof doctor.review === "string"
-      ? parseFloat(doctor.review)
-      : doctor.review || 0;
+    typeof doctor?.review === "string"
+      ? parseFloat(doctor?.review)
+      : doctor?.review || 0;
 
   // Calculate stars
   const fullStars = Math.floor(rating);
@@ -22,10 +22,10 @@ export const DoctorCard = ({ doctor }) => {
         <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-white">
           <Image
             src={
-              doctor?.photo_url ||
+              doctor?.imageUrl ||
               "https://i.ibb.co.com/99wyhKnb/default-profile-picture-avatar-user-avatar-icon-person-icon-head-icon-profile-picture-icons-default.jpg"
             }
-            alt={doctor?.name || "Doctor Image"}
+            alt={doctor?.fullName || "Doctor Image"}
             width={150}
             height={150}
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
@@ -34,8 +34,10 @@ export const DoctorCard = ({ doctor }) => {
       </div>
       <div className="bg-[#00a6fb] rounded-tl-3xl rounded-b-3xl text-center">
         <div className="bg-white rounded-tr-3xl rounded-b-3xl p-4 space-y-2">
-          <h1 className="text-xl font-bold text-gray-800">{doctor?.name}</h1>
-          <p className="text-gray-600">{doctor?.specialty || doctor?.title}</p>
+          <h1 className="text-xl font-bold text-gray-800">
+            {doctor?.fullName}
+          </h1>
+          <p className="text-gray-600">{doctor?.specialization}</p>
 
           {/* Star Rating Display */}
           <div className="flex items-center justify-center space-x-1 py-1">
@@ -60,7 +62,7 @@ export const DoctorCard = ({ doctor }) => {
             <Button variant="primary" className="px-4 py-2 w-full">
               Appointment
             </Button>
-            <Link href={`/doctors/${doctor?.uid}`} passHref>
+            <Link href={`/doctors/${doctor?._id}`} passHref>
               <Button variant="outline" className="px-4 py-2">
                 View
               </Button>

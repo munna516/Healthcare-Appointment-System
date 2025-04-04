@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           {/* {children} */}
           </nav>
-          <main className="min-h-screen">
+          <main className="min-h-screen scroll-smooth max-w-screen-2xl mx-auto">
             {children}
             <Toaster />
           </main>

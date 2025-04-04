@@ -7,6 +7,7 @@ const doctorsSchema = new Schema(
     email: {
         type: String,
         required: true,
+        unique: true,
     },
 
     fullName: {
@@ -21,7 +22,6 @@ const doctorsSchema = new Schema(
 
     imageUrl: {
       type: String,
-      // required: true,
     },
 
     phone: {
