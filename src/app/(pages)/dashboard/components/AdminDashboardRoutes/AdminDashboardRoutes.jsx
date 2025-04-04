@@ -7,12 +7,12 @@ const AdminDashboardRoutes = () => {
   return (
     <nav className="space-y-5">
       <Link
-        href="/dashboard/userProfile"
+        href="/dashboard/admin-profile"
         className={`flex items-center justify-center text-lg border-2 rounded-lg px-4 py-1  font-bold ${
-          pathName === "/dashboard/userProfile" ? "bg-white text-[#00a6fb]" : ""
+          pathName === "/dashboard/adminProfile" ? "bg-white text-[#00a6fb]" : ""
         }`}
       >
-        Profile
+        Admin-Profile
       </Link>
       <Link
         href="/dashboard/doctorRequests"
@@ -36,7 +36,7 @@ const AdminDashboardRoutes = () => {
       </Link>
       <Link
           href="/dashboard/appointment-reschedule"
-          className={`flex items-center justify-center border-2 rounded-lg px-4 py-1  font-bold ${
+          className={`flex items-center justify-center text-lg border-2 rounded-lg px-2 py-1  font-bold ${
             pathName === "/dashboard/appointment-reschedule"
               ? "bg-white text-[#00a6fb] "
               : ""

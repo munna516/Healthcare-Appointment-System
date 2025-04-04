@@ -154,6 +154,7 @@ export const Navbar = () => {
                   <AvatarImage
                     className="border-2 md:hidden rounded-full border-blue-500"
                     src={data?.user.image}
+                    referrerPolicy="no-referrer" 
                     alt="User"
                   />
                 </Avatar>
