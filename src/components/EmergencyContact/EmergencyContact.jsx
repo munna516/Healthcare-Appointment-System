@@ -1,4 +1,5 @@
 import AboutService from "@components/AboutUs/AboutService";
+import Image from "next/image";
 import { FiPhoneCall, FiMail } from "react-icons/fi";
 
 
@@ -52,7 +53,7 @@ export default function EmergencyContact() {
         </div>
         {/* Right Side */}
         <div className="lg:w-1/2 flex justify-center mt-8 md:mt-0">
-          <img
+          <Image
             src={image}
             alt="Emergency Contact"
             width={500}
