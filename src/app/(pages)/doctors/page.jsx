@@ -46,7 +46,7 @@ const Doctors = () => {
       },
       contact: {
         phone: "+1-123-456-7890",
-        email: "dr.johnsmith@example.com",
+        // email: "dr.johnsmith@example.com",
       },
       location: {
         clinic_name: "Heart Care Center",
@@ -71,7 +71,7 @@ const Doctors = () => {
       },
       contact: {
         phone: "+1-234-567-8901",
-        email: "dr.emily@example.com",
+        // email: "dr.emily@example.com",
       },
       location: {
         clinic_name: "Women's Wellness Clinic",
@@ -97,7 +97,7 @@ const Doctors = () => {
       },
       contact: {
         phone: "+1-123-456-7890",
-        email: "dr.johnsmith@example.com",
+        // email: "dr.johnsmith@example.com",
       },
       location: {
         clinic_name: "Heart Care Center",
@@ -122,7 +122,7 @@ const Doctors = () => {
       },
       contact: {
         phone: "+1-234-567-8901",
-        email: "dr.emily@example.com",
+        // email: "dr.emily@example.com",
       },
       location: {
         clinic_name: "Women's Wellness Clinic",
@@ -147,7 +147,7 @@ const Doctors = () => {
       },
       contact: {
         phone: "+1-345-678-9012",
-        email: "dr.raj@example.com",
+        // email: "dr.raj@example.com",
       },
       location: {
         clinic_name: "NeuroCare Associates",
@@ -172,7 +172,7 @@ const Doctors = () => {
       },
       contact: {
         phone: "+1-456-789-0123",
-        email: "dr.sarah@example.com",
+        // email: "dr.sarah@example.com",
       },
       location: {
         clinic_name: "Renal Health Center",

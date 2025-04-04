@@ -23,8 +23,8 @@ export default function DoctorForm() {
     const experience = form.experience.value;
     const bio = form.bio.value;
     const imageFile = form.profilePhoto.files[0];
-    // console.log(imageFile);
 
+    console.log("Doctor form: ", bio);
     try {
       const formData = new FormData();
       formData.append("image", imageFile);
