@@ -71,3 +71,20 @@ export const POST = async (request) => {
     );
   }
 };
+
+export const GET = async () => {
+  try {
+    await connect();
+    const blogs = await Blog.find();
+
+    return new Response(JSON.stringify(blogs), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+};

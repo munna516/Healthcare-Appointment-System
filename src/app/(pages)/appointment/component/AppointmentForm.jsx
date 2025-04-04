@@ -4,31 +4,79 @@ import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import toast from "react-hot-toast";
 
+const TimeSelect = ({ name, required = true, className = "", style = {} }) => {
+  const timeSlots = [];
+
+  for (let hour = 12; hour <= 20; hour++) {
+    timeSlots.push({
+      value: `${hour.toString().padStart(2, "0")}:00`,
+      label: `${hour === 12 ? 12 : hour - 12}:00 PM`,
+    });
+
+    if (hour < 20) {
+      timeSlots.push({
+        value: `${hour.toString().padStart(2, "0")}:30`,
+        label: `${hour === 12 ? 12 : hour - 12}:30 PM`,
+      });
+    }
+  }
+
+  return (
+    <select
+      name={name}
+      required={required}
+      className={`w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition appearance-none ${className}`}
+      style={style}
+    >
+      <option disabled value="">
+        Select a time
+      </option>
+      {timeSlots.map((slot) => (
+        <option key={slot.value} value={slot.value}>
+          {slot.label}
+        </option>
+      ))}
+    </select>
+  );
+};
+
 export default function AppointmentForm() {
   const session = useSession();
   const [doctors, setDoctors] = useState([]);
+  const [filteredDoctors, setFilteredDoctors] = useState([]);
+  const [selectedDepartment, setSelectedDepartment] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const response = await fetch('/api/became-doctor');
+        const response = await fetch("/api/doctors-cards");
         const data = await response.json();
-        
-        // Ensure data has the doctors array and check the registered condition
-        if (data.doctors && Array.isArray(data.doctors)) {
-          const registeredDoctors = data.doctors.filter(doctor => doctor.registered === true);
-          setDoctors(registeredDoctors);
-        } else {
-          console.error("Unexpected API response format", data);
-        }
+        setDoctors(data);
+        setFilteredDoctors(data);
       } catch (error) {
         console.error("Error fetching doctors:", error);
+      } finally {
+        setLoading(false);
       }
     };
-  
+
     fetchDoctors();
   }, []);
-  
+
+  const handleDepartmentChange = (e) => {
+    const department = e.target.value;
+    setSelectedDepartment(department);
+
+    if (department === "") {
+      setFilteredDoctors(doctors);
+    } else {
+      const filtered = doctors.filter(
+        (doctor) => doctor.specialization === department
+      );
+      setFilteredDoctors(filtered);
+    }
+  };
 
   const inputStyle = {
     backgroundColor: "#E0F5FF",
@@ -68,13 +116,13 @@ export default function AppointmentForm() {
       }
     } catch (error) {
       console.error("Error submitting appointment:", error);
-      toast.error("An error occurred. Please try again later.");
+      toast.error("An error occurred. Please try again later. Please Login if you are not!");
     }
   };
 
   return (
     <>
-      <div className="md:w-1/2">
+      <div className="lg:w-1/2">
         <div className=" ">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
             Book Appointment
@@ -154,7 +202,7 @@ export default function AppointmentForm() {
                   htmlFor="department"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Select Department
+                  Select Department <span className="text-red-500">*</span>
                 </label>
                 <select
                   id="department"
@@ -162,13 +210,17 @@ export default function AppointmentForm() {
                   required
                   style={inputStyle}
                   className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition appearance-none"
+                  onChange={handleDepartmentChange}
+                  value={selectedDepartment}
                 >
-                  <option selected disabled value="">
-                    Select a department
-                  </option>
-                  <option  value="Cardiology">Cardiology</option>
-                  <option value="Neurology">Neurology</option>
-                  <option value="Orthopedics">Orthopedics</option>
+                  <option value="">All Specialties</option>
+                  {Array.from(
+                    new Set(doctors.map((d) => d.specialization))
+                  ).map((specialty) => (
+                    <option key={specialty} value={specialty}>
+                      {specialty}
+                    </option>
+                  ))}
                 </select>
               </div>
 
@@ -177,7 +229,7 @@ export default function AppointmentForm() {
                   htmlFor="doctor"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Select Doctor
+                  Select Doctor <span className="text-red-500">*</span>
                 </label>
                 <select
                   id="doctor"
@@ -186,11 +238,11 @@ export default function AppointmentForm() {
                   style={inputStyle}
                   className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition appearance-none"
                 >
-                  <option selected disabled value="">
-                    Select a doctor
+                  <option value="" disabled>
+                    Select Doctor <span className="text-red-500">*</span>
                   </option>
-                  {doctors.map((doctor) => (
-                    <option key={doctor.fullName} value={doctor.fullName}>
+                  {filteredDoctors.map((doctor) => (
+                    <option key={doctor._id} value={doctor.fullName}>
                       {doctor.fullName}
                     </option>
                   ))}
@@ -204,7 +256,7 @@ export default function AppointmentForm() {
                   htmlFor="date"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Appointment Date
+                  Appointment Date <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="date"
@@ -214,6 +266,7 @@ export default function AppointmentForm() {
                   style={inputStyle}
                   className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                   placeholder="mm/dd/yyyy"
+                  min={new Date().toISOString().split("T")[0]}
                 />
               </div>
 
@@ -222,25 +275,49 @@ export default function AppointmentForm() {
                   htmlFor="time"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Select Time
+                  Select Time <span className="text-red-500">*</span>
                 </label>
-                <select
-                  id="time"
-                  required
+                <TimeSelect
                   name="time"
+                  required
                   style={inputStyle}
                   className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition appearance-none"
-                >
-                  <option disabled value="">
-                    Select a time
-                  </option>
-                  <option value="09:00">09:00 AM</option>
-                  <option value="10:00">10:00 AM</option>
-                  <option value="11:00">11:00 AM</option>
-                  <option value="13:00">01:00 PM</option>
-                  <option value="14:00">02:00 PM</option>
-                </select>
+                />
               </div>
+            </div>
+            <div>
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Health Issue <span className="text-red-500">*</span>
+              </label>
+              <textarea
+                type="text"
+                id="message"
+                name="message"
+                style={inputStyle}
+                className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                placeholder="I have a headache..."
+                required
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                rows={4}
+                style={inputStyle}
+                name="message"
+                className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition "
+                placeholder="Enter your message"
+              ></textarea>
             </div>
 
             <button

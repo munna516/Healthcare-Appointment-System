@@ -19,11 +19,11 @@ const BlogCard = ({ post }) => {
         />
         <span
           className={`absolute top-3 left-3 ${
-            post?.category === "Medical"
+            post?.category === "Health & Wellness"
               ? "bg-green-500"
-              : post?.category === "Hospital"
+              : post?.category === "Health Tech"
               ? "bg-blue-500"
-              : post?.category === "Doctor"
+              : post?.category === "Health & Fitness"
               ? "bg-pink-500"
               : ""
           } text-white text-xs px-4 py-2 rounded-2xl font-semibold`}
@@ -39,7 +39,7 @@ const BlogCard = ({ post }) => {
         <h3 className="text-lg font-semibold text-gray-800">{post?.title}</h3>
         <p className="text-gray-600 mt-2 text-sm">{post?.description}</p>
         <div className="flex items-center justify-between mt-4 text-gray-500 text-sm">
-          <Link href={`/blog/${post.id}`}>
+          <Link href={`/blog/${post._id}`}>
             <p className="font-semibold text-black hover:text-blue-500 flex items-center gap-3 cursor-pointer">
               Read More
               <span>
@@ -48,9 +48,9 @@ const BlogCard = ({ post }) => {
             </p>
           </Link>
           <div className="flex space-x-3">
-            <span>💬 {post?.comments}</span>
-            <span>❤️ {post?.reacts}</span>
-            <span>👍 {post?.likes}</span>
+            <span>💬 {post?.comments || 0}</span>
+            <span>❤️ {post?.reacts || 0}</span>
+            <span>👍 {post?.likes || 0}</span>
           </div>
         </div>
       </div>

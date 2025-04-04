@@ -33,27 +33,36 @@ const TestimonialsSwiper = () => {
           <SwiperSlide>
             <Testimonials
               dp={"https://i.ibb.co.com/pjjYHD45/service-3.jpg"}
-              name={"Vlack Marvin"}
+              name={"Eleanor V."}
               review={
-                "Lorem ipsum dolor sit amet, consectetur on pisc ing elit, sed do eiusmod tempor incididis is magna aliqua established fact"
+                "As someone managing a long-term health condition, I need consistent, reliable care. HealthPoint provides exactly that. My doctor is incredibly knowledgeable and always takes the time to discuss my treatment plan thoroughly.I feel genuinely supported and trust them completely with my health."
               }
             />
           </SwiperSlide>
           <SwiperSlide>
             <Testimonials
               dp={"https://i.ibb.co.com/Yg55f9V/service-1.jpg"}
-              name={"Jenny Wilson"}
+              name={"David L."}
               review={
-                "Lorem ipsum dolor sit amet, consectetur on pisc ing elit, sed do eiusmod tempor incididis is magna aliqua established fact"
+                "I used to dread doctor's appointments, but the team at HealthPoint has completely changed my perspective. From the calm waiting area to the friendly reception and the doctor's reassuring manner, everything helped put me at ease. They explained everything patiently, and I felt truly heard and comfortable throughout my visit."
               }
             />
           </SwiperSlide>
           <SwiperSlide>
             <Testimonials
               dp={"https://i.ibb.co.com/pjjYHD45/service-3.jpg"}
-              name={"Vlack Marvin"}
+              name={"Jessica P."}
               review={
-                "Lorem ipsum dolor sit amet, consectetur on pisc ing elit, sed do eiusmod tempor incididis is magna aliqua established fact"
+                "From scheduling my appointment to the follow-up call, my entire experience with HealthPoint was seamless and positive. The facility is welcoming and clean, the staff are professional and genuinely friendly, and the medical care I received was top-notch. It's reassuring to know such quality healthcare is available right here."
+              }
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Testimonials
+              dp={"https://i.ibb.co.com/pjjYHD45/service-1.jpg"}
+              name={"Sarah K."}
+              review={
+                "Bringing my daughter to HealthPoint when she was unwell was the best decision. The nurses were so welcoming, and Dr. Chen was incredibly patient, taking the time to explain everything and make my daughter feel comfortable.  You can tell they genuinely care about their patients, young and old."
               }
             />
           </SwiperSlide>
