@@ -151,8 +151,8 @@ const DoctorPage = ({ params }) => {
         <div className="mt-0 lg:mt-4 w-full lg:w-1/3 space-y-6">
           {/* Appointment Form */}
           <DrPageAppointment
-            doctorId={params._id}
-            doctorDetails={doctorDetails}
+            department={doctorDetails?.specialization}
+            doctor={doctorDetails?.fullName}
           />
 
           {/* Static Opening Hours */}
