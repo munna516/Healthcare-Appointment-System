@@ -1,11 +1,13 @@
 "use client";
 import { Button } from "@components/ui/button";
+import { useRouter } from 'next/navigation';
 import React, { useState } from "react";
 
 const MakeAppointmentCard = () => {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [selectedDoctor, setSelectedDoctor] = useState("");
+  const router = useRouter();
 
   const doctors = [
     "Cardiology",
@@ -18,6 +20,10 @@ const MakeAppointmentCard = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+  };
+  const handleNavigate = () => {
+
+    router.push('/appointment');
   };
 
   return (
@@ -69,6 +75,7 @@ const MakeAppointmentCard = () => {
           <Button
             type="submit"
             variant="default"
+            onClick={handleNavigate} 
             className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-md"
           >
             Make Appointment

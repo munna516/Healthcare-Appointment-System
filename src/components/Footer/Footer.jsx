@@ -63,11 +63,11 @@ export const Footer = () => {
     " "
   ) : (
     <div className="bg-[url('https://i.ibb.co/vCkxccPR/bgtwo.png')] bg-cover w-full bg-bottom">
-      <div className="max-w-7xl w-full mx-auto gap-6 px-2 py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
+      <div className="max-w-7xl w-full mx-auto gap-6 px-5 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
         {/* About */}
         <div className="col-span-1 sm:col-span-2 text-center lg:text-left">
           <Link href="/">
-            <p className="text-2xl md:text-4xl font-bold mb-4">
+            <p className="text-2xl md:text-4xl font-bold mb-4 uppercase">
               Health<span className="text-[#00a6fb]">Point</span>
             </p>
           </Link>
@@ -113,13 +113,7 @@ export const Footer = () => {
             >
               <FaLinkedin className="text-2xl hover:text-[#00a6fb] transition duration-300" />
             </a>
-            <a
-              href="https://www.instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram className="text-2xl hover:text-[#00a6fb] transition duration-300" />
-            </a>
+           
             <a
               href="https://github.com"
               target="_blank"
@@ -148,7 +142,7 @@ export const Footer = () => {
         </div>
 
         {/* Useful Links */}
-        <div className="col-span-1 text-center lg:text-left">
+        {/* <div className="col-span-1 text-center lg:text-left">
           <h1 className="text-xl font-semibold mb-4">Useful Links</h1>
           <ul className="space-y-2">
             {usefulLinks.map((link) => (
@@ -162,7 +156,7 @@ export const Footer = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
 
         {/* Lets Talk */}
         <div className="col-span-1 sm:col-span-2 lg:col-span-4 xl:col-span-1 flex flex-col  items-center text-center space-y-4">
