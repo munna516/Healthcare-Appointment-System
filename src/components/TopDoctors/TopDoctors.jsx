@@ -24,14 +24,6 @@ const TopDoctors = () => {
     fetchDoctors();
   }, []);
 
-  if (loading) {
-    return (
-      <div className="max-w-7xl w-full mx-auto mt-40 flex justify-center items-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#00a6fb]"></div>
-      </div>
-    );
-  }
-
   return (
     <div className="max-w-7xl w-full mx-auto mt-40">
       <div className=" px-2 flex justify-center items-center flex-col mb-8">
@@ -40,16 +32,24 @@ const TopDoctors = () => {
           Meet our Doctors
         </h1>
       </div>
-      <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-4">
-        {doctors.map((doctor) => (
-          <DoctorCard key={doctor._id} doctor={doctor} />
-        ))}
-      </div>
-      <div className="flex justify-center items-center w-full mt-10">
-        <Link href="/doctors">
-          <Button variant="primary">See All Doctors</Button>
-        </Link>
-      </div>
+      {loading ? (
+        <div className="flex justify-center items-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#00a6fb]"></div>
+        </div>
+      ) : (
+        <>
+          <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-4">
+            {doctors.map((doctor) => (
+              <DoctorCard key={doctor._id} doctor={doctor} />
+            ))}
+          </div>
+          <div className="flex justify-center items-center w-full mt-10">
+            <Link href="/doctors">
+              <Button variant="primary">See All Doctors</Button>
+            </Link>
+          </div>
+        </>
+      )}
     </div>
   );
 };
