@@ -58,6 +58,7 @@ export default function DoctorForm() {
           fee,
           experience,
           bio,
+          registered : false,
           imageUrl, // Save image URL to the database
         }),
       });

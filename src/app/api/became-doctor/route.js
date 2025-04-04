@@ -4,20 +4,38 @@ import Doctors from "src/models/Doctors";
 
 export const POST = async (request) => {
   try {
-    const { email,
-          phone,
-          gender,
-          specialization,
-          fee,
-          experience,
-          bio,
-          fullName,
-          licenseNumber,
-          imageUrl } = await request.json();
+    const { 
+      email,
+      phone,
+      gender,
+      specialization,
+      fee,
+      experience,
+      bio,
+      fullName,
+      licenseNumber,
+      imageUrl ,
+      registered
+    } = await request.json();
 
-  await connect();
-  console.log("DB is connected");
+    await connect();
+    console.log("DB is connected");
 
+    const newDoctor = new Doctors({
+      email,
+      phone,
+      gender,
+      specialization,
+      fee,
+      experience,
+      bio,
+      fullName,
+      licenseNumber,
+      imageUrl,
+      registered
+    });
+
+<<<<<<< HEAD
   const newDoctor = new Doctors({
     email,
     phone,
@@ -31,20 +49,25 @@ export const POST = async (request) => {
     imageUrl
   });
     console.log(newDoctor);
+=======
+>>>>>>> 254988675bed2322977a90c93fbd0167b08da750
     await newDoctor.save();
     return NextResponse.json(
       {
         message: "Doctor added successfully",
+<<<<<<< HEAD
+=======
+        doctor: newDoctor,
+>>>>>>> 254988675bed2322977a90c93fbd0167b08da750
       },
       { status: 200 }
     );
   } catch (err) {
     console.error("Error in doctor registration:", err);
-    if (err.name === 'ValidationError') {
-      // This will show exactly which fields failed validation
-      const validationErrors = Object.keys(err.errors).map(field => ({
+    if (err.name === "ValidationError") {
+      const validationErrors = Object.keys(err.errors).map((field) => ({
         field,
-        message: err.errors[field].message
+        message: err.errors[field].message,
       }));
       console.error("Validation errors:", validationErrors);
       return NextResponse.json(
@@ -54,6 +77,30 @@ export const POST = async (request) => {
     }
     return NextResponse.json(
       { message: "Server error", error: err.message },
+      { status: 500 }
+    );
+  }
+};
+
+// GET function to fetch all doctors
+export const GET = async () => {
+  try {
+    await connect();
+    console.log("DB is connected");
+
+    const doctors = await Doctors.find();
+    
+    return NextResponse.json(
+      {
+        message: "Doctors fetched successfully",
+        doctors,
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error fetching doctors:", error);
+    return NextResponse.json(
+      { message: "Error fetching doctors", error: error.message },
       { status: 500 }
     );
   }

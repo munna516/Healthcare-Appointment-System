@@ -1,33 +1,87 @@
 "use client";
 import { DoctorCard } from "@components/TopDoctors/DoctorCard";
 import { Button } from "@components/ui/button";
-import { useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 const Doctors = () => {
   const [searchText, setSearchText] = useState("");
-  const [selectedRole, setSelectedRole] = useState("");
+  const [selectedSpecialty, setSelectedSpecialty] = useState("");
   const [selectedReview, setSelectedReview] = useState("");
+  const [doctors, setDoctors] = useState([]);
+  const [filteredDoctors, setFilteredDoctors] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchDoctors = async () => {
+      try {
+        const response = await fetch("/api/doctors-cards");
+        const data = await response.json();
+        setDoctors(data);
+        setFilteredDoctors(data);
+      } catch (error) {
+        console.error("Error fetching doctors:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDoctors();
+  }, []);
+
+  const filterDoctors = useCallback(() => {
+    let results = [...doctors];
+
+    if (searchText) {
+      const searchLower = searchText.toLowerCase();
+      results = results.filter((doctor) => {
+        const name = doctor.fullName || "";
+        const specialty = doctor.specialization || "";
+        return (
+          name.toLowerCase().includes(searchLower) ||
+          specialty.toLowerCase().includes(searchLower)
+        );
+      });
+    }
+
+    if (selectedSpecialty) {
+      results = results.filter(
+        (doctor) => doctor.specialization === selectedSpecialty
+      );
+    }
+
+    if (selectedReview) {
+      const minRating = parseInt(selectedReview);
+      results = results.filter(
+        (doctor) => doctor.review && doctor.review >= minRating
+      );
+    }
+
+    setFilteredDoctors(results);
+  }, [doctors, searchText, selectedSpecialty, selectedReview]);
+
+  useEffect(() => {
+    filterDoctors();
+  }, [searchText, selectedSpecialty, selectedReview, filterDoctors]);
 
   const handleSearchChange = (e) => {
     setSearchText(e.target.value);
   };
 
-  const handleRoleChange = (e) => {
-    setSelectedRole(e.target.value);
+  const handleSpecialtyChange = (e) => {
+    setSelectedSpecialty(e.target.value);
   };
 
   const handleReviewChange = (e) => {
     setSelectedReview(e.target.value);
   };
 
-  const handleApplyFilters = () => {
-    // console.log("Filters Applied:");
-    // console.log("Search Text:", searchText);
-    // console.log("Selected Role:", selectedRole);
-    // console.log("Selected Review:", selectedReview);
-    // You can use these values to send a request to the backend or filter data
+  const handleClearFilters = () => {
+    setSearchText("");
+    setSelectedSpecialty("");
+    setSelectedReview("");
   };
 
+<<<<<<< HEAD
   const doctors = [
     {
       uid: "cardio_jsmith",
@@ -181,12 +235,22 @@ const Doctors = () => {
       status: "verified",
     },
   ];
+=======
+  if (loading) {
+    return (
+      <div className="max-w-7xl w-full min-h-screen mx-auto mt-40 flex justify-center items-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#00a6fb]"></div>
+      </div>
+    );
+  }
+
+>>>>>>> 254988675bed2322977a90c93fbd0167b08da750
   return (
     <div className="max-w-7xl mt-20 w-full mx-auto px-4 py-10 flex flex-col md:flex-row gap-6">
       {/* Filter Section */}
       <div className="w-full md:w-1/3 xl:w-1/4 bg-white p-4 rounded-md shadow-lg">
         <div className="flex flex-col sm:flex-row md:flex-col gap-0 sm:gap-4 md:gap-0">
-          {/* Search Input */}
+          {/* Filter by Search Input */}
           <div className="w-full">
             <div className="mb-4">
               <label
@@ -205,7 +269,7 @@ const Doctors = () => {
               />
             </div>
 
-            {/* Doctor Role - Option Buttons */}
+            {/* Filter by Specialty */}
             <div className="mb-4">
               <label
                 htmlFor="specialtyFilter"
@@ -215,19 +279,22 @@ const Doctors = () => {
               </label>
               <select
                 id="specialtyFilter"
-                value={selectedRole}
-                onChange={handleRoleChange}
+                value={selectedSpecialty}
+                onChange={handleSpecialtyChange}
                 className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               >
                 <option value="">All Specialties</option>
-                <option value="Cardiologist">Cardiologist</option>
-                <option value="Dermatologist">Dermatologist</option>
-                <option value="Pediatrician">Pediatrician</option>
-                <option value="Orthopedic">Orthopedic</option>
+                {Array.from(new Set(doctors.map((d) => d.specialization))).map(
+                  (specialty) => (
+                    <option key={specialty} value={specialty}>
+                      {specialty}
+                    </option>
+                  )
+                )}
               </select>
             </div>
           </div>
-
+          {/* Filter by Rating */}
           <div className="mb-4">
             <label className="block text-gray-700 mb-2 font-medium">
               Minimum Rating
@@ -265,28 +332,37 @@ const Doctors = () => {
           </div>
         </div>
 
-        {/* Apply Filters Button */}
         <div className="text-center mt-4">
           <Button
-            variant="primary"
-            onClick={handleApplyFilters}
+            variant="outline"
+            onClick={handleClearFilters}
             className="px-4 py-2 w-full"
           >
-            Apply Filters
+            Clear Filters
           </Button>
         </div>
       </div>
-      {/* Filter Section end*/}
+
+      {/* Doctors List */}
       <div className="w-full md:w-2/3 xl:w-3/4">
-        <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
-          {doctors.map((doctor) => (
-            <DoctorCard key={doctor.uid} doctor={doctor} />
-          ))}
-        </div>
-        <div className="flex justify-between items-center w-full mt-10">
-          <Button variant="primary">Previous</Button>
-          <Button variant="primary">Next </Button>
-        </div>
+        {filteredDoctors.length > 0 ? (
+          <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
+            {filteredDoctors.map((doctor) => (
+              <DoctorCard key={doctor?._id} doctor={doctor} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-10">
+            <p className="text-gray-500">No doctors match your filters</p>
+            <Button
+              variant="primary"
+              onClick={handleClearFilters}
+              className="mt-4"
+            >
+              Clear Filters
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -22,7 +22,6 @@ const doctorsSchema = new Schema(
 
     imageUrl: {
       type: String,
-      // required: true,
     },
 
     phone: {
@@ -54,7 +53,11 @@ const doctorsSchema = new Schema(
       type: String,
       required: true,
     },
+    registered: {
+      type: Boolean,
+      default: false, 
+    },
   },
 );
 
-export default mongoose.models.Doctor || mongoose.model("Doctor", doctorsSchema);
+export default mongoose.models.BecameDoctor || mongoose.model("BecameDoctor", doctorsSchema);
