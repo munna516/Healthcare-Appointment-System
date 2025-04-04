@@ -35,30 +35,11 @@ export const POST = async (request) => {
       registered
     });
 
-<<<<<<< HEAD
-  const newDoctor = new Doctors({
-    email,
-    phone,
-    gender,
-    specialization,
-    fee,
-    experience,
-    bio,
-    fullName,
-    licenseNumber,
-    imageUrl
-  });
-    console.log(newDoctor);
-=======
->>>>>>> 254988675bed2322977a90c93fbd0167b08da750
     await newDoctor.save();
     return NextResponse.json(
       {
         message: "Doctor added successfully",
-<<<<<<< HEAD
-=======
         doctor: newDoctor,
->>>>>>> 254988675bed2322977a90c93fbd0167b08da750
       },
       { status: 200 }
     );
