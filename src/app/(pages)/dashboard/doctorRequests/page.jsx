@@ -4,25 +4,6 @@ import { Dialog, DialogTrigger } from "@components/ui/dialog";
 import { useEffect, useState } from "react";
 import DoctorInfo from "./DoctorInfo";
 
-// const doctors = [
-//   {
-//     id: 1,
-//     name: "Dr. John Doe",
-//     email: "johndoe@email.com",
-//     specialty: "Cardiologist",
-//     experience: "10 years",
-//     status: "Pending",
-//   },
-//   {
-//     id: 2,
-//     name: "Dr. Sarah Smith",
-//     email: "sarah@email.com",
-//     specialty: "Dermatologist",
-//     experience: "7 years",
-//     status: "Pending",
-//   },
-// ];
-
 export default function DoctorRequests() {
   const [doctorList, setDoctorList] = useState([]);
   const fetchDoctors = async () => {
