@@ -33,7 +33,7 @@ const TopDoctors = () => {
   }
 
   return (
-    <div className="max-w-7xl w-full mx-auto mt-40">
+    <div className="w-[90%] mx-auto mt-16">
       <div className=" px-2 flex justify-center items-center flex-col mb-8">
         <SectionSubTitle text={"Doctors"} />
         <h1 className={`text-xl capitalize md:text-4xl font-bold pb-6`}>
@@ -45,7 +45,7 @@ const TopDoctors = () => {
           <DoctorCard key={doctor._id} doctor={doctor} />
         ))}
       </div>
-      <div className="flex justify-center items-center w-full mt-10">
+      <div className="flex justify-center items-center w-full my-10">
         <Link href="/doctors">
           <Button variant="primary">See All Doctors</Button>
         </Link>

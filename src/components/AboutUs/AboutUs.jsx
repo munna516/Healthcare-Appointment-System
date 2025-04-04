@@ -4,7 +4,7 @@ import AboutService from "./AboutService";
 
 const AboutUs = () => {
   return (
-    <div className="max-w-7xl w-full mx-auto">
+    <div className="w-[90%] mx-auto my-16">
       <div className="flex flex-col lg:flex-row justify-between gap-8 ">
         <div className="md:w-1/2 md:mx-auto lg:mx-0">
           <AboutVisuals></AboutVisuals>
