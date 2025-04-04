@@ -40,7 +40,7 @@ const blogSchema = new mongoose.Schema(
       type: String,
       required: [true, "Content is required"],
       trim: true,
-      maxlength: [1200, "Content cannot exceed 1200 characters"],
+      maxlength: [1500, "Content cannot exceed 1500 characters"],
     },
   },
   { timestamps: true }
