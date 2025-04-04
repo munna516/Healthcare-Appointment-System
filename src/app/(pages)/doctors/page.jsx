@@ -71,9 +71,9 @@ const Doctors = () => {
     setSelectedSpecialty(e.target.value);
   };
 
-  const handleReviewChange = (e) => {
-    setSelectedReview(e.target.value);
-  };
+  // const handleReviewChange = (e) => {
+  //   setSelectedReview(e.target.value);
+  // };
 
   const handleClearFilters = () => {
     setSearchText("");
@@ -139,7 +139,7 @@ const Doctors = () => {
             </div>
           </div>
           {/* Filter by Rating */}
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <label className="block text-gray-700 mb-2 font-medium">
               Minimum Rating
             </label>
@@ -173,7 +173,7 @@ const Doctors = () => {
                 </label>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="text-center mt-4">

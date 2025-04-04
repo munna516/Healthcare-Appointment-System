@@ -9,7 +9,7 @@ export const DoctorCard = ({ doctor }) => {
   const rating =
     typeof doctor?.review === "string"
       ? parseFloat(doctor?.review)
-      : doctor?.review || 5;
+      : doctor?.review || 0;
 
   // Calculate stars
   const fullStars = Math.floor(rating);

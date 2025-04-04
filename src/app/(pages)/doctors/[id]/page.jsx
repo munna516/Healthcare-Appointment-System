@@ -164,3 +164,4 @@ const DoctorPage = ({ params }) => {
 };
 
 export default DoctorPage;
+ 
