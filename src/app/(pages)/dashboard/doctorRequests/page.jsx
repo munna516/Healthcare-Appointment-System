@@ -3,6 +3,7 @@ import { Button } from "@components/ui/button";
 import { Dialog, DialogTrigger } from "@components/ui/dialog";
 import { useEffect, useState } from "react";
 import DoctorInfo from "./DoctorInfo";
+import toast from "react-hot-toast";
 
 export default function DoctorRequests() {
   const [doctorList, setDoctorList] = useState([]);
@@ -14,7 +15,6 @@ export default function DoctorRequests() {
       }
       const doctors = await response.json();
       setDoctorList(doctors.doctors);
-      console.log("Doctors:", doctors.doctors);
     } catch (error) {
       console.error(error.message);
     }
@@ -32,14 +32,30 @@ export default function DoctorRequests() {
       if (!response.ok) {
         throw new Error(data.message || "Failed to update doctor");
       }
+      toast.success("Doctor request Approved");
+      fetchDoctors();
   
-      console.log("Doctor updated:", data);
     } catch (error) {
       console.error("Error updating doctor status:", error.message);
     }
 }
 
-  console.log(doctorList);
+const handleDelete = async (id) => {
+  const res = await fetch("/api/remove-doctor", {
+    method: "DELETE",
+    body: JSON.stringify({ id }),
+    headers: { "Content-Type": "application/json" },
+  });
+
+  const data = await res.json();
+  if (res.ok) {
+    alert("Doctor deleted successfully!");
+    setDoctorList(doctorList.filter((doctor) => doctor._id !== id)); // Update UI
+  } else {
+    alert(`Error: ${data.error}`);
+  }
+};
+
   useEffect(() => {
     fetchDoctors();
   }, []);
@@ -85,6 +101,7 @@ export default function DoctorRequests() {
                         Approve
                       </button>
                       <button
+                        onClick={()=>handleDelete(doctor._id)}
                         className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
                       >
                         Reject

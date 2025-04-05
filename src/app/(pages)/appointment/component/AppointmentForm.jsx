@@ -275,7 +275,7 @@ export default function AppointmentForm() {
                   htmlFor="time"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Select Time
+                  Select Time <span className="text-red-500">*</span>
                 </label>
                 <TimeSelect
                   name="time"
