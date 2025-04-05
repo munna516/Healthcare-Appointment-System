@@ -135,7 +135,7 @@ export default function AppointmentForm() {
           </p>
 
           <div className="border-t border-gray-200 my-6"></div>
-          <form onSubmit={handleBooking} className="space-y-6">
+          <form onSubmit={handleBooking} className="space-y-6 shadow-lg rounded-lg p-4 lg:p-6">
             <div>
               <label
                 htmlFor="name"

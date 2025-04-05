@@ -45,25 +45,35 @@ export const Footer = () => {
     },
     {
       id: 2,
-      name: "About",
-      url: "/about",
+      name: "Doctors",
+      url: "/doctors",
     },
     {
       id: 3,
-      name: "Contact",
-      url: "/contact",
+      name: "Appointment",
+      url: "/appointment",
     },
     {
       id: 4,
-      name: "Appointment",
-      url: "/appointment",
+      name: "Become a Doctor",
+      url: "/became-doctor",
+    },
+    {
+      id: 5,
+      name: "Blog",
+      url: "/blog",
+    },
+    {
+      id: 6,
+      name: "Contact",
+      url: "/contact",
     },
   ];
   return pathName.includes("/dashboard") ? (
     " "
   ) : (
     <div className="bg-[url('https://i.ibb.co/vCkxccPR/bgtwo.png')] bg-cover w-full bg-bottom">
-      <div className="max-w-7xl w-full mx-auto gap-6 px-5 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+      <div className="max-w-7xl w-full mx-auto space-y-6 lg:space-y-0 lg:gap-6 px-5 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
         {/* About */}
         <div className="col-span-1 sm:col-span-2 text-center lg:text-left">
           <Link href="/">
@@ -93,6 +103,13 @@ export const Footer = () => {
               <FaFacebook className="text-2xl hover:text-[#00a6fb] transition duration-300" />
             </a>
             <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram className="text-2xl hover:text-[#00a6fb] transition duration-300" />
+            </a>
+            <a
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -113,7 +130,7 @@ export const Footer = () => {
             >
               <FaLinkedin className="text-2xl hover:text-[#00a6fb] transition duration-300" />
             </a>
-           
+
             <a
               href="https://github.com"
               target="_blank"
@@ -125,7 +142,7 @@ export const Footer = () => {
         </div>
 
         {/* Quick Links */}
-        <div className="col-span-1 text-center lg:text-left">
+        <div className="col-span-2 text-center">
           <h1 className="text-xl font-semibold mb-4">Quick Links</h1>
           <ul className="space-y-2">
             {navLinks.map((link) => (
@@ -159,7 +176,7 @@ export const Footer = () => {
         </div> */}
 
         {/* Lets Talk */}
-        <div className="col-span-1 sm:col-span-2 lg:col-span-4 xl:col-span-1 flex flex-col  items-center text-center space-y-4">
+        <div className="col-span-1 sm:col-span-2 lg:col-span-4 flex flex-col items-center text-center space-y-4">
           <h1 className="text-3xl md:text-5xl font-bold">Let&apos;s Talk!</h1>
           <p>
             Have a question or comment? <br /> Let us know.

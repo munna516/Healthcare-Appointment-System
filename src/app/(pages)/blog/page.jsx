@@ -7,9 +7,9 @@ import Newsletter from "@components/Newsletter/Newsletter";
 
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [filteredBlogs, setFilteredBlogs] = useState([]);
   const [activeCategory, setActiveCategory] = useState("All");
-  const [loading, setLoading] = useState(true);
 
   // Fetch blogs from API
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function Blog() {
       try {
         const response = await fetch("/api/blog");
         const data = await response.json();
-        console.log("Fetched blogs:", data); // Debug: Check your actual data structure
+        console.log("Fetched blogs:", data);
         setBlogs(data);
         setFilteredBlogs(data);
         setLoading(false);
@@ -29,7 +29,6 @@ export default function Blog() {
     fetchBlogs();
   }, []);
 
-  // Improved filter function
   const filterByCategory = (category) => {
     setActiveCategory(category);
     if (category === "All") {
@@ -37,13 +36,10 @@ export default function Blog() {
       return;
     }
 
-    // Normalize category names for comparison
     const normalizedCategory = category.toLowerCase().replace(/[&\s]/g, "");
     const filtered = blogs.filter((blog) => {
-      // Handle different possible category field structures
       const blogCategories = blog.categories || blog.category || [];
 
-      // Convert to array if it's a string
       const categoriesArray = Array.isArray(blogCategories)
         ? blogCategories
         : [blogCategories];
@@ -57,7 +53,6 @@ export default function Blog() {
     setFilteredBlogs(filtered);
   };
 
-  // Define your categories
   const categories = [
     "All",
     "Health Tech",
@@ -72,6 +67,7 @@ export default function Blog() {
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           Healthcare Insights
         </h1>
+        <div className="w-20 h-1 bg-blue-500 mx-auto mb-6"></div>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Discover the latest trends, research, and innovations in medical
           technology and healthcare practices.
