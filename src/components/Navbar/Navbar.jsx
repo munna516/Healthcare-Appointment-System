@@ -28,7 +28,7 @@ export const Navbar = () => {
   return pathName.includes("/dashboard") ? (
     ""
   ) : (
-    <nav className="bg-slate-200 px-5 py-4 fixed top-0 left-0 z-50 w-full">
+    <nav className="bg-slate-200 px-4 py-4 fixed top-0 left-0 z-50 w-full">
       <div className="max-w-7xl w-full mx-auto flex items-center justify-between">
         <Link
           href={"/"}

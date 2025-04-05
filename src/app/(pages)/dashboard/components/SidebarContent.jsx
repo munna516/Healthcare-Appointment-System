@@ -8,9 +8,14 @@ import { useSession } from "next-auth/react";
 
 
 export default function SidebarContent() {
+<<<<<<< HEAD
   const { data } = useSession();
   
 const role = `${data?.user?.role}`;
+=======
+  const role = "doctor";
+  // const { data, status } = useSession();
+>>>>>>> 99260637ffe89396c19fa02f714a25d0262463a6
 
   return (
     <div className="space-y-4 p-4 ">
