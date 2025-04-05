@@ -17,7 +17,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Healthcare Apointment System",
+  title: "HealthPoint- Health Care System",
   description:
     "A seamless and efficient platform for scheduling and managing healthcare appointments with AI-powered symptom analysis.",
 };

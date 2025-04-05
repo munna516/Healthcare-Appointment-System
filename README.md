@@ -1,56 +1,16 @@
 # 🏥 Health Point — Healthcare Appointment System
 
-**Health Point** is a modern healthcare platform that allows patients to connect with doctors, analyze symptoms using AI, book appointments, and receive consultations — all online. It includes role-based dashboards for admins, patients, and doctors, and integrates with Stripe and SSLCommerz for payments.
+**Health Point** is a modern healthcare platform that allows patients to connect with doctors, analyze symptoms using AI, book appointments and receive consultations — all online. It includes role-based dashboards for admins, patients, and doctors, and integrates with Stripe for payments.
 
----
 
-## 🌐 Live Demo
 
-🔗 [https://healthpoint-center.vercel.app/](https://healthpoint-center.vercel.app/)
 
-## 📁 GitHub Repository
-
-🔗 [https://github.com/munna516/Healthcare-Appointment-System](https://github.com/munna516/Healthcare-Appointment-System)
-
----
-
-## 📸 Screenshots
-
-### 🏠 Landing Page
-
-![Landing Page](https://i.ibb.co.com/8gqf3JLd/Health-Point-Landing-Page.png)
-
-### 👨‍⚕️ Doctor Dashboard
-
-![Doctor Page](https://i.ibb.co.com/QqMJj9m/Health-Point-Doctor-Page.png)
-
-### 🔐 Login Page
-
-![Login Page](https://i.ibb.co.com/F480SVpM/Health-Point-Login-Page.png)
-
-### 📝 Register Page
-
-![Register Page](https://i.ibb.co.com/5hKrFn26/Health-Point-Register-Page.png)
-
-### ➕ Become a Doctor Page
-
-![Become Doctor Page](https://i.ibb.co.com/V6z6QFb/Health-Point-Become-Doctor-Page.png)
-
-### 📰 Blog Page
-
-![Blog Page](https://i.ibb.co.com/rfH0zxDP/Health-Point-Blog-Page.png)
-
-### 📞 Contact Page
-
-![Contact Page](https://i.ibb.co.com/MDX2TjtZ/Health-Point-Contact-Page.png)
-
----
 
 ## ✨ Features
 
 ### 👨‍💼 Admin Dashboard
 
-- Doctor Onboarding/Removal
+- Doctor Onboarding & Removal
 - Appointment Management
 - Admin Profile
 - Blog Writing Interface
@@ -58,22 +18,23 @@
 ### 🧑 Patient Dashboard
 
 - Book Appointments
-- Make Payments (Stripe & SSLCommerz)
+- Make Payments (Stripe)
 - View Appointment & Payment History
 - Patient Profile
-- Leave Reviews _(Upcoming)_
+- Leave Reviews _(*Upcoming*)_
 
 ### 👨‍⚕️ Doctor Dashboard
 
+- Doctor Profile
 - Manage Schedules
 - View Patient Appointments
-- Digital Prescription _(Upcoming)_
-- Doctor Profile
+- Digital Prescription _(*Upcoming*)_
 
 ### 🤖 AI Features
 
-- Smart Doctor Matching
-- AI Symptom Checker _(Upcoming)_
+- AI Symptom Checker 
+- Smart Doctor Matching _(Upcoming)_
+
 
 ### 🔒 Other Highlights
 
@@ -88,11 +49,55 @@
 - **Frontend**: React, Next.js, Tailwind CSS
 - **Backend**: Next.js API Routes, MongoDB
 - **Auth**: NextAuth.js
-- **Payments**: Stripe, SSLCommerz
+- **Payments**: Stripe
 - **UI Components**: Radix UI, Shadcn/UI
 - **Forms & Validation**: React Hook Form, Zod
 - **Charts**: Recharts
 - **Animations**: Lottie
+
+---
+### Dependencies:
+- @google/generative-ai: ^0.24.0
+- @hookform/resolvers: ^4.1.3
+- @radix-ui/react-accordion: ^1.2.3
+- @radix-ui/react-avatar: ^1.1.3
+- @radix-ui/react-checkbox: ^1.1.4
+- @radix-ui/react-dialog: ^1.1.6
+- @radix-ui/react-dropdown-menu: ^2.1.6
+- @radix-ui/react-label: ^2.1.2
+- @radix-ui/react-popover: ^1.1.6
+- @radix-ui/react-scroll-area: ^1.2.3
+- @radix-ui/react-select: ^2.1.6
+- @radix-ui/react-separator: ^1.1.2
+- @radix-ui/react-slot: ^1.1.2
+- @radix-ui/react-tooltip: ^1.1.8
+- @shadcn/ui: ^0.0.4
+- @stripe/react-stripe-js: ^3.6.0
+- @stripe/stripe-js: ^7.0.0
+- bcryptjs: ^3.0.2
+- class-variance-authority: ^0.7.1
+- clsx: ^2.1.1
+- date-fns: ^4.1.0
+- lottie-react: ^2.4.1
+- lucide-react: ^0.484.0
+- mongoose: ^8.13.0
+- next: 14.2.25
+- next-auth: ^4.24.11
+- react: ^18
+- react-big-calendar: ^1.18.0
+- react-countup: ^6.5.3
+- react-dom: ^18
+- react-hook-form: ^7.54.2
+- react-hot-toast: ^2.5.2
+- react-icon: ^1.0.0
+- react-icons: ^5.5.0
+- recharts: ^2.15.1
+- stripe: ^18.0.0
+- sweetalert2: ^11.17.2
+- swiper: ^11.2.6
+- tailwind-merge: ^3.0.2
+- tailwindcss-animate: ^1.0.7
+- zod: ^3.24.2
 
 ---
 
@@ -104,10 +109,14 @@ git clone https://github.com/munna516/Healthcare-Appointment-System.git
 cd Healthcare-Appointment-System
 
 # Install dependencies
-npm install
+npm install 
 
 # Copy and configure environment variables
-cp .env.example .env.local
+cp  .env.local
+
+# Run on localhost 
+npm run dev
+
 ```
 
 ---
@@ -125,6 +134,7 @@ GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 NEXT_PUBLIC_STRIPE_PUBLIC_KEY=your_stripe_publishable_key
 STRIPE_SECRET_KEY=your_stripe_secret_key
+NEXT_PUBLIC_GEMINI_API_KEY==your_GEMINI_secret_key
 ```
 
 ### 🔑 How to Set Them Up
@@ -145,13 +155,8 @@ STRIPE_SECRET_KEY=your_stripe_secret_key
    - Sign up at [ImageBB](https://imgbb.com/)
    - Get API key from your account settings
 
-4. **Google OAuth**:
 
-   - Use [Google Cloud Console](https://console.cloud.google.com/)
-   - Add the following redirect URI:  
-     `http://localhost:3000/api/auth/callback/google`
-
-5. **Stripe Payments**:
+4. **Stripe Payments**:
    - Sign up at [Stripe](https://dashboard.stripe.com/)
    - Use test keys from _Developers > API keys_
 
@@ -165,10 +170,72 @@ STRIPE_SECRET_KEY=your_stripe_secret_key
 
 ## 📬 Contact
 
-For questions or suggestions, feel free to open an issue or contact us via the live demo.
+For questions or suggestions, feel free to open an issue or contact us.
+
+
+---
+## Contributors
+
+* Mehedi Hasan Munna - [mehedihasanmunna516@gmail.com](mailto:mehedihasanmunna516@gmail.com)
+* Rahul Dey - [rrishiddh@gmail.com](mailto:rrishiddh@gmail.com)
+* Md. Sakib Hasan - [sakibhasan16h@gmail.com](mailto:sakibhasan16h@gmail.com)
+* Ahad Miah - [ahadahmedcc@gmail.com](mailto:ahadahmedcc@gmail.com)
+* Md Nayeem Uddin - [unayeem33@gmail.com](mailto:unayeem33@gmail.com)
+
 
 ---
 
-## 📄 License
+## 🌐 Live Demo
 
-Licensed under the MIT License.
+🔗 [https://healthpoint-center.vercel.app/](https://healthpoint-center.vercel.app/)
+
+## 📁 GitHub Repository
+
+🔗 [https://github.com/munna516/Healthcare-Appointment-System](https://github.com/munna516/Healthcare-Appointment-System)
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Landing Page
+
+ <img width="100%" src="https://i.ibb.co.com/8gqf3JLd/Health-Point-Landing-Page.png"  />
+  
+### 👨‍⚕️ Doctor Page
+
+
+<img width="100%" src="https://i.ibb.co.com/QqMJj9m/Health-Point-Doctor-Page.png"  />
+
+### 👨‍⚕️ AI Assistant Page
+
+
+<img width="100%" src="https://i.ibb.co.com/8qLcF9Q/ai-assistant-page.png"  />
+
+
+
+
+### ➕ Become a Doctor Page
+
+<img width="100%" src="https://i.ibb.co.com/V6z6QFb/Health-Point-Become-Doctor-Page.png"  />
+
+
+### 📰 Blog Page
+
+<img width="100%" src="https://i.ibb.co.com/rfH0zxDP/Health-Point-Blog-Page.png"  />
+
+
+### 📞 Contact Page
+
+<img width="100%" src="https://i.ibb.co.com/DPj3BbW6/contact-page.png"  />
+
+
+
+### 🔐 Login Page
+
+<img width="100%" src="https://i.ibb.co.com/F480SVpM/Health-Point-Login-Page.png"  />
+
+
+### 📝 Register Page
+
+<img width="100%" src="https://i.ibb.co.com/5hKrFn26/Health-Point-Register-Page.png"  />
+---
