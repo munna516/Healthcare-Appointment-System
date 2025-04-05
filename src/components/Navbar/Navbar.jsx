@@ -21,7 +21,7 @@ export const Navbar = () => {
   // console.log("This is form Navbar : ", data);
   
   const logOut = () => {
-    signOut({ redirect: false });
+    signOut({ callbackUrl: "/" });
     toast.success("Logout Successful");
   };
 
