@@ -106,14 +106,60 @@ cd Healthcare-Appointment-System
 # Install dependencies
 npm install
 
-# Add your environment variables
+# Copy and configure environment variables
 cp .env.example .env.local
-
-# Run the development server
-npm run dev
 ```
 
-Visit `http://localhost:3000` to use the app locally.
+---
+
+## 🔐 Environment Variables
+
+Create a `.env.local` file in the project root with the following variables:
+
+```env
+MONGODB_URI=your_mongodb_atlas_connection_string
+NEXT_PUBLIC_NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your_generated_secret_here
+NEXT_PUBLIC_IMAGEBB_API_KEY=your_imgbb_api_key
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+NEXT_PUBLIC_STRIPE_PUBLIC_KEY=your_stripe_publishable_key
+STRIPE_SECRET_KEY=your_stripe_secret_key
+```
+
+### 🔑 How to Set Them Up
+
+1. **MongoDB**:
+
+   - Create an account on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+   - Create a cluster and database
+   - Go to _Connect > Drivers_, copy the URI, and replace `<password>` with your DB password.
+
+2. **NextAuth**:
+
+   - `NEXTAUTH_SECRET`: Generate with `openssl rand -hex 32`
+   - `NEXT_PUBLIC_NEXTAUTH_URL`: Usually `http://localhost:3000` during development
+
+3. **Image Upload (ImageBB)**:
+
+   - Sign up at [ImageBB](https://imgbb.com/)
+   - Get API key from your account settings
+
+4. **Google OAuth**:
+
+   - Use [Google Cloud Console](https://console.cloud.google.com/)
+   - Add the following redirect URI:  
+     `http://localhost:3000/api/auth/callback/google`
+
+5. **Stripe Payments**:
+   - Sign up at [Stripe](https://dashboard.stripe.com/)
+   - Use test keys from _Developers > API keys_
+
+### 🛡️ Security Best Practices
+
+- Never commit `.env.local` to version control — add it to `.gitignore`.
+- Use environment variable settings on your host (e.g., Vercel, Netlify) for production.
+- Always use test credentials in development and rotate secrets regularly.
 
 ---
 
