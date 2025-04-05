@@ -66,6 +66,17 @@ export const Navbar = () => {
               <Link href={"/appointment"}>Appointment</Link>
             </li>
           )}
+          {status === "authenticated" && (
+            <li
+              className={
+                pathName === "/ai-support"
+                  ? "text-[#00a6fb] font-bold border-b-2 border-[#00a6fb] px-1"
+                  : ""
+              }
+            >
+              <Link href={"/ai-support"}>AI Health Assistant</Link>
+            </li>
+          )}
           <li
             className={
               pathName === "/became-doctor"
