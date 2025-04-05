@@ -238,4 +238,3 @@ For questions or suggestions, feel free to open an issue or contact us.
 ### 📝 Register Page
 
 <img width="100%" src="https://i.ibb.co.com/5hKrFn26/Health-Point-Register-Page.png"  />
----
