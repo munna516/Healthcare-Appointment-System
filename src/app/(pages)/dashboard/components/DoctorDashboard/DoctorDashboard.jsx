@@ -20,7 +20,7 @@ export default function DoctorDashboard() {
           Doctor Profile
         </Link>
 
-        <Link
+        {/* <Link
           href="/dashboard/doctor-availability"
           className={`flex items-center justify-center border-2 rounded-lg px-4 py-1  font-bold ${
             pathName === "/dashboard/doctor-availability"
@@ -29,7 +29,7 @@ export default function DoctorDashboard() {
           }`}
         >
           Doctor Availability
-        </Link>
+        </Link> */}
 {/* 
         <Link
           href="/dashboard/appointment-reschedule"
