@@ -59,9 +59,11 @@ export const DoctorCard = ({ doctor }) => {
           </div>
 
           <div className="flex gap-2 items-center justify-center py-2">
-            <Button variant="primary" className="px-4 py-2 w-full">
-              Appointment
-            </Button>
+            <Link href={`/appointment`}>
+              <Button variant="primary" className="px-4 py-2 w-full">
+                Appointment
+              </Button>
+            </Link>
             <Link href={`/doctors/${doctor?._id}`} passHref>
               <Button variant="outline" className="px-4 py-2">
                 View
