@@ -161,7 +161,7 @@ export default function DoctorForm() {
         <Label htmlFor="privacyPolicy" className="font-semibold">You Agree To Our Privacy Policy</Label>
       </div>
 
-      <Button type="submit" className="w-full">Submit</Button>
+      <Button type="submit" variant="primary" className="w-full">Submit</Button>
     </form>
     </div>
   );

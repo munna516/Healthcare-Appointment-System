@@ -28,7 +28,7 @@ export const Navbar = () => {
   return pathName.includes("/dashboard") ? (
     ""
   ) : (
-    <nav className="bg-slate-200 px-5 py-4 fixed top-0 left-0 z-50 w-full">
+    <nav className="bg-slate-200 px-4 py-4 fixed top-0 left-0 z-50 w-full">
       <div className="max-w-7xl w-full mx-auto flex items-center justify-between">
         <Link
           href={"/"}
@@ -64,6 +64,17 @@ export const Navbar = () => {
               }
             >
               <Link href={"/appointment"}>Appointment</Link>
+            </li>
+          )}
+          {status === "authenticated" && (
+            <li
+              className={
+                pathName === "/ai-support"
+                  ? "text-[#00a6fb] font-bold border-b-2 border-[#00a6fb] px-1"
+                  : ""
+              }
+            >
+              <Link href={"/ai-support"}>AI Health Assistant</Link>
             </li>
           )}
           <li
@@ -105,6 +116,7 @@ export const Navbar = () => {
                     <Avatar>
                       <AvatarImage
                         className="border-2 rounded-full border-blue-500"
+                        referrerPolicy="no-referrer" 
                         src={data?.user.image}
                         alt="User"
                       />
