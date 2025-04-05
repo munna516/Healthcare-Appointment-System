@@ -285,30 +285,13 @@ export default function AppointmentForm() {
                 />
               </div>
             </div>
+          
             <div>
               <label
                 htmlFor="message"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
-                Health Issue <span className="text-red-500">*</span>
-              </label>
-              <textarea
-                type="text"
-                id="message"
-                name="message"
-                style={inputStyle}
-                className="w-full px-4 py-3 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                placeholder="I have a headache..."
-                required
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                Message
+              Health Issue <span className="text-red-500">*</span>
               </label>
               <textarea
                 id="message"
