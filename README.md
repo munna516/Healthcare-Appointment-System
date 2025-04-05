@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏥 Health Point — Healthcare Appointment System
 
-## Getting Started
+**Health Point** is a modern healthcare platform that allows patients to connect with doctors, analyze symptoms using AI, book appointments, and receive consultations — all online. It includes role-based dashboards for admins, patients, and doctors, and integrates with Stripe and SSLCommerz for payments.
 
-First, run the development server:
+---
+
+## 🌐 Live Demo
+
+🔗 [https://healthpoint-center.vercel.app/](https://healthpoint-center.vercel.app/)
+
+## 📁 GitHub Repository
+
+🔗 [https://github.com/munna516/Healthcare-Appointment-System](https://github.com/munna516/Healthcare-Appointment-System)
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Landing Page
+
+![Landing Page](https://i.ibb.co.com/8gqf3JLd/Health-Point-Landing-Page.png)
+
+### 👨‍⚕️ Doctor Dashboard
+
+![Doctor Page](https://i.ibb.co.com/QqMJj9m/Health-Point-Doctor-Page.png)
+
+### 🔐 Login Page
+
+![Login Page](https://i.ibb.co.com/F480SVpM/Health-Point-Login-Page.png)
+
+### 📝 Register Page
+
+![Register Page](https://i.ibb.co.com/5hKrFn26/Health-Point-Register-Page.png)
+
+### ➕ Become a Doctor Page
+
+![Become Doctor Page](https://i.ibb.co.com/V6z6QFb/Health-Point-Become-Doctor-Page.png)
+
+### 📰 Blog Page
+
+![Blog Page](https://i.ibb.co.com/rfH0zxDP/Health-Point-Blog-Page.png)
+
+### 📞 Contact Page
+
+![Contact Page](https://i.ibb.co.com/MDX2TjtZ/Health-Point-Contact-Page.png)
+
+---
+
+## ✨ Features
+
+### 👨‍💼 Admin Dashboard
+
+- Doctor Onboarding/Removal
+- Appointment Management
+- Admin Profile
+- Blog Writing Interface
+
+### 🧑 Patient Dashboard
+
+- Book Appointments
+- Make Payments (Stripe & SSLCommerz)
+- View Appointment & Payment History
+- Patient Profile
+- Leave Reviews _(Upcoming)_
+
+### 👨‍⚕️ Doctor Dashboard
+
+- Manage Schedules
+- View Patient Appointments
+- Digital Prescription _(Upcoming)_
+- Doctor Profile
+
+### 🤖 AI Features
+
+- Smart Doctor Matching
+- AI Symptom Checker _(Upcoming)_
+
+### 🔒 Other Highlights
+
+- Role-Based Access
+- Authentication with NextAuth
+- Appointment Notifications _(Upcoming)_
+
+---
+
+## 🚀 Tech Stack
+
+- **Frontend**: React, Next.js, Tailwind CSS
+- **Backend**: Next.js API Routes, MongoDB
+- **Auth**: NextAuth.js
+- **Payments**: Stripe, SSLCommerz
+- **UI Components**: Radix UI, Shadcn/UI
+- **Forms & Validation**: React Hook Form, Zod
+- **Charts**: Recharts
+- **Animations**: Lottie
+
+---
+
+## 🛠️ Getting Started
 
 ```bash
+# Clone the repository
+git clone https://github.com/munna516/Healthcare-Appointment-System.git
+cd Healthcare-Appointment-System
+
+# Install dependencies
+npm install
+
+# Add your environment variables
+cp .env.example .env.local
+
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000` to use the app locally.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 📬 Contact
 
-## Learn More
+For questions or suggestions, feel free to open an issue or contact us via the live demo.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Licensed under the MIT License.
