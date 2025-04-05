@@ -67,6 +67,7 @@ export default function Blog() {
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           Healthcare Insights
         </h1>
+        <div className="w-20 h-1 bg-blue-500 mx-auto mb-6"></div>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Discover the latest trends, research, and innovations in medical
           technology and healthcare practices.
